@@ -1,5 +1,6 @@
 package model;
 
+import java.io.IOException;
 import java.io.OutputStream;
 import java.util.LinkedList;
 import java.util.List;
@@ -56,7 +57,12 @@ public class TrafficSimulator {
 			
 			_time++;
 			
-			System.out.println(_map.generateReport(_time)); //triplazoooo
+			try {
+				_outStream.write(_map.generateReport(_time).getBytes());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	
 	}	

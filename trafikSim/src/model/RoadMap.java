@@ -82,7 +82,19 @@ public class RoadMap {
 	}
 	
 	public String generateReport(int time){
-		//TODO
-		return "";
+		
+		String o = "";
+	
+		for(Vehicle v: _vehicles)
+			o += v.generateReport(time) + "/n";
+		
+		for(Road r: _roads)
+			o += r.generateReport(time) + "/n";
+		
+		for(Junction j : _junctions)
+			o += j.generateReport(time) + "/n";
+		
+		
+		return o;
 	}
 }

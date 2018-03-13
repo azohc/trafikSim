@@ -79,12 +79,13 @@ public class Junction extends SimulatedObject
 		while((i < _roads.size()) && !(_roads.get(i).hasGreenLight())) 
 			i++;
 		
-		
-		if(i <_roads.size()) i = -1; //if no road has a green light
+		//i == roads.size => no green lights, i < roads.size => rd i is green
+		if(i == _roads.size() || _roads.isEmpty()) i = -1; //if no road has a green light
 		else 
 			_roads.get(i).advanceFirstVehicle();	//advance first vehicle, if any
 		
-		switchLights(i); //update traffic light i to red, and i + 1 to green
+		if(!_roads.isEmpty())//as long as there is roads
+			switchLights(i); //update traffic light i to red, and i + 1 to green
 		
 	}
 

@@ -1,4 +1,3 @@
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -17,6 +16,7 @@ import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
+import control.Controller;
 import control.EventBuilder;
 import control.MakeVehicleFaultyEventBuilder;
 import control.NewJunctionEventBuilder;
@@ -198,6 +198,7 @@ public class Main {
 		// -i resources/examples/events/basic/ex1.ini -o ex1.out -t 20
 		// --help
 		//
+		// -i /cv_docs/examples/basic/00_helloWorld.ini -o /cv_docs/examples/basic/helloWorld.out
 
 		// Call test in order to test the simulator on all examples in a directory.
 		//
@@ -205,7 +206,6 @@ public class Main {
 
 		// Call start to start the simulator from command line, etc.
 		start(args);
-
-	}
+		}
 
 }
