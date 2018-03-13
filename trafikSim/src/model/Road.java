@@ -28,7 +28,10 @@ public class Road extends SimulatedObject {
 
 	protected void fillReportDetails(IniSection i) {
 	
-		i.setValue("vehicles", _vehList);
+		if(_vehList.isEmpty())
+			i.setValue("vehicles", null); 
+		else
+			i.setValue("vehicles", _vehList);
 	}
 
 	protected String getReportSectionTag() {
@@ -56,6 +59,9 @@ public class Road extends SimulatedObject {
 	}
 
 	void advance() {
+		
+		if(_vehList.isEmpty())
+			return;
 		
 		for(int i = 0; i < _vehList.size() - 1; i++) {
 			

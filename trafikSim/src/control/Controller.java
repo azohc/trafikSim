@@ -42,8 +42,9 @@ public class Controller {
 			Ini x = new Ini(inStream);
 			Event e = null;
 			
-			for (int i = 0; i < _eventBuilders.length; i++){	
-				for(int j = 0; i < x.getSections().size(); i++) {
+			
+			for(int j = 0; j < x.getSections().size(); j++) {
+				for (int i = 0; i < _eventBuilders.length; i++){	
 					e = _eventBuilders[i].parse(x.getSections().get(j));
 					if(e != null)		//add event to the simulator
 						_sim.addEvent(e);						//CHECKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK

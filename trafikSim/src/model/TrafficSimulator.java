@@ -58,7 +58,8 @@ public class TrafficSimulator {
 			_time++;
 			
 			try {
-				_outStream.write(_map.generateReport(_time).getBytes());
+				if(_map.generateReport(_time).getBytes() != null)
+					_outStream.write(_map.generateReport(_time).getBytes());
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -31,14 +31,18 @@ public class Vehicle extends SimulatedObject implements Comparable<Vehicle>
 		_faulty = 0;
 		_itIndex = 0;
 		_arrived = false;
-		
-		_itinerary = new ArrayList<Junction>();
+		_itinerary = it;
 	}
 
 	protected void fillReportDetails(IniSection i) 
 	{
 		i.setValue("kilometrage", _kilometrage);
 		i.setValue("faulty", _faulty);
+		
+		//falta asignar el atributo ROAD a VEHICLE nada más empezar la simulación. En la siguiente linea _road.getId (de this vehicle) es null
+		//en los ini.eout, siempre salen una de las dos opciones de abajo, o arrived o la carretera y su location
+		//me da a mi que si itIndex == 0 => tirar un moveToNextRoad
+		
 		i.setValue("location", (_atJunction) ? "arrived" : "(" + _road.getId() + "," + _location + ")");
 		
 	}
@@ -76,20 +80,16 @@ public class Vehicle extends SimulatedObject implements Comparable<Vehicle>
 	
 	void moveToNextRoad()
 	{
-		//TD
-		//		next road = road en el que destination == next junction in itinerary && source == current junction
-
 		
 		if(_itIndex == 0){
 			
-			_road = _itinerary.get(_itIndex).roadTo(_itinerary.get(_itIndex + 1));
-			_itIndex++;
+			_road = _itinerary.get(_itIndex).roadTo(_itinerary.get(_itIndex + 1));	//esto devuelve _road = null. trabajar la funcion roadTo y el mapa _outGoingRoad
 			_road.enter(this);
-			
+			_itIndex++;
+
 		}
 		
 		else if(_itIndex == _itinerary.size() - 1){ // check size
-		
 			_arrived = true;
 		}
 		else {

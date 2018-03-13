@@ -12,6 +12,7 @@ public class NewJunctionEvent extends Event {
 	@Override
 	public void execute(RoadMap map, Integer time) {
 		map.addJunction(new Junction(_id));
+		
 	}
 
 	public String toString(){

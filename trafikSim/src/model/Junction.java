@@ -50,6 +50,9 @@ public class Junction extends SimulatedObject
 		}
 		
 		public String toString() {
+			if(_queue.isEmpty())
+				return "";
+			
 			String out = "(";
 			out += _road.getId() + ",";
 			out += (_green) ? "green,[" : "red,[";
@@ -79,12 +82,12 @@ public class Junction extends SimulatedObject
 		while((i < _roads.size()) && !(_roads.get(i).hasGreenLight())) 
 			i++;
 		
-		//i == roads.size => no green lights, i < roads.size => rd i is green
-		if(i == _roads.size() || _roads.isEmpty()) i = -1; //if no road has a green light
+		if(i == _roads.size() || _roads.isEmpty())
+			i = -1; //if no road has a green light, or there is no incoming roads
 		else 
 			_roads.get(i).advanceFirstVehicle();	//advance first vehicle, if any
 		
-		if(!_roads.isEmpty())//as long as there is roads
+		if(!_roads.isEmpty())//as long as there is incoming roads
 			switchLights(i); //update traffic light i to red, and i + 1 to green
 		
 	}

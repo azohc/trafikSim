@@ -56,6 +56,7 @@ public class RoadMap {
 		_junctions.add(junction);
 		_juncMap.put(junction.getId(), junction);
 	
+		
 	}
 	
 	void addRoad(Road road){
@@ -63,12 +64,16 @@ public class RoadMap {
 		_roads.add(road);
 		_roadMap.put(road.getId(), road);
 		
+		road.getDestination().addIncomingRoad(road);
+		road.getSource().addOutGoingRoad(road);
+		
 	}
 	void addVehicle(Vehicle vehicle){
 		
 		_vehicles.add(vehicle);
 		_vehMap.put(vehicle.getId(), vehicle);
 		
+		vehicle.moveToNextRoad();
 	}
 	
 	void clear() {
@@ -84,15 +89,15 @@ public class RoadMap {
 	public String generateReport(int time){
 		
 		String o = "";
-	
+		
 		for(Vehicle v: _vehicles)
-			o += v.generateReport(time) + "/n";
+			o += v.generateReport(time) + "\n";
 		
 		for(Road r: _roads)
-			o += r.generateReport(time) + "/n";
+			o += r.generateReport(time) + "\n";
 		
 		for(Junction j : _junctions)
-			o += j.generateReport(time) + "/n";
+			o += j.generateReport(time) + "\n";
 		
 		
 		return o;
