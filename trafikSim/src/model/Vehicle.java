@@ -35,6 +35,7 @@ public class Vehicle extends SimulatedObject implements Comparable<Vehicle>
 
 	protected void fillReportDetails(IniSection i) 
 	{
+		i.setValue("speed", _currentSpeed);
 		i.setValue("kilometrage", _kilometrage);
 		i.setValue("faulty", _faulty);
 				
@@ -56,7 +57,7 @@ public class Vehicle extends SimulatedObject implements Comparable<Vehicle>
 		}
 		else
 		{
-			if(_location + _currentSpeed > _road.getLength()) {
+			if(_location + _currentSpeed >= _road.getLength()) {
 				_kilometrage += (_road.getLength() - _location);
 				_location = _road.getLength();
 				
@@ -86,6 +87,7 @@ public class Vehicle extends SimulatedObject implements Comparable<Vehicle>
 		
 		else if(_itIndex == _itinerary.size() - 1){ // check size
 			_arrived = true;
+			_currentSpeed = 0;
 		}
 		else {
 			
@@ -140,14 +142,24 @@ public class Vehicle extends SimulatedObject implements Comparable<Vehicle>
 	}
 
 	void setSpeed(int speed)
-	{
-		if(speed <= _maxSpeed && _faulty == 0)
-			_currentSpeed = speed;
+	{	
+		if(_faulty == 0){
+			if(speed >_maxSpeed) _currentSpeed = _maxSpeed;
+			else _currentSpeed = speed;
+		}
 	}
 	
 	@Override
 	public int compareTo(Vehicle o) {
 		return Integer.valueOf(this._location).compareTo(o._location);
+	}
+
+	public int get_location() {
+		return _location;
+	}
+
+	public void set_location(int _location) {
+		this._location = _location;
 	}
 	
 //	void setLocation(int location) {

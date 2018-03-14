@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class TrafficSimulator {
 
@@ -47,7 +48,9 @@ public class TrafficSimulator {
 		while (_time <= limit) {
 			
 			for (int i = 0; i < _events.size(); i++)
-				_events.get(i).execute(_map, _time);
+				if(_time == _events.get(i).getTime())
+					_events.get(i).execute(_map, _time);
+			
 			
 			for(int i = 0; i < _map.getRoad().size(); i++)
 				_map.getRoad().get(i).advance();

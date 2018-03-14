@@ -27,11 +27,18 @@ public class Road extends SimulatedObject {
 	}
 
 	protected void fillReportDetails(IniSection i) {
-	
+		String o = "";
 		if(_vehList.isEmpty())
-			i.setValue("vehicles", null); 
-		else
-			i.setValue("state", _vehList);
+			i.setValue("vehicles", o); 
+		else{
+			o += "(";
+			for(int j = 0 ; j < _vehList.size() - 1; j++)
+				o +=  _vehList.get(j).getId() + "," + _vehList.get(j).get_location();			
+			
+			o += _vehList.get(_vehList.size() - 1).getId() + "," + _vehList.get(_vehList.size() - 1).get_location() + ")";
+				
+			i.setValue("state", o);
+			}
 	}
 
 	protected String getReportSectionTag() {
@@ -73,6 +80,7 @@ public class Road extends SimulatedObject {
 		}
 		
 		_vehList.get(_vehList.size() - 1).setSpeed(calculateBaseSpeed()); 
+		_vehList.get(_vehList.size() - 1).advance(); 
 		
 		_vehList.sort(null); // check that vehicles in same position are ordered by order of arrival
 								
@@ -108,5 +116,13 @@ public class Road extends SimulatedObject {
 	
 	public List<Vehicle> getVehicles(){
 		return _vehList;
+	}
+
+	public int get_maxSpeed() {
+		return _maxSpeed;
+	}
+
+	public void set_maxSpeed(int _maxSpeed) {
+		this._maxSpeed = _maxSpeed;
 	}
 }

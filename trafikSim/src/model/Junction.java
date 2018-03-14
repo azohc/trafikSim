@@ -50,13 +50,16 @@ public class Junction extends SimulatedObject
 		}
 		
 		public String toString() {
-			if(_queue.isEmpty())
-				return "";
+			
 			
 			String out = "(";
 			out += _road.getId() + ",";
 			out += (_green) ? "green,[" : "red,[";
-
+			
+			if(_queue.isEmpty())
+				return out += "])";
+				
+			
 			for(int i = 0 ; i < _queue.size() - 1; i++)
 				out += _queue.get(i).getId() + ",";
 			
@@ -154,7 +157,10 @@ public class Junction extends SimulatedObject
 	}
 	
 	protected void fillReportDetails(IniSection is) {
-		is.setValue( "queues" ,  _roads.toString());
+		if(!_roads.isEmpty())
+			for(int i = 0; i < _roads.size(); i++)
+				is.setValue( "queues" ,  _roads.get(i).toString());
+		else is.setValue("queues", "");
 	}
 
 }

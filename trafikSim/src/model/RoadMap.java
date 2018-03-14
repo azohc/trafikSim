@@ -92,7 +92,7 @@ public class RoadMap {
 		
 		for(Junction j : _junctions)
 			o += j.generateReport(time) + "\n";
-
+	
 		for(Road r: _roads)
 			o += r.generateReport(time) + "\n";
 		
