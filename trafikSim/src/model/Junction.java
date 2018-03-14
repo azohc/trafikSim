@@ -94,7 +94,9 @@ public class Junction extends SimulatedObject
 
 	public Road roadTo(Junction junc) {
 		
-		return _outgoingRoads.get(junc);
+		
+		return 	_outgoingRoads.get(junc);
+
 	}
 	
 	//public Road roadFrom(Junction junc) {
@@ -152,7 +154,7 @@ public class Junction extends SimulatedObject
 	}
 	
 	protected void fillReportDetails(IniSection is) {
-		is.setValue( "queues" ,  _roads);
+		is.setValue( "queues" ,  _roads.toString());
 	}
 
 }

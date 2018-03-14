@@ -198,7 +198,7 @@ public class Main {
 		// -i resources/examples/events/basic/ex1.ini -o ex1.out -t 20
 		// --help
 		//
-		// -i \cv_docs\examples\basic\01_simpleRoadDifferentSpeeds.ini -t 10 -o \cv_docs\examples\basic\01_simpleRoadDifferentSpeeds.out
+		// -i cv_docs/examples/basic/01_simpleRoadDifferentSpeeds.ini -t 10 -o cv_docs/examples/basic/01_simpleRoadDifferentSpeeds.out
 
 		// Call test in order to test the simulator on all examples in a directory.
 		//

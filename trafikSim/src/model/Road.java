@@ -31,7 +31,7 @@ public class Road extends SimulatedObject {
 		if(_vehList.isEmpty())
 			i.setValue("vehicles", null); 
 		else
-			i.setValue("vehicles", _vehList);
+			i.setValue("state", _vehList);
 	}
 
 	protected String getReportSectionTag() {

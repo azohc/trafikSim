@@ -23,7 +23,7 @@ public class NewVehicleEvent extends Event {
 		List<Junction> _it = new ArrayList<Junction>();
 		
 		for(int i = 0; i < _itinerary.length ; i++)
-			_it.add(new Junction(_itinerary[i]));
+			_it.add(map.getJunction(_itinerary[i]));
 				
 		map.addVehicle(new Vehicle(_id, _maxSpeed, _it));
 
