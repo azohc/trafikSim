@@ -199,14 +199,15 @@ public class Main {
 		// --help
 		//
 		// -i cv_docs/examples/basic/01_simpleRoadDifferentSpeeds.ini -t 10 -o cv_docs/examples/basic/01_simpleRoadDifferentSpeeds.out
-
+		// -i cv_docs/examples/basic/02_twoRoads.ini -t 10 -o cv_docs/examples/basic/02_twoRoads.out
+		// -i cv_docs/examples/basic/04_faultyVehicle.ini -t 10 -o cv_docs/examples/basic/04_faultyVehicle.out
 		// Call test in order to test the simulator on all examples in a directory.
 		//
 	    //	test("resources/examples/events/basic");
 
 		// Call start to start the simulator from command line, etc.
 		start(args);
-		///test("cv_docs/examples/basic");
+		//test("cv_docs/examples/basic");
 		}
 
 }

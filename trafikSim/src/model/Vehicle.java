@@ -39,7 +39,7 @@ public class Vehicle extends SimulatedObject implements Comparable<Vehicle>
 		i.setValue("kilometrage", _kilometrage);
 		i.setValue("faulty", _faulty);
 				
-		i.setValue("location", (_atJunction) ? "arrived" : "(" + _road.getId() + "," + _location + ")");
+		i.setValue("location", (_arrived) ? "arrived" : "(" + _road.getId() + "," + _location + ")");
 		
 	}
 
@@ -60,11 +60,15 @@ public class Vehicle extends SimulatedObject implements Comparable<Vehicle>
 			if(_location + _currentSpeed >= _road.getLength()) {
 				_kilometrage += (_road.getLength() - _location);
 				_location = _road.getLength();
+
+				if(_itIndex == _itinerary.size() - 1) // check size
+					_arrived = true;
+				_currentSpeed = 0;
 				
+				_atJunction = true;	
 				//enter the queue of the corresponding junction
 				_road.getDestination().enter(this);	//	check
-				_atJunction = true;				
-				_currentSpeed = 0;
+				_itIndex++;			
 			}
 			else {
 				_kilometrage += _currentSpeed;	
@@ -81,19 +85,14 @@ public class Vehicle extends SimulatedObject implements Comparable<Vehicle>
 			
 			_road = _itinerary.get(_itIndex).roadTo(_itinerary.get(_itIndex + 1));	
 			_road.enter(this);
-			_itIndex++;
 
 		}
-		
-		else if(_itIndex == _itinerary.size() - 1){ // check size
-			_arrived = true;
-			_currentSpeed = 0;
-		}
+		else if(_arrived)
+		{}
 		else {
 			
 			_road.exit(this);
-			_road = _itinerary.get(_itIndex).roadTo(_itinerary.get(_itIndex + 1));
-			_itIndex++;
+			_road = _itinerary.get(_itIndex - 1).roadTo(_itinerary.get(_itIndex));
 			_road.enter(this);
 			_location = 0;	
 		
@@ -143,7 +142,7 @@ public class Vehicle extends SimulatedObject implements Comparable<Vehicle>
 
 	void setSpeed(int speed)
 	{	
-		if(_faulty == 0){
+		if(_faulty == 0 && !_atJunction){
 			if(speed >_maxSpeed) _currentSpeed = _maxSpeed;
 			else _currentSpeed = speed;
 		}
@@ -160,6 +159,22 @@ public class Vehicle extends SimulatedObject implements Comparable<Vehicle>
 
 	public void set_location(int _location) {
 		this._location = _location;
+	}
+
+	public boolean isAtJunction() {
+		return _atJunction;
+	}
+
+	public void setAtJunction(boolean _atJunction) {
+		this._atJunction = _atJunction;
+	}
+
+	public boolean isArrived() {
+		return _arrived;
+	}
+
+	public void setArrived(boolean _arrived) {
+		this._arrived = _arrived;
 	}
 	
 //	void setLocation(int location) {

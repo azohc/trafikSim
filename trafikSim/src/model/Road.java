@@ -29,13 +29,16 @@ public class Road extends SimulatedObject {
 	protected void fillReportDetails(IniSection i) {
 		String o = "";
 		if(_vehList.isEmpty())
-			i.setValue("vehicles", o); 
+			i.setValue("state", o); 
 		else{
-			o += "(";
-			for(int j = 0 ; j < _vehList.size() - 1; j++)
-				o +=  _vehList.get(j).getId() + "," + _vehList.get(j).get_location();			
+			//state = (v1,22),(v2,22)
 			
-			o += _vehList.get(_vehList.size() - 1).getId() + "," + _vehList.get(_vehList.size() - 1).get_location() + ")";
+			for(int j = 0 ; j < _vehList.size() - 1; j++)
+				if(!_vehList.get(j).isArrived())
+					o += "(" +  _vehList.get(j).getId() + "," + _vehList.get(j).get_location() + "),";			
+			
+			if(!_vehList.get(_vehList.size() - 1).isArrived())
+				o += "(" + _vehList.get(_vehList.size() - 1).getId() + "," + _vehList.get(_vehList.size() - 1).get_location() + ")";
 				
 			i.setValue("state", o);
 			}
