@@ -51,7 +51,6 @@ public class TrafficSimulator {
 				if(_time == _events.get(i).getTime())
 					_events.get(i).execute(_map, _time);
 			
-			
 			for(int i = 0; i < _map.getRoad().size(); i++)
 				_map.getRoad().get(i).advance();
 			

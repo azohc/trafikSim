@@ -28,17 +28,27 @@ public class Road extends SimulatedObject {
 
 	protected void fillReportDetails(IniSection i) {
 		String o = "";
+		boolean lastPairEqual = false;
 		if(_vehList.isEmpty())
 			i.setValue("state", o); 
 		else{
 			//state = (v1,22),(v2,22)
+			for(int j = _vehList.size() - 1 ; j > 0; j--){ 	//for size - 1 to 1
+				if(!_vehList.get(j).isArrived()){
+					if(_vehList.get(j).get_location() != _vehList.get(j - 1).get_location())
+						o += "(" +  _vehList.get(j).getId() + "," + _vehList.get(j).get_location() + "),";			
+					else { 
+						o += "(" +  _vehList.get(j - 1).getId() + "," + _vehList.get(j - 1).get_location() + "),";		
+						o += "(" +  _vehList.get(j).getId() + "," + _vehList.get(j).get_location() + ")";		
+					    j--;
+					    if(j == 0) lastPairEqual = true;
+					    else o += ",";
+					}				
+				}
+			}
 			
-			for(int j = 0 ; j < _vehList.size() - 1; j++)
-				if(!_vehList.get(j).isArrived())
-					o += "(" +  _vehList.get(j).getId() + "," + _vehList.get(j).get_location() + "),";			
-			
-			if(!_vehList.get(_vehList.size() - 1).isArrived())
-				o += "(" + _vehList.get(_vehList.size() - 1).getId() + "," + _vehList.get(_vehList.size() - 1).get_location() + ")";
+			if(!lastPairEqual && !_vehList.get(0).isArrived())			
+				o += "(" + _vehList.get(0).getId() + "," + _vehList.get(0).get_location() + ")";
 				
 			i.setValue("state", o);
 			}
@@ -60,7 +70,9 @@ public class Road extends SimulatedObject {
 		int reductionFactor = 1;
 		
 		for(int j = i + 1; j < _vehList.size(); j++) {
-			if(_vehList.get(j).getFaultyTime() > 0) faultyCounter++; 		   //check if the current vehicle v has a faulty vehicle in front of it. if so, red_factors[i?] = 2, if not, = 1
+			if(_vehList.get(i).get_location() < _vehList.get(j).get_location() && 
+					_vehList.get(j).getFaultyTime() > 0) 
+				faultyCounter++; 		   //check if the current vehicle v has a faulty vehicle in front of it. if so, red_factors[i?] = 2, if not, = 1
 		}
 			
 		if(faultyCounter > 0) reductionFactor = 2;
@@ -73,21 +85,16 @@ public class Road extends SimulatedObject {
 		if(_vehList.isEmpty())
 			return;
 		
-		for(int i = 0; i < _vehList.size() - 1; i++) {
-			
+		for(int i = 0; i < _vehList.size() - 1; i++)
 			// set v._currentSpeed to base_speed / reduction_factor
 			_vehList.get(i).setSpeed(calculateBaseSpeed() / reduceSpeedFactor(i));
-			
-			// ask veh to advance
-			_vehList.get(i).advance();
-		}
 		
 		_vehList.get(_vehList.size() - 1).setSpeed(calculateBaseSpeed()); 
-		_vehList.get(_vehList.size() - 1).advance(); 
 		
-		_vehList.sort(null); // check that vehicles in same position are ordered by order of arrival
-								
-		//sort list
+		for(Vehicle v : _vehList)
+			v.advance();
+		
+		_vehList.sort(null); 
 		
 	}
 	

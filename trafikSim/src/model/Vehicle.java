@@ -92,9 +92,13 @@ public class Vehicle extends SimulatedObject implements Comparable<Vehicle>
 		else {
 			
 			_road.exit(this);
-			_road = _itinerary.get(_itIndex).roadTo(_itinerary.get(_itIndex + 1)); //fIX
+			if(_itIndex == _itinerary.size() - 1)
+				_arrived = true;
 			
-			_road.enter(this);
+			else{
+				_road = _itinerary.get(_itIndex).roadTo(_itinerary.get(_itIndex + 1)); //fIX
+				_road.enter(this);
+			}
 			_atJunction = false;
 			_location = 0;	
 		
