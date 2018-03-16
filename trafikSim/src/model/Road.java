@@ -27,31 +27,21 @@ public class Road extends SimulatedObject {
 	}
 
 	protected void fillReportDetails(IniSection i) {
+		
 		String o = "";
-		boolean lastPairEqual = false;
 		if(_vehList.isEmpty())
-			i.setValue("state", o); 
-		else{
-			//state = (v1,22),(v2,22)
-			for(int j = _vehList.size() - 1 ; j > 0; j--){ 	//for size - 1 to 1
-				if(!_vehList.get(j).isArrived()){
-					if(_vehList.get(j).get_location() != _vehList.get(j - 1).get_location())
-						o += "(" +  _vehList.get(j).getId() + "," + _vehList.get(j).get_location() + "),";			
-					else { 
-						o += "(" +  _vehList.get(j - 1).getId() + "," + _vehList.get(j - 1).get_location() + "),";		
-						o += "(" +  _vehList.get(j).getId() + "," + _vehList.get(j).get_location() + ")";		
-					    j--;
-					    if(j == 0) lastPairEqual = true;
-					    else o += ",";
-					}				
-				}
-			}
-			
-			if(!lastPairEqual && !_vehList.get(0).isArrived())			
-				o += "(" + _vehList.get(0).getId() + "," + _vehList.get(0).get_location() + ")";
-				
 			i.setValue("state", o);
-			}
+		
+		else
+		{
+			for(int a = 0 ; a < _vehList.size() - 1; a++)
+				if(!_vehList.get(a).isArrived())
+					o += "(" + _vehList.get(a).getId() + "," + _vehList.get(a).get_location() + ")";
+			
+			if(!_vehList.get(_vehList.size() - 1).isArrived())asdfsd 
+		}
+		
+		
 	}
 
 	protected String getReportSectionTag() {
@@ -64,7 +54,7 @@ public class Road extends SimulatedObject {
 		return Math.min(_maxSpeed, (_maxSpeed / Math.max(_vehList.size(), 1)) + 1);
 	}
 	
-	protected int reduceSpeedFactor(int i) // adding a parameter
+	protected int reduceSpeedFactor(int i) ssdauf9b8
 	{
 		int faultyCounter = 0;
 		int reductionFactor = 1;
@@ -80,7 +70,7 @@ public class Road extends SimulatedObject {
 		return reductionFactor;	
 	}
 
-	void advance() {
+	void advance() {		7s8df78
 		
 		if(_vehList.isEmpty())
 			return;

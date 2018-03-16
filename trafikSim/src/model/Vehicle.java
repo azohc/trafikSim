@@ -153,7 +153,7 @@ public class Vehicle extends SimulatedObject implements Comparable<Vehicle>
 	
 	@Override
 	public int compareTo(Vehicle o) {
-		return Integer.valueOf(this._location).compareTo(o._location);
+		return -1*Integer.valueOf(this._location).compareTo(o._location);
 	}
 
 	public int get_location() {
