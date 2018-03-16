@@ -20,9 +20,7 @@ public class Road extends SimulatedObject {
 		_maxSpeed = maxSpeed;
 		_source = start;
 		_destination = end;
-		
 		_vehList = new ArrayList<Vehicle>(); // always sorted array list by location
-		
 		//change to sorted array list at the end
 	}
 
@@ -36,12 +34,13 @@ public class Road extends SimulatedObject {
 		{
 			for(int a = 0 ; a < _vehList.size() - 1; a++)
 				if(!_vehList.get(a).isArrived())
-					o += "(" + _vehList.get(a).getId() + "," + _vehList.get(a).get_location() + ")";
+					o += "(" + _vehList.get(a).getId() + "," + _vehList.get(a).get_location() + "),";
 			
-			if(!_vehList.get(_vehList.size() - 1).isArrived())asdfsd 
+			if(!_vehList.get(_vehList.size() - 1).isArrived())
+				o += "(" + _vehList.get(_vehList.size() - 1).getId() + "," + _vehList.get(_vehList.size() - 1).get_location() + ")";
+			
+			i.setValue("state", o);
 		}
-		
-		
 	}
 
 	protected String getReportSectionTag() {
@@ -54,38 +53,36 @@ public class Road extends SimulatedObject {
 		return Math.min(_maxSpeed, (_maxSpeed / Math.max(_vehList.size(), 1)) + 1);
 	}
 	
-	protected int reduceSpeedFactor(int i) ssdauf9b8
+	protected int reduceSpeedFactor(int i) 
 	{
 		int faultyCounter = 0;
 		int reductionFactor = 1;
-		
-		for(int j = i + 1; j < _vehList.size(); j++) {
-			if(_vehList.get(i).get_location() < _vehList.get(j).get_location() && 
-					_vehList.get(j).getFaultyTime() > 0) 
-				faultyCounter++; 		   //check if the current vehicle v has a faulty vehicle in front of it. if so, red_factors[i?] = 2, if not, = 1
-		}
-			
+
+		for(int j =  i - 1; j >= 0; j--)
+			if(_vehList.get(i).get_location() < _vehList.get(j).get_location() &&
+				_vehList.get(j).getFaultyTime() > 0)
+					faultyCounter++;
+	
+	
 		if(faultyCounter > 0) reductionFactor = 2;
 		
 		return reductionFactor;	
 	}
 
-	void advance() {		7s8df78
+	void advance() {		
 		
 		if(_vehList.isEmpty())
 			return;
-		
-		for(int i = 0; i < _vehList.size() - 1; i++)
-			// set v._currentSpeed to base_speed / reduction_factor
+	
+		for(int i = _vehList.size() - 1; i > 0; i--)
 			_vehList.get(i).setSpeed(calculateBaseSpeed() / reduceSpeedFactor(i));
 		
-		_vehList.get(_vehList.size() - 1).setSpeed(calculateBaseSpeed()); 
+		_vehList.get(0).setSpeed(calculateBaseSpeed());
 		
 		for(Vehicle v : _vehList)
 			v.advance();
 		
 		_vehList.sort(null); 
-		
 	}
 	
 	void enter(Vehicle v)

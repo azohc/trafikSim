@@ -11,7 +11,7 @@ import java.util.Map;
 public class Junction extends SimulatedObject 
 {
 	
-	protected List<IncomingRoad> _roads;
+	protected List<IncomingRoad> _incRoads;
 	protected Map<Junction, Road> _outgoingRoads;
 	
 	public static class IncomingRoad{
@@ -63,7 +63,7 @@ public class Junction extends SimulatedObject
 			for(int i = 0 ; i < _queue.size() - 1; i++)
 				out += _queue.get(i).getId() + ",";
 			
-			out += _queue.get(_queue.size()).getId() + "]";
+			out += _queue.get(_queue.size() - 1).getId() + "]";
 			
 			return out + ")";
 		}
@@ -72,7 +72,7 @@ public class Junction extends SimulatedObject
 	public Junction(String id) 
 	{
 		super(id);
-		_roads = new ArrayList<IncomingRoad>();
+		_incRoads = new ArrayList<IncomingRoad>();
 		_outgoingRoads = new HashMap<Junction, Road>();
 	}
 	
@@ -82,24 +82,24 @@ public class Junction extends SimulatedObject
 		int i = 0;
 		
 		//for the first incomingRoad with a green light
-		while((i < _roads.size()) && !(_roads.get(i).hasGreenLight())) 
+		while((i < _incRoads.size()) && !(_incRoads.get(i).hasGreenLight())) 
 			i++;
 		
-		if(i == _roads.size() || _roads.isEmpty())
+		if(i == _incRoads.size() || _incRoads.isEmpty())
 			i = -1; //if no road has a green light, or there is no incoming roads
 		else 
-			_roads.get(i).advanceFirstVehicle();	//advance first vehicle, if any
-		
-		if(!_roads.isEmpty())//as long as there is incoming roads
+		{
+			_incRoads.get(i).advanceFirstVehicle();	//advance first vehicle, if any
+			_incRoads.get(i).getRoad().getVehicles().sort(null);
+		}
+			
+		if(!_incRoads.isEmpty())//as long as there is incoming roads
 			switchLights(i); //update traffic light i to red, and i + 1 to green
 		
 	}
 
 	public Road roadTo(Junction junc) {
-		
-		
 		return 	_outgoingRoads.get(junc);
-
 	}
 	
 	//public Road roadFrom(Junction junc) {
@@ -109,30 +109,24 @@ public class Junction extends SimulatedObject
 	//}
 	
 	public List<IncomingRoad> getRoadsInfo() {
-		
-		return _roads;
+		return _incRoads;
 	}
 	
 	void addIncomingRoad(Road road) {
-		
-		_roads.add(new IncomingRoad(road));
-		
+		_incRoads.add(new IncomingRoad(road));
 	}
 	//USE MAP: this will help in MoveToNextRoad
 	void addOutGoingRoad(Road road) {
-		
 		_outgoingRoads.put(road.getDestination(), road);
-		
 	}
 	
 	void enter(Vehicle vehicle) {
-		
 		int i = 0;
-		while((i < _roads.size()) && (vehicle.getRoad() !=  _roads.get(i).getRoad())) {
+		while((i < _incRoads.size()) && (vehicle.getRoad() !=  _incRoads.get(i).getRoad())) {
 			i++;
 		}
 		
-		_roads.get(i).addVehicle(vehicle);
+		_incRoads.get(i).addVehicle(vehicle);
 	}
 	
 	protected IncomingRoad createIncomingRoadQueue(Road road) {
@@ -141,26 +135,34 @@ public class Junction extends SimulatedObject
 	
 	protected void switchLights(int pos) {
 		
-		if(pos != -1 && pos != _roads.size() - 1) {	//for lights 0 to size - 2
-			_roads.get(pos).setGreen(false);			//set current light to red
-			_roads.get(pos + 1).setGreen(true);			//set next light to green
+		if(pos != -1 && pos != _incRoads.size() - 1) {	//for lights 0 to size - 2
+			_incRoads.get(pos).setGreen(false);			//set current light to red
+			_incRoads.get(pos + 1).setGreen(true);			//set next light to green
 		}
 		else {		//for no green lights, or light size - 1 == green
-			_roads.get(_roads.size() - 1).setGreen(false);
-			_roads.get(0).setGreen(true);					
+			_incRoads.get(_incRoads.size() - 1).setGreen(false);
+			_incRoads.get(0).setGreen(true);					
 		}
 	}
 	
 	protected String getReportSectionTag() {
-		
 		 return "junction_report";
 	}
 	
 	protected void fillReportDetails(IniSection is) {
-		if(!_roads.isEmpty())
-			for(int i = 0; i < _roads.size(); i++)
-				is.setValue( "queues" ,  _roads.get(i).toString());
-		else is.setValue("queues", "");
+		String o = "";
+		if(_incRoads.isEmpty())
+			is.setValue("queues", o);
+		
+		else
+		{
+			for(int i = 0; i < _incRoads.size() - 1; i++)
+				 o += _incRoads.get(i).toString() + ",";
+			
+			o +=  _incRoads.get(_incRoads.size() - 1).toString();		
+			
+			is.setValue( "queues", o);
+		}
 	}
 
 }
