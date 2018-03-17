@@ -20,4 +20,5 @@ public class NewBikeEventBuilder extends EventBuilder {
 				);
 	}
 
+	
 }

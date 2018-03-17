@@ -9,8 +9,8 @@ import ini.IniSection;
 public class Road extends SimulatedObject {
 
 	private int _length;
-	private int _maxSpeed;
-	private List<Vehicle> _vehList;	// sort by veh location, descending order: in case of == location, FIFO
+	protected int _maxSpeed;
+	protected List<Vehicle> _vehList;	// sort by veh location, descending order: in case of == location, FIFO
 	private Junction _source;
 	private Junction _destination;
 	
@@ -49,7 +49,6 @@ public class Road extends SimulatedObject {
 
 	protected int calculateBaseSpeed()
 	{
-		
 		return Math.min(_maxSpeed, (_maxSpeed / Math.max(_vehList.size(), 1)) + 1);
 	}
 	

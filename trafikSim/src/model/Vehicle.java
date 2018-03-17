@@ -7,8 +7,8 @@ import ini.IniSection;
 public class Vehicle extends SimulatedObject implements Comparable<Vehicle>
 {
 
-	private int _maxSpeed;
-	private int _currentSpeed;			// speed of the vehicle should always be 0 for vehicles that are in
+	protected int _maxSpeed;
+	protected int _currentSpeed;			// speed of the vehicle should always be 0 for vehicles that are in
 			// a faulty state, are waiting at a junction, or have arrived at their destination.
 	private Road _road;
 	protected int _kilometrage;

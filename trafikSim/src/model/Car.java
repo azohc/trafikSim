@@ -3,6 +3,8 @@ package model;
 import java.util.List;
 import java.util.Random;
 
+import ini.IniSection;
+
 
 public class Car extends Vehicle {
 	
@@ -28,6 +30,12 @@ public class Car extends Vehicle {
 				makeFaulty(_rnd.nextInt(_maxFaultDuration) + 1);
 			
 		super.advance();
+	}
+	
+	protected void fillReportDetails(IniSection i) 
+	{
+		i.setValue("type", "car");
+		super.fillReportDetails(i);
 	}
 	
 	

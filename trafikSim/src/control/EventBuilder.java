@@ -16,10 +16,6 @@ public abstract class EventBuilder {
 		return "";
 	}
 
-	
-	null => default
-	neg o 0 segun el caso => exc
-	
 	public static String validId(IniSection section, String string) {
 		
 		if(section.getKeysMap().containsKey(string))
@@ -30,20 +26,24 @@ public abstract class EventBuilder {
 
 	public static int parseNonNegInt(IniSection section, String string, int i) {
 		if(validId(section, string) != null)
-			if(Integer.parseInt(section.getValue(string)) > 0)
+			if(Integer.parseInt(section.getValue(string)) >= 0)
 				return Integer.parseInt(section.getValue(string));
-			else
-				return i;
+			else {
+				System.out.println("THROW EXCEPTION");//throw exception TODO
+				return 21;//throw exception TODO
+			}
 		else
 			return i;
 	}
 	
 	public static double parseNonNegDouble(IniSection section, String string, int i) {
 		if(validId(section, string) != null)
-			if(Integer.parseInt(section.getValue(string)) > 0)
+			if(Integer.parseInt(section.getValue(string)) >= 0)
 				return Integer.parseInt(section.getValue(string));
-			else
-				return i;
+			else {
+				System.out.println("THROW EXCEPTION");//throw exception TODO
+				return 21;//throw exception TODO
+			}
 		else
 			return i;
 	}
@@ -51,7 +51,6 @@ public abstract class EventBuilder {
 		if(validId(section, string) != null) {
 			if(Integer.parseInt(section.getValue(string)) > 0) 
 				return Integer.parseInt(section.getValue(string));
-			
 			else  {
 				System.out.println("THROW EXCEPTION");//throw exception TODO
 				return 21;//throw exception TODO
@@ -65,13 +64,10 @@ public abstract class EventBuilder {
 		if(validId(section, string) != null) {
 			if(Integer.parseInt(section.getValue(string)) > 0) 
 				return Long.parseLong(section.getValue(string));
-			
-			else if(Long.parseLong(section.getValue(string)) == 0) {
+			else {
 				System.out.println("THROW EXCEPTION");//throw exception TODO
 				return 21;//throw exception TODO	
 			}
-			else
-				return i;
 		}
 		else
 			return i;
