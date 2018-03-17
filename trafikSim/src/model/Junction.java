@@ -50,8 +50,7 @@ public class Junction extends SimulatedObject
 		}
 		
 		public String toString() {
-			
-			
+	
 			String out = "(";
 			out += _road.getId() + ",";
 			out += (_green) ? "green,[" : "red,[";

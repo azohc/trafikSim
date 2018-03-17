@@ -1,0 +1,2391 @@
+[junction_report]
+id = j1
+time = 1
+queues = 
+
+[junction_report]
+id = j2
+time = 1
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 1
+state = 
+
+[junction_report]
+id = j1
+time = 2
+queues = 
+
+[junction_report]
+id = j2
+time = 2
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 2
+state = (v2,5)
+
+[vehicle_report]
+id = v2
+time = 2
+type = bike
+speed = 5
+kilometrage = 5
+faulty = 0
+location = (r1,5)
+
+[junction_report]
+id = j1
+time = 3
+queues = 
+
+[junction_report]
+id = j2
+time = 3
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 3
+state = (v2,10)
+
+[vehicle_report]
+id = v2
+time = 3
+type = bike
+speed = 5
+kilometrage = 10
+faulty = 0
+location = (r1,10)
+
+[junction_report]
+id = j1
+time = 4
+queues = 
+
+[junction_report]
+id = j2
+time = 4
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 4
+state = (v2,15)
+
+[vehicle_report]
+id = v2
+time = 4
+type = bike
+speed = 5
+kilometrage = 15
+faulty = 0
+location = (r1,15)
+
+[junction_report]
+id = j1
+time = 5
+queues = 
+
+[junction_report]
+id = j2
+time = 5
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 5
+state = (v2,20)
+
+[vehicle_report]
+id = v2
+time = 5
+type = bike
+speed = 5
+kilometrage = 20
+faulty = 0
+location = (r1,20)
+
+[junction_report]
+id = j1
+time = 6
+queues = 
+
+[junction_report]
+id = j2
+time = 6
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 6
+state = (v2,25)
+
+[vehicle_report]
+id = v2
+time = 6
+type = bike
+speed = 5
+kilometrage = 25
+faulty = 0
+location = (r1,25)
+
+[junction_report]
+id = j1
+time = 7
+queues = 
+
+[junction_report]
+id = j2
+time = 7
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 7
+state = (v2,30)
+
+[vehicle_report]
+id = v2
+time = 7
+type = bike
+speed = 5
+kilometrage = 30
+faulty = 0
+location = (r1,30)
+
+[junction_report]
+id = j1
+time = 8
+queues = 
+
+[junction_report]
+id = j2
+time = 8
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 8
+state = (v2,35)
+
+[vehicle_report]
+id = v2
+time = 8
+type = bike
+speed = 5
+kilometrage = 35
+faulty = 0
+location = (r1,35)
+
+[junction_report]
+id = j1
+time = 9
+queues = 
+
+[junction_report]
+id = j2
+time = 9
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 9
+state = (v2,40)
+
+[vehicle_report]
+id = v2
+time = 9
+type = bike
+speed = 5
+kilometrage = 40
+faulty = 0
+location = (r1,40)
+
+[junction_report]
+id = j1
+time = 10
+queues = 
+
+[junction_report]
+id = j2
+time = 10
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 10
+state = (v2,45)
+
+[vehicle_report]
+id = v2
+time = 10
+type = bike
+speed = 5
+kilometrage = 45
+faulty = 0
+location = (r1,45)
+
+[junction_report]
+id = j1
+time = 11
+queues = 
+
+[junction_report]
+id = j2
+time = 11
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 11
+state = (v2,50)
+
+[vehicle_report]
+id = v2
+time = 11
+type = bike
+speed = 5
+kilometrage = 50
+faulty = 0
+location = (r1,50)
+
+[junction_report]
+id = j1
+time = 12
+queues = 
+
+[junction_report]
+id = j2
+time = 12
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 12
+state = (v2,55)
+
+[vehicle_report]
+id = v2
+time = 12
+type = bike
+speed = 5
+kilometrage = 55
+faulty = 0
+location = (r1,55)
+
+[junction_report]
+id = j1
+time = 13
+queues = 
+
+[junction_report]
+id = j2
+time = 13
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 13
+state = (v2,60)
+
+[vehicle_report]
+id = v2
+time = 13
+type = bike
+speed = 5
+kilometrage = 60
+faulty = 0
+location = (r1,60)
+
+[junction_report]
+id = j1
+time = 14
+queues = 
+
+[junction_report]
+id = j2
+time = 14
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 14
+state = (v2,65)
+
+[vehicle_report]
+id = v2
+time = 14
+type = bike
+speed = 5
+kilometrage = 65
+faulty = 0
+location = (r1,65)
+
+[junction_report]
+id = j1
+time = 15
+queues = 
+
+[junction_report]
+id = j2
+time = 15
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 15
+state = (v2,70)
+
+[vehicle_report]
+id = v2
+time = 15
+type = bike
+speed = 5
+kilometrage = 70
+faulty = 0
+location = (r1,70)
+
+[junction_report]
+id = j1
+time = 16
+queues = 
+
+[junction_report]
+id = j2
+time = 16
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 16
+state = (v2,75)
+
+[vehicle_report]
+id = v2
+time = 16
+type = bike
+speed = 5
+kilometrage = 75
+faulty = 0
+location = (r1,75)
+
+[junction_report]
+id = j1
+time = 17
+queues = 
+
+[junction_report]
+id = j2
+time = 17
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 17
+state = (v2,80)
+
+[vehicle_report]
+id = v2
+time = 17
+type = bike
+speed = 5
+kilometrage = 80
+faulty = 0
+location = (r1,80)
+
+[junction_report]
+id = j1
+time = 18
+queues = 
+
+[junction_report]
+id = j2
+time = 18
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 18
+state = (v2,85)
+
+[vehicle_report]
+id = v2
+time = 18
+type = bike
+speed = 5
+kilometrage = 85
+faulty = 0
+location = (r1,85)
+
+[junction_report]
+id = j1
+time = 19
+queues = 
+
+[junction_report]
+id = j2
+time = 19
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 19
+state = (v2,90)
+
+[vehicle_report]
+id = v2
+time = 19
+type = bike
+speed = 5
+kilometrage = 90
+faulty = 0
+location = (r1,90)
+
+[junction_report]
+id = j1
+time = 20
+queues = 
+
+[junction_report]
+id = j2
+time = 20
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 20
+state = (v2,95)
+
+[vehicle_report]
+id = v2
+time = 20
+type = bike
+speed = 5
+kilometrage = 95
+faulty = 0
+location = (r1,95)
+
+[junction_report]
+id = j1
+time = 21
+queues = 
+
+[junction_report]
+id = j2
+time = 21
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 21
+state = 
+
+[vehicle_report]
+id = v2
+time = 21
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 22
+queues = 
+
+[junction_report]
+id = j2
+time = 22
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 22
+state = 
+
+[vehicle_report]
+id = v2
+time = 22
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 23
+queues = 
+
+[junction_report]
+id = j2
+time = 23
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 23
+state = 
+
+[vehicle_report]
+id = v2
+time = 23
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 24
+queues = 
+
+[junction_report]
+id = j2
+time = 24
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 24
+state = 
+
+[vehicle_report]
+id = v2
+time = 24
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 25
+queues = 
+
+[junction_report]
+id = j2
+time = 25
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 25
+state = 
+
+[vehicle_report]
+id = v2
+time = 25
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 26
+queues = 
+
+[junction_report]
+id = j2
+time = 26
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 26
+state = 
+
+[vehicle_report]
+id = v2
+time = 26
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 27
+queues = 
+
+[junction_report]
+id = j2
+time = 27
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 27
+state = 
+
+[vehicle_report]
+id = v2
+time = 27
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 28
+queues = 
+
+[junction_report]
+id = j2
+time = 28
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 28
+state = 
+
+[vehicle_report]
+id = v2
+time = 28
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 29
+queues = 
+
+[junction_report]
+id = j2
+time = 29
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 29
+state = 
+
+[vehicle_report]
+id = v2
+time = 29
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 30
+queues = 
+
+[junction_report]
+id = j2
+time = 30
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 30
+state = 
+
+[vehicle_report]
+id = v2
+time = 30
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 31
+queues = 
+
+[junction_report]
+id = j2
+time = 31
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 31
+state = 
+
+[vehicle_report]
+id = v2
+time = 31
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 32
+queues = 
+
+[junction_report]
+id = j2
+time = 32
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 32
+state = 
+
+[vehicle_report]
+id = v2
+time = 32
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 33
+queues = 
+
+[junction_report]
+id = j2
+time = 33
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 33
+state = 
+
+[vehicle_report]
+id = v2
+time = 33
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 34
+queues = 
+
+[junction_report]
+id = j2
+time = 34
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 34
+state = 
+
+[vehicle_report]
+id = v2
+time = 34
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 35
+queues = 
+
+[junction_report]
+id = j2
+time = 35
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 35
+state = 
+
+[vehicle_report]
+id = v2
+time = 35
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 36
+queues = 
+
+[junction_report]
+id = j2
+time = 36
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 36
+state = 
+
+[vehicle_report]
+id = v2
+time = 36
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 37
+queues = 
+
+[junction_report]
+id = j2
+time = 37
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 37
+state = 
+
+[vehicle_report]
+id = v2
+time = 37
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 38
+queues = 
+
+[junction_report]
+id = j2
+time = 38
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 38
+state = 
+
+[vehicle_report]
+id = v2
+time = 38
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 39
+queues = 
+
+[junction_report]
+id = j2
+time = 39
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 39
+state = 
+
+[vehicle_report]
+id = v2
+time = 39
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 40
+queues = 
+
+[junction_report]
+id = j2
+time = 40
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 40
+state = 
+
+[vehicle_report]
+id = v2
+time = 40
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 41
+queues = 
+
+[junction_report]
+id = j2
+time = 41
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 41
+state = 
+
+[vehicle_report]
+id = v2
+time = 41
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 42
+queues = 
+
+[junction_report]
+id = j2
+time = 42
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 42
+state = 
+
+[vehicle_report]
+id = v2
+time = 42
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 43
+queues = 
+
+[junction_report]
+id = j2
+time = 43
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 43
+state = 
+
+[vehicle_report]
+id = v2
+time = 43
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 44
+queues = 
+
+[junction_report]
+id = j2
+time = 44
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 44
+state = 
+
+[vehicle_report]
+id = v2
+time = 44
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 45
+queues = 
+
+[junction_report]
+id = j2
+time = 45
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 45
+state = 
+
+[vehicle_report]
+id = v2
+time = 45
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 46
+queues = 
+
+[junction_report]
+id = j2
+time = 46
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 46
+state = 
+
+[vehicle_report]
+id = v2
+time = 46
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 47
+queues = 
+
+[junction_report]
+id = j2
+time = 47
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 47
+state = 
+
+[vehicle_report]
+id = v2
+time = 47
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 48
+queues = 
+
+[junction_report]
+id = j2
+time = 48
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 48
+state = 
+
+[vehicle_report]
+id = v2
+time = 48
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 49
+queues = 
+
+[junction_report]
+id = j2
+time = 49
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 49
+state = 
+
+[vehicle_report]
+id = v2
+time = 49
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 50
+queues = 
+
+[junction_report]
+id = j2
+time = 50
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 50
+state = 
+
+[vehicle_report]
+id = v2
+time = 50
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 51
+queues = 
+
+[junction_report]
+id = j2
+time = 51
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 51
+state = 
+
+[vehicle_report]
+id = v2
+time = 51
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 52
+queues = 
+
+[junction_report]
+id = j2
+time = 52
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 52
+state = 
+
+[vehicle_report]
+id = v2
+time = 52
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 53
+queues = 
+
+[junction_report]
+id = j2
+time = 53
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 53
+state = 
+
+[vehicle_report]
+id = v2
+time = 53
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 54
+queues = 
+
+[junction_report]
+id = j2
+time = 54
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 54
+state = 
+
+[vehicle_report]
+id = v2
+time = 54
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 55
+queues = 
+
+[junction_report]
+id = j2
+time = 55
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 55
+state = 
+
+[vehicle_report]
+id = v2
+time = 55
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 56
+queues = 
+
+[junction_report]
+id = j2
+time = 56
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 56
+state = 
+
+[vehicle_report]
+id = v2
+time = 56
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 57
+queues = 
+
+[junction_report]
+id = j2
+time = 57
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 57
+state = 
+
+[vehicle_report]
+id = v2
+time = 57
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 58
+queues = 
+
+[junction_report]
+id = j2
+time = 58
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 58
+state = 
+
+[vehicle_report]
+id = v2
+time = 58
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 59
+queues = 
+
+[junction_report]
+id = j2
+time = 59
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 59
+state = 
+
+[vehicle_report]
+id = v2
+time = 59
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 60
+queues = 
+
+[junction_report]
+id = j2
+time = 60
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 60
+state = 
+
+[vehicle_report]
+id = v2
+time = 60
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 61
+queues = 
+
+[junction_report]
+id = j2
+time = 61
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 61
+state = 
+
+[vehicle_report]
+id = v2
+time = 61
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 62
+queues = 
+
+[junction_report]
+id = j2
+time = 62
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 62
+state = 
+
+[vehicle_report]
+id = v2
+time = 62
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 63
+queues = 
+
+[junction_report]
+id = j2
+time = 63
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 63
+state = 
+
+[vehicle_report]
+id = v2
+time = 63
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 64
+queues = 
+
+[junction_report]
+id = j2
+time = 64
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 64
+state = 
+
+[vehicle_report]
+id = v2
+time = 64
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 65
+queues = 
+
+[junction_report]
+id = j2
+time = 65
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 65
+state = 
+
+[vehicle_report]
+id = v2
+time = 65
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 66
+queues = 
+
+[junction_report]
+id = j2
+time = 66
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 66
+state = 
+
+[vehicle_report]
+id = v2
+time = 66
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 67
+queues = 
+
+[junction_report]
+id = j2
+time = 67
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 67
+state = 
+
+[vehicle_report]
+id = v2
+time = 67
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 68
+queues = 
+
+[junction_report]
+id = j2
+time = 68
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 68
+state = 
+
+[vehicle_report]
+id = v2
+time = 68
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 69
+queues = 
+
+[junction_report]
+id = j2
+time = 69
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 69
+state = 
+
+[vehicle_report]
+id = v2
+time = 69
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 70
+queues = 
+
+[junction_report]
+id = j2
+time = 70
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 70
+state = 
+
+[vehicle_report]
+id = v2
+time = 70
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 71
+queues = 
+
+[junction_report]
+id = j2
+time = 71
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 71
+state = 
+
+[vehicle_report]
+id = v2
+time = 71
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 72
+queues = 
+
+[junction_report]
+id = j2
+time = 72
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 72
+state = 
+
+[vehicle_report]
+id = v2
+time = 72
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 73
+queues = 
+
+[junction_report]
+id = j2
+time = 73
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 73
+state = 
+
+[vehicle_report]
+id = v2
+time = 73
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 74
+queues = 
+
+[junction_report]
+id = j2
+time = 74
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 74
+state = 
+
+[vehicle_report]
+id = v2
+time = 74
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 75
+queues = 
+
+[junction_report]
+id = j2
+time = 75
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 75
+state = 
+
+[vehicle_report]
+id = v2
+time = 75
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 76
+queues = 
+
+[junction_report]
+id = j2
+time = 76
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 76
+state = 
+
+[vehicle_report]
+id = v2
+time = 76
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 77
+queues = 
+
+[junction_report]
+id = j2
+time = 77
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 77
+state = 
+
+[vehicle_report]
+id = v2
+time = 77
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 78
+queues = 
+
+[junction_report]
+id = j2
+time = 78
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 78
+state = 
+
+[vehicle_report]
+id = v2
+time = 78
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 79
+queues = 
+
+[junction_report]
+id = j2
+time = 79
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 79
+state = 
+
+[vehicle_report]
+id = v2
+time = 79
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 80
+queues = 
+
+[junction_report]
+id = j2
+time = 80
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 80
+state = 
+
+[vehicle_report]
+id = v2
+time = 80
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 81
+queues = 
+
+[junction_report]
+id = j2
+time = 81
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 81
+state = 
+
+[vehicle_report]
+id = v2
+time = 81
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 82
+queues = 
+
+[junction_report]
+id = j2
+time = 82
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 82
+state = 
+
+[vehicle_report]
+id = v2
+time = 82
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 83
+queues = 
+
+[junction_report]
+id = j2
+time = 83
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 83
+state = 
+
+[vehicle_report]
+id = v2
+time = 83
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 84
+queues = 
+
+[junction_report]
+id = j2
+time = 84
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 84
+state = 
+
+[vehicle_report]
+id = v2
+time = 84
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 85
+queues = 
+
+[junction_report]
+id = j2
+time = 85
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 85
+state = 
+
+[vehicle_report]
+id = v2
+time = 85
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 86
+queues = 
+
+[junction_report]
+id = j2
+time = 86
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 86
+state = 
+
+[vehicle_report]
+id = v2
+time = 86
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 87
+queues = 
+
+[junction_report]
+id = j2
+time = 87
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 87
+state = 
+
+[vehicle_report]
+id = v2
+time = 87
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 88
+queues = 
+
+[junction_report]
+id = j2
+time = 88
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 88
+state = 
+
+[vehicle_report]
+id = v2
+time = 88
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 89
+queues = 
+
+[junction_report]
+id = j2
+time = 89
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 89
+state = 
+
+[vehicle_report]
+id = v2
+time = 89
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 90
+queues = 
+
+[junction_report]
+id = j2
+time = 90
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 90
+state = 
+
+[vehicle_report]
+id = v2
+time = 90
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 91
+queues = 
+
+[junction_report]
+id = j2
+time = 91
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 91
+state = 
+
+[vehicle_report]
+id = v2
+time = 91
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 92
+queues = 
+
+[junction_report]
+id = j2
+time = 92
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 92
+state = 
+
+[vehicle_report]
+id = v2
+time = 92
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 93
+queues = 
+
+[junction_report]
+id = j2
+time = 93
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 93
+state = 
+
+[vehicle_report]
+id = v2
+time = 93
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 94
+queues = 
+
+[junction_report]
+id = j2
+time = 94
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 94
+state = 
+
+[vehicle_report]
+id = v2
+time = 94
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 95
+queues = 
+
+[junction_report]
+id = j2
+time = 95
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 95
+state = 
+
+[vehicle_report]
+id = v2
+time = 95
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 96
+queues = 
+
+[junction_report]
+id = j2
+time = 96
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 96
+state = 
+
+[vehicle_report]
+id = v2
+time = 96
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 97
+queues = 
+
+[junction_report]
+id = j2
+time = 97
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 97
+state = 
+
+[vehicle_report]
+id = v2
+time = 97
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 98
+queues = 
+
+[junction_report]
+id = j2
+time = 98
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 98
+state = 
+
+[vehicle_report]
+id = v2
+time = 98
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 99
+queues = 
+
+[junction_report]
+id = j2
+time = 99
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 99
+state = 
+
+[vehicle_report]
+id = v2
+time = 99
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 100
+queues = 
+
+[junction_report]
+id = j2
+time = 100
+queues = (r1,green,[])
+
+[road_report]
+id = r1
+time = 100
+state = 
+
+[vehicle_report]
+id = v2
+time = 100
+type = bike
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+

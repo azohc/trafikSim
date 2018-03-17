@@ -1,0 +1,3200 @@
+[junction_report]
+id = j1
+time = 1
+queues = 
+
+[junction_report]
+id = j2
+time = 1
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 1
+type = lanes
+state = (v1,11),(v2,11)
+
+[vehicle_report]
+id = v1
+time = 1
+speed = 11
+kilometrage = 11
+faulty = 0
+location = (lanes1,11)
+
+[vehicle_report]
+id = v2
+time = 1
+speed = 11
+kilometrage = 11
+faulty = 0
+location = (lanes1,11)
+
+[junction_report]
+id = j1
+time = 2
+queues = 
+
+[junction_report]
+id = j2
+time = 2
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 2
+type = lanes
+state = (v1,22),(v2,22)
+
+[vehicle_report]
+id = v1
+time = 2
+speed = 11
+kilometrage = 22
+faulty = 0
+location = (lanes1,22)
+
+[vehicle_report]
+id = v2
+time = 2
+speed = 11
+kilometrage = 22
+faulty = 0
+location = (lanes1,22)
+
+[junction_report]
+id = j1
+time = 3
+queues = 
+
+[junction_report]
+id = j2
+time = 3
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 3
+type = lanes
+state = (v1,33),(v2,33)
+
+[vehicle_report]
+id = v1
+time = 3
+speed = 11
+kilometrage = 33
+faulty = 0
+location = (lanes1,33)
+
+[vehicle_report]
+id = v2
+time = 3
+speed = 11
+kilometrage = 33
+faulty = 0
+location = (lanes1,33)
+
+[junction_report]
+id = j1
+time = 4
+queues = 
+
+[junction_report]
+id = j2
+time = 4
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 4
+type = lanes
+state = (v1,44),(v2,44)
+
+[vehicle_report]
+id = v1
+time = 4
+speed = 11
+kilometrage = 44
+faulty = 0
+location = (lanes1,44)
+
+[vehicle_report]
+id = v2
+time = 4
+speed = 11
+kilometrage = 44
+faulty = 0
+location = (lanes1,44)
+
+[junction_report]
+id = j1
+time = 5
+queues = 
+
+[junction_report]
+id = j2
+time = 5
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 5
+type = lanes
+state = (v1,55),(v2,55)
+
+[vehicle_report]
+id = v1
+time = 5
+speed = 11
+kilometrage = 55
+faulty = 0
+location = (lanes1,55)
+
+[vehicle_report]
+id = v2
+time = 5
+speed = 11
+kilometrage = 55
+faulty = 0
+location = (lanes1,55)
+
+[junction_report]
+id = j1
+time = 6
+queues = 
+
+[junction_report]
+id = j2
+time = 6
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 6
+type = lanes
+state = (v1,66),(v2,66)
+
+[vehicle_report]
+id = v1
+time = 6
+speed = 11
+kilometrage = 66
+faulty = 0
+location = (lanes1,66)
+
+[vehicle_report]
+id = v2
+time = 6
+speed = 11
+kilometrage = 66
+faulty = 0
+location = (lanes1,66)
+
+[junction_report]
+id = j1
+time = 7
+queues = 
+
+[junction_report]
+id = j2
+time = 7
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 7
+type = lanes
+state = (v1,77),(v2,77)
+
+[vehicle_report]
+id = v1
+time = 7
+speed = 11
+kilometrage = 77
+faulty = 0
+location = (lanes1,77)
+
+[vehicle_report]
+id = v2
+time = 7
+speed = 11
+kilometrage = 77
+faulty = 0
+location = (lanes1,77)
+
+[junction_report]
+id = j1
+time = 8
+queues = 
+
+[junction_report]
+id = j2
+time = 8
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 8
+type = lanes
+state = (v1,88),(v2,88)
+
+[vehicle_report]
+id = v1
+time = 8
+speed = 11
+kilometrage = 88
+faulty = 0
+location = (lanes1,88)
+
+[vehicle_report]
+id = v2
+time = 8
+speed = 11
+kilometrage = 88
+faulty = 0
+location = (lanes1,88)
+
+[junction_report]
+id = j1
+time = 9
+queues = 
+
+[junction_report]
+id = j2
+time = 9
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 9
+type = lanes
+state = (v1,99),(v2,99)
+
+[vehicle_report]
+id = v1
+time = 9
+speed = 11
+kilometrage = 99
+faulty = 0
+location = (lanes1,99)
+
+[vehicle_report]
+id = v2
+time = 9
+speed = 11
+kilometrage = 99
+faulty = 0
+location = (lanes1,99)
+
+[junction_report]
+id = j1
+time = 10
+queues = 
+
+[junction_report]
+id = j2
+time = 10
+queues = (lanes1,green,[v2])
+
+[road_report]
+id = lanes1
+time = 10
+type = lanes
+state = (v2,100)
+
+[vehicle_report]
+id = v1
+time = 10
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 10
+speed = 0
+kilometrage = 100
+faulty = 0
+location = (lanes1,100)
+
+[junction_report]
+id = j1
+time = 11
+queues = 
+
+[junction_report]
+id = j2
+time = 11
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 11
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 11
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 11
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 12
+queues = 
+
+[junction_report]
+id = j2
+time = 12
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 12
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 12
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 12
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 13
+queues = 
+
+[junction_report]
+id = j2
+time = 13
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 13
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 13
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 13
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 14
+queues = 
+
+[junction_report]
+id = j2
+time = 14
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 14
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 14
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 14
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 15
+queues = 
+
+[junction_report]
+id = j2
+time = 15
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 15
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 15
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 15
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 16
+queues = 
+
+[junction_report]
+id = j2
+time = 16
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 16
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 16
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 16
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 17
+queues = 
+
+[junction_report]
+id = j2
+time = 17
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 17
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 17
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 17
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 18
+queues = 
+
+[junction_report]
+id = j2
+time = 18
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 18
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 18
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 18
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 19
+queues = 
+
+[junction_report]
+id = j2
+time = 19
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 19
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 19
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 19
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 20
+queues = 
+
+[junction_report]
+id = j2
+time = 20
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 20
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 20
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 20
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 21
+queues = 
+
+[junction_report]
+id = j2
+time = 21
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 21
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 21
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 21
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 22
+queues = 
+
+[junction_report]
+id = j2
+time = 22
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 22
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 22
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 22
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 23
+queues = 
+
+[junction_report]
+id = j2
+time = 23
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 23
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 23
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 23
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 24
+queues = 
+
+[junction_report]
+id = j2
+time = 24
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 24
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 24
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 24
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 25
+queues = 
+
+[junction_report]
+id = j2
+time = 25
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 25
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 25
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 25
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 26
+queues = 
+
+[junction_report]
+id = j2
+time = 26
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 26
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 26
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 26
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 27
+queues = 
+
+[junction_report]
+id = j2
+time = 27
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 27
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 27
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 27
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 28
+queues = 
+
+[junction_report]
+id = j2
+time = 28
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 28
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 28
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 28
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 29
+queues = 
+
+[junction_report]
+id = j2
+time = 29
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 29
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 29
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 29
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 30
+queues = 
+
+[junction_report]
+id = j2
+time = 30
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 30
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 30
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 30
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 31
+queues = 
+
+[junction_report]
+id = j2
+time = 31
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 31
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 31
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 31
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 32
+queues = 
+
+[junction_report]
+id = j2
+time = 32
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 32
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 32
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 32
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 33
+queues = 
+
+[junction_report]
+id = j2
+time = 33
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 33
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 33
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 33
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 34
+queues = 
+
+[junction_report]
+id = j2
+time = 34
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 34
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 34
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 34
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 35
+queues = 
+
+[junction_report]
+id = j2
+time = 35
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 35
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 35
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 35
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 36
+queues = 
+
+[junction_report]
+id = j2
+time = 36
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 36
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 36
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 36
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 37
+queues = 
+
+[junction_report]
+id = j2
+time = 37
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 37
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 37
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 37
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 38
+queues = 
+
+[junction_report]
+id = j2
+time = 38
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 38
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 38
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 38
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 39
+queues = 
+
+[junction_report]
+id = j2
+time = 39
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 39
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 39
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 39
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 40
+queues = 
+
+[junction_report]
+id = j2
+time = 40
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 40
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 40
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 40
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 41
+queues = 
+
+[junction_report]
+id = j2
+time = 41
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 41
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 41
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 41
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 42
+queues = 
+
+[junction_report]
+id = j2
+time = 42
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 42
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 42
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 42
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 43
+queues = 
+
+[junction_report]
+id = j2
+time = 43
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 43
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 43
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 43
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 44
+queues = 
+
+[junction_report]
+id = j2
+time = 44
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 44
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 44
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 44
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 45
+queues = 
+
+[junction_report]
+id = j2
+time = 45
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 45
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 45
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 45
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 46
+queues = 
+
+[junction_report]
+id = j2
+time = 46
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 46
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 46
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 46
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 47
+queues = 
+
+[junction_report]
+id = j2
+time = 47
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 47
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 47
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 47
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 48
+queues = 
+
+[junction_report]
+id = j2
+time = 48
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 48
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 48
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 48
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 49
+queues = 
+
+[junction_report]
+id = j2
+time = 49
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 49
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 49
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 49
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 50
+queues = 
+
+[junction_report]
+id = j2
+time = 50
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 50
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 50
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 50
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 51
+queues = 
+
+[junction_report]
+id = j2
+time = 51
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 51
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 51
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 51
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 52
+queues = 
+
+[junction_report]
+id = j2
+time = 52
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 52
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 52
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 52
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 53
+queues = 
+
+[junction_report]
+id = j2
+time = 53
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 53
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 53
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 53
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 54
+queues = 
+
+[junction_report]
+id = j2
+time = 54
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 54
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 54
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 54
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 55
+queues = 
+
+[junction_report]
+id = j2
+time = 55
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 55
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 55
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 55
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 56
+queues = 
+
+[junction_report]
+id = j2
+time = 56
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 56
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 56
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 56
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 57
+queues = 
+
+[junction_report]
+id = j2
+time = 57
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 57
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 57
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 57
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 58
+queues = 
+
+[junction_report]
+id = j2
+time = 58
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 58
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 58
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 58
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 59
+queues = 
+
+[junction_report]
+id = j2
+time = 59
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 59
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 59
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 59
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 60
+queues = 
+
+[junction_report]
+id = j2
+time = 60
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 60
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 60
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 60
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 61
+queues = 
+
+[junction_report]
+id = j2
+time = 61
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 61
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 61
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 61
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 62
+queues = 
+
+[junction_report]
+id = j2
+time = 62
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 62
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 62
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 62
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 63
+queues = 
+
+[junction_report]
+id = j2
+time = 63
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 63
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 63
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 63
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 64
+queues = 
+
+[junction_report]
+id = j2
+time = 64
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 64
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 64
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 64
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 65
+queues = 
+
+[junction_report]
+id = j2
+time = 65
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 65
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 65
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 65
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 66
+queues = 
+
+[junction_report]
+id = j2
+time = 66
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 66
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 66
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 66
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 67
+queues = 
+
+[junction_report]
+id = j2
+time = 67
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 67
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 67
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 67
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 68
+queues = 
+
+[junction_report]
+id = j2
+time = 68
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 68
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 68
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 68
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 69
+queues = 
+
+[junction_report]
+id = j2
+time = 69
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 69
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 69
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 69
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 70
+queues = 
+
+[junction_report]
+id = j2
+time = 70
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 70
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 70
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 70
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 71
+queues = 
+
+[junction_report]
+id = j2
+time = 71
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 71
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 71
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 71
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 72
+queues = 
+
+[junction_report]
+id = j2
+time = 72
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 72
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 72
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 72
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 73
+queues = 
+
+[junction_report]
+id = j2
+time = 73
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 73
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 73
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 73
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 74
+queues = 
+
+[junction_report]
+id = j2
+time = 74
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 74
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 74
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 74
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 75
+queues = 
+
+[junction_report]
+id = j2
+time = 75
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 75
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 75
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 75
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 76
+queues = 
+
+[junction_report]
+id = j2
+time = 76
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 76
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 76
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 76
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 77
+queues = 
+
+[junction_report]
+id = j2
+time = 77
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 77
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 77
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 77
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 78
+queues = 
+
+[junction_report]
+id = j2
+time = 78
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 78
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 78
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 78
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 79
+queues = 
+
+[junction_report]
+id = j2
+time = 79
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 79
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 79
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 79
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 80
+queues = 
+
+[junction_report]
+id = j2
+time = 80
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 80
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 80
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 80
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 81
+queues = 
+
+[junction_report]
+id = j2
+time = 81
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 81
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 81
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 81
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 82
+queues = 
+
+[junction_report]
+id = j2
+time = 82
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 82
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 82
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 82
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 83
+queues = 
+
+[junction_report]
+id = j2
+time = 83
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 83
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 83
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 83
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 84
+queues = 
+
+[junction_report]
+id = j2
+time = 84
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 84
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 84
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 84
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 85
+queues = 
+
+[junction_report]
+id = j2
+time = 85
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 85
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 85
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 85
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 86
+queues = 
+
+[junction_report]
+id = j2
+time = 86
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 86
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 86
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 86
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 87
+queues = 
+
+[junction_report]
+id = j2
+time = 87
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 87
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 87
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 87
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 88
+queues = 
+
+[junction_report]
+id = j2
+time = 88
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 88
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 88
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 88
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 89
+queues = 
+
+[junction_report]
+id = j2
+time = 89
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 89
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 89
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 89
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 90
+queues = 
+
+[junction_report]
+id = j2
+time = 90
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 90
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 90
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 90
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 91
+queues = 
+
+[junction_report]
+id = j2
+time = 91
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 91
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 91
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 91
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 92
+queues = 
+
+[junction_report]
+id = j2
+time = 92
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 92
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 92
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 92
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 93
+queues = 
+
+[junction_report]
+id = j2
+time = 93
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 93
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 93
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 93
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 94
+queues = 
+
+[junction_report]
+id = j2
+time = 94
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 94
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 94
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 94
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 95
+queues = 
+
+[junction_report]
+id = j2
+time = 95
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 95
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 95
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 95
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 96
+queues = 
+
+[junction_report]
+id = j2
+time = 96
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 96
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 96
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 96
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 97
+queues = 
+
+[junction_report]
+id = j2
+time = 97
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 97
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 97
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 97
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 98
+queues = 
+
+[junction_report]
+id = j2
+time = 98
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 98
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 98
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 98
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 99
+queues = 
+
+[junction_report]
+id = j2
+time = 99
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 99
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 99
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 99
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[junction_report]
+id = j1
+time = 100
+queues = 
+
+[junction_report]
+id = j2
+time = 100
+queues = (lanes1,green,[])
+
+[road_report]
+id = lanes1
+time = 100
+type = lanes
+state = 
+
+[vehicle_report]
+id = v1
+time = 100
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
+[vehicle_report]
+id = v2
+time = 100
+speed = 0
+kilometrage = 100
+faulty = 0
+location = arrived
+
