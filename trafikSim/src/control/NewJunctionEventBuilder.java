@@ -8,7 +8,7 @@ public class NewJunctionEventBuilder extends EventBuilder {
 
 	@Override
 	public Event parse(IniSection section) {
-		if ( !section.getTag().equals("new_junction") )
+		if (!section.getTag().equals("new_junction") || section.getValue("type") != null)
 			return null;	
 		
 		return new NewJunctionEvent(

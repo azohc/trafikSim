@@ -8,16 +8,18 @@ public class NewRoundRobinEventBuilder extends EventBuilder {
 
 	@Override
 	public Event parse(IniSection section) {
-		if( !section.getTag().equals("new_junction"))
+		if(!section.getTag().equals("new_junction"))
 			return null;
 		
-		return new NewRoundRobinJunctionEvent(
-				EventBuilder.parseNonNegInt(section, "time", 0),
-				EventBuilder.validId(section, "id"),
-				EventBuilder.validId(section, "type"),
-				EventBuilder.parsePosInt(section, "max_time_slice", 1),
-				EventBuilder.parsePosInt(section, "min_time_slice", 1)
-				);				
+		if(section.getKeys().contains("type") && section.getValue("type").equals("rr"))
+			return new NewRoundRobinJunctionEvent(
+					EventBuilder.parseNonNegInt(section, "time", 0),
+					EventBuilder.validId(section, "id"),
+					EventBuilder.validId(section, "type"),
+					EventBuilder.parsePosInt(section, "max_time_slice", 1),
+					EventBuilder.parsePosInt(section, "min_time_slice", 1)
+					);			
+		else return null;
 	}
 
 }

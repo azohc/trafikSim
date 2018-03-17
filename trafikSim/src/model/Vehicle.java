@@ -39,7 +39,6 @@ public class Vehicle extends SimulatedObject implements Comparable<Vehicle>
 		i.setValue("speed", _currentSpeed);
 		i.setValue("kilometrage", _kilometrage);
 		i.setValue("faulty", _faulty);
-				
 		i.setValue("location", (_arrived) ? "arrived" : "(" + _road.getId() + "," + _location + ")");
 		
 	}

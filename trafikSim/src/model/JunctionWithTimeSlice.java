@@ -73,7 +73,8 @@ public abstract class JunctionWithTimeSlice extends Junction {
 			String out = "(";
 			out += _road.getId() + ",";
 			out += (_green) ? "green:" : "red:";
-			out += _timeSlice + ",";
+			
+			out += _timeSlice + ","; //
 			
 			if(_queue.isEmpty())
 				return out += "])";

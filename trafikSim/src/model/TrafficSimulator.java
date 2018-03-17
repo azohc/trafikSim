@@ -39,7 +39,7 @@ public class TrafficSimulator {
 			_events.sort(null);
 		}
 		else
-			throw new Exception("Invalid time!");
+			throw new Exception("Invalid time!");	//maybe exception TODO
 	}
 	
 	public void run(int ticks){

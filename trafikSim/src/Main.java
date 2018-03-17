@@ -19,10 +19,19 @@ import org.apache.commons.cli.ParseException;
 import control.Controller;
 import control.EventBuilder;
 import control.MakeVehicleFaultyEventBuilder;
+import control.NewBikeEventBuilder;
+import control.NewCarEventBuilder;
+import control.NewDirtRoadEventBuilder;
 import control.NewJunctionEventBuilder;
+import control.NewLanesRoadEventBuilder;
+import control.NewMostCrowdedJunctionEventBuilder;
 import control.NewRoadEventBuilder;
+import control.NewRoundRobinEventBuilder;
 import control.NewVehicleEventBuilder;
 import ini.Ini;
+import model.MostCrowdedJunction;
+import model.NewCarEvent;
+import model.NewRoundRobinJunctionEvent;
 import model.TrafficSimulator;
 
 public class Main {
@@ -37,7 +46,13 @@ public class Main {
 		new NewJunctionEventBuilder(),
 		new NewRoadEventBuilder(), 
 		new NewVehicleEventBuilder(),
-		new MakeVehicleFaultyEventBuilder()
+		new MakeVehicleFaultyEventBuilder(),
+		new NewBikeEventBuilder(),
+		new NewCarEventBuilder(),
+		new NewDirtRoadEventBuilder(),
+		new NewLanesRoadEventBuilder(),
+		new NewMostCrowdedJunctionEventBuilder(),
+		new NewRoundRobinEventBuilder()
 	};
 	
 

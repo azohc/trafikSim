@@ -8,7 +8,7 @@ public class NewRoadEventBuilder extends EventBuilder {
 
 	@Override
 	public Event parse(IniSection section) {
-		if ( !section.getTag().equals("new_road") )
+		if (!section.getTag().equals("new_road") || section.getValue("type") != null)
 			return null;	
 		
 		return new NewRoadEvent(
@@ -21,4 +21,3 @@ public class NewRoadEventBuilder extends EventBuilder {
 	}
 
 }
-//public NewRoadEvent(int time, String id, int length, int maxSpeed, String start, String end) {

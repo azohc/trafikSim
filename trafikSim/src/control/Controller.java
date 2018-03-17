@@ -47,9 +47,9 @@ public class Controller {
 				for (int i = 0; i < _eventBuilders.length; i++){	
 					e = _eventBuilders[i].parse(x.getSections().get(j));
 					if(e != null)		//add event to the simulator
-						_sim.addEvent(e);						//CHECKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+						_sim.addEvent(e);						
 					else{	//report unrecognised events
-						//throw exception?????????????????????????????????????
+						//throw exception TODO
 					}
 				}
 			}
