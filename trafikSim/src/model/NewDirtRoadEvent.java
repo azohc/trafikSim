@@ -10,8 +10,8 @@ public class NewDirtRoadEvent extends NewRoadEvent {
 	}
 	
 	public void execute(RoadMap map, int time) {
-		
-		map.addRoad(new DirtRoad(_id, _length, _maxSpeed, map.getJunction(_start), map.getJunction(_end)));
+		if(_type == "dirt")
+			map.addRoad(new DirtRoad(_id, _length, _maxSpeed, map.getJunction(_start), map.getJunction(_end)));
 	}
 	
 	public String toString() {

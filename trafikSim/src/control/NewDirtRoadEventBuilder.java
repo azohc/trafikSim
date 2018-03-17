@@ -4,7 +4,7 @@ import ini.IniSection;
 import model.Event;
 import model.NewDirtRoadEvent;
 
-public class NewDirtRoadEventBuilder extends NewRoadEventBuilder {
+public class NewDirtRoadEventBuilder extends EventBuilder {
 	@Override
 	public Event parse(IniSection section) {
 		if( !section.getTag().equals("new_road"))

@@ -5,15 +5,24 @@ public abstract class JunctionWithTimeSlice extends Junction {
 	
 	public class IncRoadWithTimeSlice extends IncomingRoad 
 	{
-		
-		int _timeSlice;
-		int _usedTimeUnits;
-		boolean _fullyUsed; 
-		boolean _used;
+		protected int _timeSlice;
+		protected int _usedTimeUnits;
+		protected boolean _fullyUsed; 
+		protected boolean _used;
 
 		protected IncRoadWithTimeSlice(Road road) {
 			super(road);
+			_usedTimeUnits = 0;
+			_used = false;
+			_fullyUsed = true;
 		}
+		
+		protected void setGreen(boolean green) {
+			_green = green;
+			_used = false;
+			_fullyUsed = true;
+		}
+		
 		
 		public int getTimeSlice() {
 			return _timeSlice;
@@ -51,8 +60,7 @@ public abstract class JunctionWithTimeSlice extends Junction {
 			//advance first veh in queue
 			if(!_queue.isEmpty()) {
 				_used = true;
-				_queue.get(0).moveToNextRoad();
-				_queue.remove(0);
+				super.advanceFirstVehicle();
 			}
 			else 	//queue is empty
 				_fullyUsed = false;

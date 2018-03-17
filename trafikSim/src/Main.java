@@ -201,6 +201,9 @@ public class Main {
 		// -i cv_docs/examples/basic/01_simpleRoadDifferentSpeeds.ini -t 10 -o cv_docs/examples/basic/01_simpleRoadDifferentSpeeds.ini.out
 		// -i cv_docs/examples/basic/02_twoRoads.ini -t 10 -o cv_docs/examples/basic/02_twoRoads.ini.out
 		// -i cv_docs/examples/basic/04_faultyVehicle.ini -t 10 -o cv_docs/examples/basic/04_faultyVehicle.ini.out
+		
+		// -i cv_docs/100tickinis/advanced/11_car.ini -t 10 -o cv_docs/100tickinis/advanced/11_car.ini.out
+		
 		// Call test in order to test the simulator on all examples in a directory.
 		//
 	    //	test("resources/examples/events/basic");

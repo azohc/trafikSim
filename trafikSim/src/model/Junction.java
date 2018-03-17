@@ -86,6 +86,7 @@ public class Junction extends SimulatedObject
 		
 		if(i == _incRoads.size() || _incRoads.isEmpty())
 			i = -1; //if no road has a green light, or there is no incoming roads
+		
 		else 
 		{
 			_incRoads.get(i).advanceFirstVehicle();	//advance first vehicle, if any
@@ -134,14 +135,14 @@ public class Junction extends SimulatedObject
 	
 	protected void switchLights(int pos) {
 		
-		if(pos != -1 && pos != _incRoads.size() - 1) {	//for lights 0 to size - 2
+		
+		if(pos != -1 && pos != _incRoads.size() - 1) { 		//for lights 0 to size - 2
 			_incRoads.get(pos).setGreen(false);			//set current light to red
 			_incRoads.get(pos + 1).setGreen(true);			//set next light to green
 		}
-		else {		//for no green lights, or light size - 1 == green
-			_incRoads.get(_incRoads.size() - 1).setGreen(false);
-			_incRoads.get(0).setGreen(true);					
-		}
+		
+		else 		//light (size - 1) == green
+			_incRoads.get(0).setGreen(true);	
 	}
 	
 	protected String getReportSectionTag() {

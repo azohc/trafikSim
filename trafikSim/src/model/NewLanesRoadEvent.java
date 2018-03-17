@@ -12,8 +12,8 @@ public class NewLanesRoadEvent extends NewRoadEvent {
 	}
 
 	public void execute(RoadMap map, int time){
-
-		map.addRoad(new LanesRoad(_id, _length, _maxSpeed, map.getJunction(_start),map.getJunction(_end), _lanes));
+		if(_type == "lanes")
+			map.addRoad(new LanesRoad(_id, _length, _maxSpeed, map.getJunction(_start),map.getJunction(_end), _lanes));
 	}
 	
 	public String toString() {
