@@ -14,7 +14,6 @@ public class NewVehicleEvent extends Event {
 		_id = id;
 		_maxSpeed = maxSpeed;
 		_itinerary = it;
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

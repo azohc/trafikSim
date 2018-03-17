@@ -15,7 +15,7 @@ public class NewVehicleEventBuilder extends EventBuilder {
 		return new NewVehicleEvent(
 				EventBuilder.parseNonNegInt(section, "time", 0), 
 				EventBuilder.validId(section, "id"),			
-				EventBuilder.parseNonNegInt(section, "max_speed", 0),
+				EventBuilder.parsePosInt(section, "max_speed", 0),
 				EventBuilder.validIds(section, "itinerary"));
 	}		
 

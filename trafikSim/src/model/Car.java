@@ -13,30 +13,32 @@ public class Car extends Vehicle {
 	protected long _seed = System.currentTimeMillis();
 	protected Random _rnd;
 
-	public Car(String id, int maxSpeed, int resistance, double faultProbability, int maxFaultDuration, long seed, List<Junction> it) {
+	public Car(String id, int maxSpeed, List<Junction> it,  int resistance, double faultProbability, int maxFaultDuration, long seed) {
 		super(id, maxSpeed, it);
 		_resistance = resistance;
 		_faultProbability = faultProbability;
 		_maxFaultDuration = maxFaultDuration;
 		_seed = seed;
+		_rnd = new Random(_seed);
 	}
 
 	void advance(int time){
-		
-		if(getFaultyTime() > 0)
-			makeFaulty(getFaultyTime() - 1);
+				
+		if(_faulty == 0 && _kmSinceFaulty >= _resistance)
 		
 		else if(_kmSinceFaulty >= _resistance){
-			
 			_kmSinceFaulty = _kmSinceFaulty - _resistance;
 			
-			_rnd = new Random(_seed);
-			if(_rnd.nextFloat() < _faultProbability)
+			
+			if(_rnd.nextDouble() < _faultProbability)
 				makeFaulty(_rnd.nextInt(_maxFaultDuration) + 1);
 		}
-		super.advance();
 		
-		_kmSinceFaulty += getKilometrage();
+		int kmAdvanced = getKilometrage();
+		super.advance();
+		kmAdvanced = getKilometrage() - kmAdvanced;
+		
+		_kmSinceFaulty += kmAdvanced;
 	}
 	
 	

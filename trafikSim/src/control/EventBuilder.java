@@ -25,7 +25,7 @@ public abstract class EventBuilder {
 	}
 
 	public static int parseNonNegInt(IniSection section, String string, int i) {
-		if(section.getKeysMap().containsKey(string))
+		if(validId(section, string) != null)
 			if(Integer.parseInt(section.getValue(string)) > 0)
 				return Integer.parseInt(section.getValue(string));
 			else
@@ -33,15 +33,52 @@ public abstract class EventBuilder {
 		else
 			return i;
 	}
+	
+	public static double parseNonNegDouble(IniSection section, String string, int i) {
+		if(validId(section, string) != null)
+			if(Integer.parseInt(section.getValue(string)) > 0)
+				return Integer.parseInt(section.getValue(string));
+			else
+				return i;
+		else
+			return i;
+	}
+	public static int parsePosInt(IniSection section, String string, int i) {
+		if(validId(section, string) != null) {
+			if(Integer.parseInt(section.getValue(string)) > 0) 
+				return Integer.parseInt(section.getValue(string));
+			
+			else if(Integer.parseInt(section.getValue(string)) == 0) {
+				System.out.println("THROW EXCEPTION");//throw exception TODO
+				return 21;//throw exception TODO
+			}
+			else
+				return i;
+		}
+		else
+			return i;
+	}
+	
+	public static long parsePosLong(IniSection section, String string, int i) {
+		if(validId(section, string) != null) {
+			if(Integer.parseInt(section.getValue(string)) > 0) 
+				return Long.parseLong(section.getValue(string));
+			
+			else if(Long.parseLong(section.getValue(string)) == 0) {
+				System.out.println("THROW EXCEPTION");//throw exception TODO
+				return 21;//throw exception TODO	
+			}
+			else
+				return i;
+		}
+		else
+			return i;
+	}
 
-	public static String[] validIds(IniSection section, String string) {		//CHECK!
+	public static String[] validIds(IniSection section, String string) {		
 
 		if(section.getKeysMap().containsKey(string))
-		{
-			String aux = section.getKeysMap().get(string); //esto que value devuelve? j1,j2?
-			
-			return aux.split(",");				//si devuelve j1,j2 => split(",") devuelve array 0: j1, 1: j2
-		}
+			return section.getKeysMap().get(string).split(",");				
 		
 		else 
 			return null;

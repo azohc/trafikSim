@@ -1,14 +1,37 @@
 package model;
 
-public class NewCarEvent extends NewVehicleEvent {
+import java.util.ArrayList;
+import java.util.List;
 
-	public NewCarEvent(Integer time, String id, Integer maxSpeed, String[] it) {
+public class NewCarEvent extends NewVehicleEvent {
+	
+	protected String _type;
+	protected int _resistance;
+	protected double _faultProb;
+	protected int _maxFaultDur;
+	protected long _seed;
+	
+	public NewCarEvent(Integer time, String id, String[] it, Integer maxSpeed, String type, int resistance,
+			double faultProbability, int maxFaultDuration, long seed) {
+		
 		super(time, id, maxSpeed, it);
+		_type = type;
+		_resistance = resistance;
+		_faultProb = faultProbability;
+		_maxFaultDur = maxFaultDuration;
+		_seed = seed;	
 	}
 
-
 	public void execute(RoadMap map, int time){
-				
+		
+		if(_type == "car") {
+			List<Junction> _it = new ArrayList<Junction>();
+			
+			for(int i = 0; i < _itinerary.length ; i++)
+				_it.add(map.getJunction(_itinerary[i]));
+			
+			map.addVehicle(new Car(_id, _maxSpeed, _it, _resistance, _faultProb, _maxFaultDur, _seed));;
+		}
 	}
 
 	

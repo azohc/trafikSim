@@ -15,7 +15,7 @@ public class Vehicle extends SimulatedObject implements Comparable<Vehicle>
 	private int _location;				// location on current road
 	private List<Junction> _itinerary;	// roads to cover by the v
 	private boolean _atJunction;			// vehicle at junction => true => speed = 0
-	private int _faulty;	// vehicle faulty for 'faulty' ticks
+	protected int _faulty;	// vehicle faulty for 'faulty' ticks
 	private int _itIndex; // itinerary index to check at what junction the vehicle is at
 	private boolean _arrived;
 	

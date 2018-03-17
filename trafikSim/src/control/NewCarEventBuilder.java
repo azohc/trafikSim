@@ -6,22 +6,21 @@ import model.NewCarEvent;
 
 public class NewCarEventBuilder extends EventBuilder {
 
-	@Override
 	public Event parse(IniSection section) {
-		if( !section.getTag().equals("new_car"))
+		if( !section.getTag().equals("new_vehicle"))
 			return null;
 		
 		return new NewCarEvent(
 				EventBuilder.parseNonNegInt(section, "time", 0),
 				EventBuilder.validId(section, "id"),
 				EventBuilder.validIds(section, "itinerary"),
-				EventBuilder.parseNonNegInt(section, "max_speed", 0),
+				EventBuilder.parsePosInt(section, "max_speed", 0),
 				EventBuilder.validId(section, "type"),
-				EventBuilder.validId(section, "resistance"),
-				EventBuilder.validId(section, "faulty_probability"),
-				EventBuilder.validId(section, "max_faulty_duration"),
-				EventBuilder.parseNonNegInt(section, "seed", 1)
-				)
+				EventBuilder.parsePosInt(section, "resistance", 0),
+				EventBuilder.parseNonNegDouble(section, "faulty_probability", 0),
+				EventBuilder.parsePosInt(section, "max_faulty_duration", 0),
+				EventBuilder.parsePosLong(section, "seed", 1)
+				);
 	}
 
 }
