@@ -7,7 +7,6 @@ import java.util.Random;
 public class Car extends Vehicle {
 	
 	protected int _resistance;
-	protected int _kmSinceFaulty;
 	protected double _faultProbability;
 	protected int _maxFaultDuration;
 	protected long _seed = System.currentTimeMillis();
@@ -24,18 +23,11 @@ public class Car extends Vehicle {
 
 	void advance(int time){
 				
-		if(_faulty == 0 && _kmSinceFaulty >= _resistance){
-			_kmSinceFaulty = _kmSinceFaulty - _resistance;
-			
-			if(_rnd.nextDouble() < _faultProbability)
+		if(_faulty == 0 && _kilometrage - _lastFaultyKm >= _resistance)
+			if(_rnd.nextDouble() < _faultProbability) 
 				makeFaulty(_rnd.nextInt(_maxFaultDuration) + 1);
-		}
-		
-		int kmAdvanced = getKilometrage();
+			
 		super.advance();
-		kmAdvanced = getKilometrage() - kmAdvanced;
-		
-		_kmSinceFaulty += kmAdvanced;
 	}
 	
 	

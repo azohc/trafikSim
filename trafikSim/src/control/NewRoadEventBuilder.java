@@ -14,8 +14,8 @@ public class NewRoadEventBuilder extends EventBuilder {
 		return new NewRoadEvent(
 				EventBuilder.parseNonNegInt(section, "time", 0), 
 				EventBuilder.validId(section, "id"),			
-				EventBuilder.parsePosInt(section, "length", 0),
-				EventBuilder.parsePosInt(section, "max_speed", 0),
+				EventBuilder.parsePosInt(section, "length", 1),
+				EventBuilder.parsePosInt(section, "max_speed", 1),
 				EventBuilder.validId(section, "src"),
 				EventBuilder.validId(section, "dest"));
 	}

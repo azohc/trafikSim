@@ -16,6 +16,10 @@ public abstract class EventBuilder {
 		return "";
 	}
 
+	
+	null => default
+	neg o 0 segun el caso => exc
+	
 	public static String validId(IniSection section, String string) {
 		
 		if(section.getKeysMap().containsKey(string))
@@ -43,17 +47,15 @@ public abstract class EventBuilder {
 		else
 			return i;
 	}
-	public static int parsePosInt(IniSection section, String string, int i) {
+	public static int parsePosInt(IniSection section, String string, int i) { 
 		if(validId(section, string) != null) {
 			if(Integer.parseInt(section.getValue(string)) > 0) 
 				return Integer.parseInt(section.getValue(string));
 			
-			else if(Integer.parseInt(section.getValue(string)) == 0) {
+			else  {
 				System.out.println("THROW EXCEPTION");//throw exception TODO
 				return 21;//throw exception TODO
 			}
-			else
-				return i;
 		}
 		else
 			return i;

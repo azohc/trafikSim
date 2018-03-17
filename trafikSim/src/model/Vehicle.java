@@ -11,13 +11,14 @@ public class Vehicle extends SimulatedObject implements Comparable<Vehicle>
 	private int _currentSpeed;			// speed of the vehicle should always be 0 for vehicles that are in
 			// a faulty state, are waiting at a junction, or have arrived at their destination.
 	private Road _road;
-	private int _kilometrage;
+	protected int _kilometrage;
 	private int _location;				// location on current road
 	private List<Junction> _itinerary;	// roads to cover by the v
 	private boolean _atJunction;			// vehicle at junction => true => speed = 0
 	protected int _faulty;	// vehicle faulty for 'faulty' ticks
 	private int _itIndex; // itinerary index to check at what junction the vehicle is at
 	private boolean _arrived;
+	protected int _lastFaultyKm;		//to keep track of the kilometrage of last time veh was faulty
 	
 	public Vehicle(String id, int maxSpeed, List<Junction> it) 
 	{
@@ -141,6 +142,7 @@ public class Vehicle extends SimulatedObject implements Comparable<Vehicle>
 	{
 		_currentSpeed = 0;
 		_faulty += ticks;
+		_lastFaultyKm = _kilometrage;
 	}
 
 	void setSpeed(int speed)

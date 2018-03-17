@@ -14,7 +14,7 @@ public class MakeVehicleFaultyEventBuilder extends EventBuilder {
 		return new MakeVehicleFaulty(
 				EventBuilder.parseNonNegInt(section, "time", 0), 
 				EventBuilder.validIds(section, "vehicles"),			
-				EventBuilder.parsePosInt(section, "duration", 0));
+				EventBuilder.parsePosInt(section, "duration", 1));
 	}		
 
 }
