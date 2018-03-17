@@ -24,11 +24,8 @@ public class Car extends Vehicle {
 
 	void advance(int time){
 				
-		if(_faulty == 0 && _kmSinceFaulty >= _resistance)
-		
-		else if(_kmSinceFaulty >= _resistance){
+		if(_faulty == 0 && _kmSinceFaulty >= _resistance){
 			_kmSinceFaulty = _kmSinceFaulty - _resistance;
-			
 			
 			if(_rnd.nextDouble() < _faultProbability)
 				makeFaulty(_rnd.nextInt(_maxFaultDuration) + 1);
