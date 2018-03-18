@@ -22,7 +22,7 @@ public class NewRoadEvent extends Event {
 	}
 
 	@Override
-	public void execute(RoadMap map, Integer time) throws SimulatorError {
+	public void execute(RoadMap map, Integer time) {
 		if(map.getRoad(_id) != null)
 			throw new SimulatorError(dupeObj);
 		

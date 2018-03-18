@@ -47,24 +47,29 @@ public class TrafficSimulator {
 		int limit = _time + ticks - 1;
 		
 		while (_time <= limit) {
-			
-			for (int i = 0; i < _events.size(); i++)
-				if(_time == _events.get(i).getTime())					
-					_events.get(i).execute(_map, _time);
-			
-			for(int i = 0; i < _map.getRoad().size(); i++)
-				_map.getRoad().get(i).advance();
-			
-			for(int i = 0; i < _map.getJunction().size(); i++)
-				_map.getJunction().get(i).advance();
-			
-			_time++;
-			
 			try {
+				
+				for (int i = 0; i < _events.size(); i++)
+					if(_time == _events.get(i).getTime())					
+						_events.get(i).execute(_map, _time);
+				
+				for(int i = 0; i < _map.getRoad().size(); i++)
+					_map.getRoad().get(i).advance();
+				
+				for(int i = 0; i < _map.getJunction().size(); i++)
+					_map.getJunction().get(i).advance();
+				
+				_time++;
+			
+			
 				if(_map.generateReport(_time).getBytes() != null)
 					_outStream.write(_map.generateReport(_time).getBytes());
 			} catch (IOException e) {
 				System.out.println("Output error when writing the report for time: " + _time);
+			}
+			catch (SimulatorError f) {	//most errors should come here
+				System.out.println(f.getMessage());
+				_time++;
 			}
 		}
 	
