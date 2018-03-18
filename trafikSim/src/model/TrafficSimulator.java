@@ -4,7 +4,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
+
+import control.SimulatorError;
 
 public class TrafficSimulator {
 
@@ -39,7 +40,7 @@ public class TrafficSimulator {
 			_events.sort(null);
 		}
 		else
-			throw new Exception("Invalid time!");	//maybe exception TODO
+			throw new SimulatorError("Invalid event time: lower than the simulator's time");	
 	}
 	
 	public void run(int ticks){
@@ -63,8 +64,7 @@ public class TrafficSimulator {
 				if(_map.generateReport(_time).getBytes() != null)
 					_outStream.write(_map.generateReport(_time).getBytes());
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.out.println("Output error when writing the report for time: " + _time);
 			}
 		}
 	

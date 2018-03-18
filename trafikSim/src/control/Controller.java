@@ -9,8 +9,6 @@ import java.io.OutputStream;
 import model.Event;
 import model.TrafficSimulator;
 
-
-
 public class Controller {
 	
 	protected TrafficSimulator _sim;
@@ -41,24 +39,36 @@ public class Controller {
 		try {
 			Ini x = new Ini(inStream);
 			Event e = null;
-			
+			boolean parsed = false;
 			
 			for(int j = 0; j < x.getSections().size(); j++) {
+				parsed = false;
+				
 				for (int i = 0; i < _eventBuilders.length; i++){	
+					
 					e = _eventBuilders[i].parse(x.getSections().get(j));
-					if(e != null)		//add event to the simulator
-						_sim.addEvent(e);						
-					else{	//report unrecognised events
-						//throw exception TODO
+					
+					try {
+						if(e != null) {		//add event to the simulator
+							_sim.addEvent(e);	
+							parsed = true;
+						}
+						
+						else if(i == _eventBuilders.length - 1 && !parsed)	//report unrecognised events
+							throw new SimulatorError("Unrecognized event");
+						
+					}catch (SimulatorError f) {	//most errors should come here
+						System.out.println(f.getMessage());
 					}
 				}
 			}
-		} catch (IOException e) { //for x = new Ini
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Exception f) {	//for _sim.addEvent
-			// TODO Auto-generated catch block
-			f.printStackTrace();
+		} 
+		catch (IOException e) {		//for x = new Ini
+			System.out.println("Input error during ini parsing");
+		} 
+		catch (Exception g) {	//for whatever other errors may arise
+			g.printStackTrace();
+			System.out.println("Unknown error during event loading");
 		}
 		
 		

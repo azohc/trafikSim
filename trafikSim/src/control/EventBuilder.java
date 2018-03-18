@@ -5,6 +5,8 @@ import model.Event;
 
 public abstract class EventBuilder {
 
+	protected final static String inputError = "Invalid input parameter";
+	
 	public EventBuilder(){
 		
 	}
@@ -28,10 +30,8 @@ public abstract class EventBuilder {
 		if(validId(section, string) != null)
 			if(Integer.parseInt(section.getValue(string)) >= 0)
 				return Integer.parseInt(section.getValue(string));
-			else {
-				System.out.println("THROW EXCEPTION");//throw exception TODO
-				return 21;//throw exception TODO
-			}
+			else 
+				throw new SimulatorError(inputError);
 		else
 			return i;
 	}
@@ -40,10 +40,8 @@ public abstract class EventBuilder {
 		if(validId(section, string) != null)
 			if(Double.parseDouble(section.getValue(string)) >= 0)
 				return Double.parseDouble(section.getValue(string));
-			else {
-				System.out.println("THROW EXCEPTION");//throw exception TODO
-				return 21;//throw exception TODO
-			}
+			else 
+				throw new SimulatorError(inputError);
 		else
 			return i;
 	}
@@ -51,10 +49,8 @@ public abstract class EventBuilder {
 		if(validId(section, string) != null) {
 			if(Integer.parseInt(section.getValue(string)) > 0) 
 				return Integer.parseInt(section.getValue(string));
-			else  {
-				System.out.println("THROW EXCEPTION");//throw exception TODO
-				return 21;//throw exception TODO
-			}
+			else 
+				throw new SimulatorError(inputError);
 		}
 		else
 			return i;
@@ -64,10 +60,8 @@ public abstract class EventBuilder {
 		if(validId(section, string) != null) {
 			if(Integer.parseInt(section.getValue(string)) > 0) 
 				return Long.parseLong(section.getValue(string));
-			else {
-				System.out.println("THROW EXCEPTION");//throw exception TODO
-				return 21;//throw exception TODO	
-			}
+			else 
+			throw new SimulatorError(inputError);
 		}
 		else
 			return l;

@@ -1,5 +1,7 @@
 package model;
 
+import control.SimulatorError;
+
 public class NewMostCrowdedJunctionEvent extends NewJunctionEvent {
 
 	
@@ -9,7 +11,9 @@ public class NewMostCrowdedJunctionEvent extends NewJunctionEvent {
 	
 	@Override
 	public void execute(RoadMap map, Integer time) {
-			map.addJunction(new MostCrowdedJunction(_id));
+		if(map.getJunction(_id) != null)
+			throw new SimulatorError(dupeObj);
+		map.addJunction(new MostCrowdedJunction(_id));
 	}
 	
 	public String toString() {

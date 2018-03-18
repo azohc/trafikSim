@@ -21,7 +21,6 @@ public class MostCrowdedJunction extends JunctionWithTimeSlice {
 				_incRoads.get(pos).setGreen(false); // set current green light to red
 			
 				if(_incRoads.size() > 1) {
-
 					for(int i = 0; i < _incRoads.size(); i++) {  // find road with most vehicles
 						if(mostVehicles < _incRoads.get(i)._queue.size() && i != pos) { 
 							mostVehicles = _incRoads.get(i)._queue.size();

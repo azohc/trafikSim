@@ -1,3 +1,4 @@
+package launcher;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -217,7 +218,7 @@ public class Main {
 		// -i cv_docs/examples/basic/02_twoRoads.ini -t 10 -o cv_docs/examples/basic/02_twoRoads.ini.out
 		// -i cv_docs/examples/basic/04_faultyVehicle.ini -t 10 -o cv_docs/examples/basic/04_faultyVehicle.ini.out
 		
-		// -i cv_docs/100tickinis/advanced/11_car.ini -t 10 -o cv_docs/100tickinis/advanced/11_car.ini.out
+		// -i cv_docs/100tickinis/advanced/11_car.ini -t 100 -o cv_docs/100tickinis/advanced/11_car.ini.out
 		
 		// Call test in order to test the simulator on all examples in a directory.
 		//

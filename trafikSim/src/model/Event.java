@@ -3,6 +3,7 @@ package model;
 public abstract class Event implements Comparable<Event> {
 	
 	protected Integer _time;
+	protected final static String dupeObj = "An object with this identifier already exists";
 	
 	public Event(int time){
 		

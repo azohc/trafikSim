@@ -1,5 +1,7 @@
 package model;
 
+import control.SimulatorError;
+
 public class NewRoundRobinJunctionEvent extends NewJunctionEvent {
 
 	protected int _maxTs;
@@ -13,6 +15,8 @@ public class NewRoundRobinJunctionEvent extends NewJunctionEvent {
 	
 	@Override
 	public void execute(RoadMap map, Integer time) {
+		if(map.getJunction(_id) != null)
+			throw new SimulatorError(dupeObj);
 		map.addJunction(new RoundRobinJunction(_id, _minTs, _maxTs));
 	}
 	

@@ -1,5 +1,7 @@
 package model;
 
+import control.SimulatorError;
+
 public class NewRoadEvent extends Event {
 
 	protected String _id;
@@ -20,9 +22,14 @@ public class NewRoadEvent extends Event {
 	}
 
 	@Override
-	public void execute(RoadMap map, Integer time) {
+	public void execute(RoadMap map, Integer time) throws SimulatorError {
+		if(map.getRoad(_id) != null)
+			throw new SimulatorError(dupeObj);
+		
+		if(map.getJunction(_start) == null || map.getJunction(_end) == null)
+			throw new SimulatorError("Reference to inexistent junction");
+			
 		map.addRoad(new Road(_id, _length, _maxSpeed, map.getJunction(_start), map.getJunction(_end)));
-
 	}
 
 	public String toString(){

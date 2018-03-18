@@ -3,6 +3,8 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import control.SimulatorError;
+
 public class NewCarEvent extends NewVehicleEvent {
 	
 	protected int _resistance;
@@ -23,10 +25,18 @@ public class NewCarEvent extends NewVehicleEvent {
 	@Override
 	public void execute(RoadMap map, Integer time) {
 	
+		if(map.getVehicle(_id) != null)
+			throw new SimulatorError(dupeObj);
+		
 		List<Junction> _it = new ArrayList<Junction>();
 		
-		for(int i = 0; i < _itinerary.length ; i++)
+		for(int i = 0; i < _itinerary.length ; i++) {
+			
+			if(map.getJunction(_itinerary[i]) == null)
+				throw new SimulatorError("Reference to inexistent junction");
+			
 			_it.add(map.getJunction(_itinerary[i]));
+		}
 		
 		map.addVehicle(new Car(_id, _maxSpeed, _it, _resistance, _faultProb, _maxFaultDur, _seed));;
 	
