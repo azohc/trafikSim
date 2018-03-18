@@ -4,7 +4,7 @@ public class NewLanesRoadEvent extends NewRoadEvent {
 	
 	protected int _lanes;
 	
-	public NewLanesRoadEvent(int time, String id, String start, String end, int length, int maxSpeed, String type, int lanes) {
+	public NewLanesRoadEvent(int time, String id, String start, String end, int maxSpeed, int length, String type, int lanes) {
 		super(time, id, length, maxSpeed, start, end);
 		_lanes = lanes;
 	}

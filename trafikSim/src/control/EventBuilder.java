@@ -38,8 +38,8 @@ public abstract class EventBuilder {
 	
 	public static double parseNonNegDouble(IniSection section, String string, int i) {
 		if(validId(section, string) != null)
-			if(Integer.parseInt(section.getValue(string)) >= 0)
-				return Integer.parseInt(section.getValue(string));
+			if(Double.parseDouble(section.getValue(string)) >= 0)
+				return Double.parseDouble(section.getValue(string));
 			else {
 				System.out.println("THROW EXCEPTION");//throw exception TODO
 				return 21;//throw exception TODO
@@ -60,7 +60,7 @@ public abstract class EventBuilder {
 			return i;
 	}
 	
-	public static long parsePosLong(IniSection section, String string, int i) {
+	public static long parsePosLong(IniSection section, String string, long l) {
 		if(validId(section, string) != null) {
 			if(Integer.parseInt(section.getValue(string)) > 0) 
 				return Long.parseLong(section.getValue(string));
@@ -70,7 +70,7 @@ public abstract class EventBuilder {
 			}
 		}
 		else
-			return i;
+			return l;
 	}
 
 	public static String[] validIds(IniSection section, String string) {		

@@ -11,7 +11,6 @@ public class Car extends Vehicle {
 	protected int _resistance;
 	protected double _faultProbability;
 	protected int _maxFaultDuration;
-	protected long _seed = System.currentTimeMillis();
 	protected Random _rnd;
 
 	public Car(String id, int maxSpeed, List<Junction> it,  int resistance, double faultProbability, int maxFaultDuration, long seed) {
@@ -19,11 +18,10 @@ public class Car extends Vehicle {
 		_resistance = resistance;
 		_faultProbability = faultProbability;
 		_maxFaultDuration = maxFaultDuration;
-		_seed = seed;
-		_rnd = new Random(_seed);
+		_rnd = new Random(seed);
 	}
 
-	void advance(int time){
+	void advance(){
 				
 		if(_faulty == 0 && _kilometrage - _lastFaultyKm >= _resistance)
 			if(_rnd.nextDouble() < _faultProbability) 

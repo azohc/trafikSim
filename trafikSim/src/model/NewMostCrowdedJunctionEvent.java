@@ -9,7 +9,6 @@ public class NewMostCrowdedJunctionEvent extends NewJunctionEvent {
 	
 	@Override
 	public void execute(RoadMap map, Integer time) {
-
 			map.addJunction(new MostCrowdedJunction(_id));
 	}
 	

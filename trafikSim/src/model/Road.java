@@ -87,10 +87,8 @@ public class Road extends SimulatedObject {
 	void enter(Vehicle v)
 	{
 		_vehList.add(v);
-//		v.setLocation(0);
 		_vehList.sort(null);
 	}
-	//KEEP LIST SORTED
 	
 	void exit(Vehicle v)
 	{

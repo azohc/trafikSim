@@ -158,7 +158,7 @@ public class Main {
 		});
 
 		for (File file : files) {
-			test(file.getAbsolutePath(), file.getAbsolutePath() + ".out", file.getAbsolutePath() + ".eout",100);
+			test(file.getAbsolutePath(), file.getAbsolutePath() + ".out", file.getAbsolutePath() + ".eout", 100);
 		}
 
 	}
@@ -225,7 +225,7 @@ public class Main {
 
 		// Call start to start the simulator from command line, etc.
 		start(args);
-		//test("cv_docs/examples/basic");
+		test("cv_docs/100tickinis/advanced");
 		}
 
 }

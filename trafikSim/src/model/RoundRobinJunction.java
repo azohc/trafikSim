@@ -18,12 +18,14 @@ public class RoundRobinJunction extends JunctionWithTimeSlice {
 		
 		if(pos == -1) 					// no green lights
 			_incRoads.get(0).setGreen(true);	//set first light to green
+		
+		
 		else if(((IncRoadWithTimeSlice) _incRoads.get(pos)).getUsedTimeUnits() == ((IncRoadWithTimeSlice) _incRoads.get(pos)).getTimeSlice()) {
 						
 			if(((IncRoadWithTimeSlice) _incRoads.get(pos)).isFullyUsed())
 				((IncRoadWithTimeSlice) _incRoads.get(pos))._timeSlice = Math.min(((IncRoadWithTimeSlice) _incRoads.get(pos)).getTimeSlice() + 1, _maxTimeSlice);
 			
-			else if(((IncRoadWithTimeSlice) _incRoads.get(pos))._used)
+			else if(!((IncRoadWithTimeSlice) _incRoads.get(pos))._used)
 				((IncRoadWithTimeSlice) _incRoads.get(pos))._timeSlice = Math.max(((IncRoadWithTimeSlice) _incRoads.get(pos)).getTimeSlice() - 1, _minTimeSlice);
 			
 			((IncRoadWithTimeSlice) _incRoads.get(pos))._usedTimeUnits = 0;
@@ -47,8 +49,8 @@ public class RoundRobinJunction extends JunctionWithTimeSlice {
 	
 	
 	protected void fillReportDetails(IniSection is) {
-		is.setValue("type", "rr");
 		super.fillReportDetails(is);
+		is.setValue("type", "rr");
 	}
 
 }

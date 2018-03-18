@@ -113,7 +113,7 @@ public class Junction extends SimulatedObject
 	}
 	
 	void addIncomingRoad(Road road) {
-		_incRoads.add(new IncomingRoad(road));
+		_incRoads.add(createIncomingRoadQueue(road));
 	}
 	//USE MAP: this will help in MoveToNextRoad
 	void addOutGoingRoad(Road road) {
@@ -141,8 +141,11 @@ public class Junction extends SimulatedObject
 			_incRoads.get(pos + 1).setGreen(true);			//set next light to green
 		}
 		
-		else 		//light (size - 1) == green
+		else 		// either no green lights or light (size - 1) == green
+		{
+			_incRoads.get(_incRoads.size() - 1).setGreen(false);
 			_incRoads.get(0).setGreen(true);	
+		}
 	}
 	
 	protected String getReportSectionTag() {
