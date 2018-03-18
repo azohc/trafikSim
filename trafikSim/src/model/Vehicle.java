@@ -52,7 +52,7 @@ public class Vehicle extends SimulatedObject implements Comparable<Vehicle>
 	{
 		if(_faulty > 0)
 			_faulty--; 
-		else if (_atJunction) {
+		else if (_atJunction || _arrived) {
 			
 		}
 		else
@@ -61,15 +61,13 @@ public class Vehicle extends SimulatedObject implements Comparable<Vehicle>
 				_kilometrage += (_road.getLength() - _location);
 				_location = _road.getLength();
 
-				if(_itIndex == _itinerary.size() - 1) // //fIX//fIX//fIX esto hay que arreglarlo. o se mira aqui o se mira en mvtonextroad
-					_arrived = true;//fIX
-				
-				
 				_currentSpeed = 0;
 				_atJunction = true;	
+				
 				//enter the queue of the corresponding junction
-				_road.getDestination().enter(this);	//	check
+				_road.getDestination().enter(this);	
 				_itIndex++;			
+			
 			}
 			else {
 				_kilometrage += _currentSpeed;	
@@ -88,15 +86,15 @@ public class Vehicle extends SimulatedObject implements Comparable<Vehicle>
 			_road.enter(this);
 
 		}
-		else if(_arrived)
-		{}
+		else if(_arrived){
+			if(_road != null)
+				_road.exit(this);
+		}
 		else {
-			
-			////////////////////
-			////////////////////arreglar cuando poner arrived a true y como tratar el ultimo junction
-			////////////////////creo que con esto lo tenemos TODO
+	
 			_road.exit(this);
-			if(_itIndex == _itinerary.size() - 1)//fIX
+			
+			if(_itIndex == _itinerary.size() - 1)
 				_arrived = true;
 			
 			else{

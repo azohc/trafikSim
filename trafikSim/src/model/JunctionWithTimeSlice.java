@@ -55,7 +55,7 @@ public abstract class JunctionWithTimeSlice extends Junction {
 			_used = used;
 		}
 		
-		/*
+		
 		protected void advanceFirstVehicle() { 
 	
 		//advance first veh in queue
@@ -68,35 +68,34 @@ public abstract class JunctionWithTimeSlice extends Junction {
 		
 		_usedTimeUnits++;
 		}
-		*/
 		
-		protected void advanceFirstVehicle() { 
-			
-			_usedTimeUnits++;
 		
-			//advance first veh in queue
-			if(!_queue.isEmpty()) {
-				_used = true;
-				
-				if(_usedTimeUnits == _timeSlice)
-					_fullyUsed = true;
-				
-				super.advanceFirstVehicle();
-			}
-			else 	//queue is empty
-			{
-				_fullyUsed = false;
-				_used = false;
-			}
-		}
+//		protected void advanceFirstVehicle() { 
+//			
+//			_usedTimeUnits++;
+//		
+//			//advance first veh in queue
+//			if(!_queue.isEmpty()) {
+//				_used = true;
+//				
+//				if(_usedTimeUnits == _timeSlice)
+//					_fullyUsed = true;
+//				
+//				super.advanceFirstVehicle();
+//			}
+//			else 	//queue is empty
+//			{
+//				_fullyUsed = false;
+//				_used = false;
+//			}
+//		}
 		
 		public String toString() { 
 
 			String out = "(";
 			out += _road.getId() + ",";
-			out += (_green) ? "green:" : "red";
-			
-			out += _timeSlice - _usedTimeUnits + ",["; 
+			out += (_green) ? "green:" + (_timeSlice - _usedTimeUnits) + ",[" : "red,[";
+		
 			
 			if(_queue.isEmpty())		//TODO chek
 				return out += "])";
