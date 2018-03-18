@@ -87,10 +87,9 @@ public class Junction extends SimulatedObject
 		if(i == _incRoads.size() || _incRoads.isEmpty())
 			i = -1; //if no road has a green light, or there is no incoming roads
 		
-		else 
-		{
+		else {
 			_incRoads.get(i).advanceFirstVehicle();	//advance first vehicle, if any
-			_incRoads.get(i).getRoad().getVehicles().sort(null);
+			_incRoads.get(i).getRoad().getVehicles().sort(new Vehicle.VehicleComparator());
 		}
 			
 		if(!_incRoads.isEmpty())//as long as there is incoming roads

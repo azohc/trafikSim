@@ -1,10 +1,11 @@
 package model;
 
+import java.util.Comparator;
 import java.util.List;
 
 import ini.IniSection;
 
-public class Vehicle extends SimulatedObject implements Comparable<Vehicle>
+public class Vehicle extends SimulatedObject 
 {
 
 	protected int _maxSpeed;
@@ -20,6 +21,14 @@ public class Vehicle extends SimulatedObject implements Comparable<Vehicle>
 	private boolean _arrived;
 	protected int _lastFaultyKm;		//to keep track of the kilometrage of last time veh was faulty
 	
+	public static class VehicleComparator implements Comparator<Vehicle> {
+
+		@Override
+		public int compare(Vehicle o1, Vehicle o2) {
+			return -1 * Integer.signum(o1._location - o2._location);
+		}
+		
+	}
 	public Vehicle(String id, int maxSpeed, List<Junction> it) 
 	{
 		super(id);
@@ -154,11 +163,11 @@ public class Vehicle extends SimulatedObject implements Comparable<Vehicle>
 		}
 	}
 	
-	@Override
+	/*@Override
 	public int compareTo(Vehicle o) {
 		return -1*Integer.valueOf(this._location).compareTo(o._location);
 	}
-
+*/
 	public int get_location() {
 		return _location;
 	}

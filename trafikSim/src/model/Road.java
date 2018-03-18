@@ -1,7 +1,9 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import control.SortedArrayList;
+
 import java.lang.Math;
 
 import ini.IniSection;
@@ -20,7 +22,7 @@ public class Road extends SimulatedObject {
 		_maxSpeed = maxSpeed;
 		_source = start;
 		_destination = end;
-		_vehList = new ArrayList<Vehicle>(); // always sorted array list by location
+		_vehList = new SortedArrayList<Vehicle>(new Vehicle.VehicleComparator()); // always sorted array list by location
 		//change to sorted array list at the end
 	}
 
@@ -81,19 +83,18 @@ public class Road extends SimulatedObject {
 		for(Vehicle v : _vehList)
 			v.advance();
 		
-		_vehList.sort(null); 
+		_vehList.sort(new Vehicle.VehicleComparator()); 
 	}
 	
 	void enter(Vehicle v)
 	{
 		_vehList.add(v);
-		_vehList.sort(null);
 	}
 	
 	void exit(Vehicle v)
 	{
 		_vehList.remove(v);
-		_vehList.sort(null);
+		_vehList.sort(new Vehicle.VehicleComparator());
 	}
 
 	public int getLength() {

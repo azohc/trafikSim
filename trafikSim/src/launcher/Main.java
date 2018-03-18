@@ -227,6 +227,7 @@ public class Main {
 		// Call start to start the simulator from command line, etc.
 		start(args);
 		test("cv_docs/100tickinis/advanced");
+		//test("cv_docs/100tickinis/err");
 		}
 
 }

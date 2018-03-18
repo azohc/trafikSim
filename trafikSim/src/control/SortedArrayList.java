@@ -27,7 +27,6 @@ public class SortedArrayList<E> extends ArrayList<E> {
 		return true;
 	}
 	
-	
 	public boolean addAll(Collection<? extends E> elements) {
 		super.addAll(elements);
 		super.sort(_comparator);
@@ -37,3 +36,4 @@ public class SortedArrayList<E> extends ArrayList<E> {
 	
 
 }
+
