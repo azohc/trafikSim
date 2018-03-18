@@ -27,10 +27,10 @@ public class NewRoadEvent extends Event {
 			throw new SimulatorError(dupeObj);
 		
 		if(map.getJunction(_start) == null)
-			throw new SimulatorError("Reference to inexistent junction: " + _start);
+			throw new SimulatorError("Failed to add new road: reference to inexistent junction " + _start);
 		
 		if(map.getJunction(_end) == null)
-			throw new SimulatorError("Reference to inexistent junction: " + _end);
+			throw new SimulatorError("Failed to add new road: reference to inexistent junction " + _end);
 			
 		map.addRoad(new Road(_id, _length, _maxSpeed, map.getJunction(_start), map.getJunction(_end)));
 	}

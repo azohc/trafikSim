@@ -54,7 +54,6 @@ public class TrafficSimulator {
 						_events.get(i).execute(_map, _time);
 					} catch (SimulatorError f) {	// TODO
 						System.out.println(f.getMessage());
-						i++;
 					}
 				}
 			

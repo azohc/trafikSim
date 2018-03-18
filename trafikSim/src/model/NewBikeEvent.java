@@ -22,7 +22,7 @@ public class NewBikeEvent extends NewVehicleEvent {
 		for(int i = 0; i < _itinerary.length ; i++) {
 			
 			if(map.getJunction(_itinerary[i]) == null)
-				throw new SimulatorError("Reference to inexistent junction");
+				throw new SimulatorError("Failed to add new bike: reference to inexistent junction " + _itinerary[i]);
 			
 			_it.add(map.getJunction(_itinerary[i]));
 		}
