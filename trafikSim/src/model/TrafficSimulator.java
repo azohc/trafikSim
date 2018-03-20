@@ -65,6 +65,9 @@ public class TrafficSimulator {
 			
 			_time++;
 			
+			//TODO
+			//notifications go here -> iterate through classes to notify a step is taken
+			
 			try {
 				if(_map.generateReport(_time).getBytes() != null)
 					_outStream.write(_map.generateReport(_time).getBytes());

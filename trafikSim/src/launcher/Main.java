@@ -198,6 +198,22 @@ public class Main {
 		
 		trafikSim.run(_timeLimit);
 	}
+	
+	//TODO check: Samir me dijo que se le pasa null al controller y al tS como outputStream
+	private static void startGUIMode() throws IOException {
+		InputStream i = new FileInputStream(_inFile);
+		OutputStream o = null;
+		
+		TrafficSimulator trafikSim = new TrafficSimulator(o);
+		Controller ctrler = new Controller(trafikSim);
+		
+		ctrler.setEventBuilders(_eventBuilders);
+		ctrler.setOutputStream(o);
+		ctrler.loadEvents(i);
+		
+		trafikSim.run(_timeLimit);
+	}
+	
 
 	private static void start(String[] args) throws IOException {
 		parseArgs(args);
