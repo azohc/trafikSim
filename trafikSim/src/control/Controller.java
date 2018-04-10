@@ -1,5 +1,6 @@
 package control;
 
+import gui.TrafficSimulatorObserver;
 import ini.Ini;
 
 import java.io.IOException;
@@ -32,6 +33,14 @@ public class Controller {
 	
 	public void run(int ticks) {  
 		_sim.run(ticks);
+	}
+	
+	public void addObserver(TrafficSimulatorObserver o) {
+		_sim.addObserver(o);
+	}
+	
+	public void removeObserver(TrafficSimulatorObserver o){
+		_sim.removeObserver(o);
 	}
 	
 	public void loadEvents(InputStream inStream) { 

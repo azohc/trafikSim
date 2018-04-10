@@ -23,9 +23,15 @@ public class Car extends Vehicle {
 
 	void advance(){
 				
-		if(_faulty == 0 && _kilometrage - _lastFaultyKm >= _resistance)
-			if(_rnd.nextDouble() < _faultProbability) 
-				makeFaulty(_rnd.nextInt(_maxFaultDuration) + 1);
+		if(_faulty == 0) {
+			if (_kilometrage - _lastFaultyKm >= _resistance)
+				if(_rnd.nextDouble() < _faultProbability) 
+					makeFaulty(_rnd.nextInt(_maxFaultDuration) + 1);
+		} 
+		else {
+			_lastFaultyKm = _kilometrage;
+		}
+				
 			
 		super.advance();
 	}
