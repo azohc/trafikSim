@@ -54,7 +54,7 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver{
 	@Override
 	public void addStep(int time, RoadMap map, List<Event> events) {
 		// TODO Auto-generated method stub
-		
+		reportArea_.setText();
 	}
 
 	@Override
@@ -66,6 +66,11 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver{
 	@Override
 	public void addReset(int time, RoadMap map, List<Event> events) {
 		// TODO Auto-generated method stub
+		
+	}
+	
+	vehicleTable(){
+		always keep latest version of roadmap here
 		
 	}
 
