@@ -201,7 +201,7 @@ public class Main {
 	
 	//TODO check: Samir me dijo que se le pasa null al controller y al tS como outputStream
 	private static void startGUIMode() throws IOException {
-		InputStream i = new FileInputStream(_inFile);
+		InputStream i = new FileInputStream(_inFile); // quitar cuando conectemos con el text editor
 		OutputStream o = null;
 		
 		TrafficSimulator trafikSim = new TrafficSimulator(o);
