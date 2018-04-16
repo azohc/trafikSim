@@ -76,7 +76,7 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver{
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				_ctrl.loadEvents(new ByteArrayInputStream(_eventEditor.getText())); // falta meter algo
+//				_ctrl.loadEvents(new ByteArrayInputStream(_eventEditor.getText())); // falta meter algo todo
 				
 			}
 			
@@ -94,7 +94,7 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver{
 	@Override
 	public void addStep(int time, RoadMap map, List<Event> events) {
 		// TODO Auto-generated method stub
-		reportArea_.setText();
+	//	reportArea_.setText(); 
 	}
 
 	@Override
@@ -109,10 +109,10 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver{
 		
 	}
 	
-	vehicleTable(){
-		always keep latest version of roadmap here
-		
-	}
+//	vehicleTable(){
+//	//	always keep latest version of roadmap here TODO
+//		
+//	}
 
 	
 }
