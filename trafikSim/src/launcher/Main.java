@@ -9,6 +9,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
 
+import javax.swing.SwingUtilities;
+
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
@@ -29,6 +31,7 @@ import control.NewMostCrowdedJunctionEventBuilder;
 import control.NewRoadEventBuilder;
 import control.NewRoundRobinEventBuilder;
 import control.NewVehicleEventBuilder;
+import gui.MainFrame;
 import ini.Ini;
 import model.TrafficSimulator;
 
@@ -52,6 +55,7 @@ public class Main {
 		new NewMostCrowdedJunctionEventBuilder(),
 		new NewRoundRobinEventBuilder()
 	};
+	private static int mode;
 	
 
 	private static void parseArgs(String[] args) {
@@ -69,10 +73,11 @@ public class Main {
 			parseInFileOption(line);
 			parseOutFileOption(line);
 			parseStepsOption(line);
+			parseModeOption(line);
 
 			// if there are some remaining arguments, then something wrong is
 			// provided in the command line!
-			//
+
 			String[] remaining = line.getArgs();
 			if (remaining.length > 0) {
 				String error = "Illegal arguments:";
@@ -86,7 +91,6 @@ public class Main {
 			System.err.println(e.getLocalizedMessage());
 			System.exit(1);
 		}
-
 	}
 
 	private static Options buildOptions() {
@@ -99,6 +103,8 @@ public class Main {
 		cmdLineOptions.addOption(Option.builder("t").longOpt("ticks").hasArg()
 				.desc("Ticks to execute the simulator's main loop (default value is " + _timeLimitDefaultValue + ").")
 				.build());
+		cmdLineOptions.addOption(Option.builder("m").longOpt("mode").hasArg().desc("Graphical representation option.").build());
+
 
 		return cmdLineOptions;
 	}
@@ -112,9 +118,13 @@ public class Main {
 	}
 
 	private static void parseInFileOption(CommandLine line) throws ParseException {
+		
 		_inFile = line.getOptionValue("i");
 		if (_inFile == null) {
-			throw new ParseException("An events file is missing");
+			_inFile = line.getOptionValue("m");
+			
+			if(_inFile == null)
+				throw new ParseException("An events file is missing");
 		}
 	}
 
@@ -131,7 +141,19 @@ public class Main {
 			throw new ParseException("Invalid value for time limit: " + t);
 		}
 	}
+	
+	private static void parseModeOption(CommandLine line) throws ParseException {
+		String value = line.getOptionValue("m");
+		if(value.equals("batch"))
+			mode = 0;
+		else if(value.equals("gui"))
+			mode = 1;
+		else
+			throw new ParseException("Invalid graphical representation mode");
+			
+	}
 
+	
 	/**
 	 * This method run the simulator on all files that ends with .ini if the given
 	 * path, and compares that output to the expected output. It assumes that for
@@ -196,7 +218,6 @@ public class Main {
 		trafikSim.run(_timeLimit);
 	}
 	
-	//TODO check: Samir me dijo que se le pasa null al controller y al tS como outputStream
 	private static void startGUIMode() throws IOException {
 		InputStream i = new FileInputStream(_inFile); // quitar cuando conectemos con el text editor
 		OutputStream o = null;
@@ -209,37 +230,43 @@ public class Main {
 		ctrler.loadEvents(i);
 		
 		trafikSim.run(_timeLimit);
+		
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				new MainFrame(ctrler, trafikSim);
+			}
+		});
 	}
 	
 
 	private static void start(String[] args) throws IOException {
 		parseArgs(args);
-		startBatchMode();
+		
+		switch(mode){
+			case 0:
+			startBatchMode();
+			break;
+			case 1:
+			startGUIMode();
+			break;
+		}
+		
 	}
 
 	public static void main(String[] args) throws IOException, InvocationTargetException, InterruptedException {
 
 		// example command lines:
-		//
-		// -i resources/examples/events/basic/ex1.ini
-		// -i resources/examples/events/basic/ex1.ini -o ex1.out
-		// -i resources/examples/events/basic/ex1.ini -t 20
-		// -i resources/examples/events/basic/ex1.ini -o ex1.out -t 20
 		// --help
-		//
-		// -i cv_docs/examples/basic/01_simpleRoadDifferentSpeeds.ini -t 10 -o cv_docs/examples/basic/01_simpleRoadDifferentSpeeds.ini.out
-		// -i cv_docs/examples/basic/02_twoRoads.ini -t 10 -o cv_docs/examples/basic/02_twoRoads.ini.out
 		// -i cv_docs/examples/basic/04_faultyVehicle.ini -t 10 -o cv_docs/examples/basic/04_faultyVehicle.ini.out
-		
 		// -i cv_docs/100tickinis/advanced/11_car.ini -t 100 -o cv_docs/100tickinis/advanced/11_car.ini.out
+	
+		// -i cv_docs/100tickinis/advanced/11_car.ini -m gui -t 100 -o cv_docs/100tickinis/advanced/11_car.ini.out
 		
-		// Call test in order to test the simulator on all examples in a directory.
-		//
-	    //	test("resources/examples/events/basic");
+		
 
 		// Call start to start the simulator from command line, etc.
 		start(args);
-		test("cv_docs/100tickinis/advanced");
+//		test("cv_docs/100tickinis/advanced");
 		//test("cv_docs/100tickinis/err");	//cant test err file since there is no .eout
 		}
 

@@ -76,9 +76,6 @@ public class TrafficSimulator implements Observer<TrafficSimulatorObserver> {
 		o.registered(_time, _map, _events);		
 	}
 	
-	
-	
-	
 
 	public void run(int ticks){
 		int limit = _time + ticks - 1;
@@ -106,11 +103,13 @@ public class TrafficSimulator implements Observer<TrafficSimulatorObserver> {
 			//notifications go here -> iterate through classes to notify a step is taken
 			notifyStep();
 			
-			try {
-				if(_map.generateReport(_time).getBytes() != null)
-					_outStream.write(_map.generateReport(_time).getBytes());
-			} catch (IOException e) {
-				System.out.println("Output error when writing the report for time: " + _time);
+			if(_outStream != null){
+				try {
+					if(_map.generateReport(_time).getBytes() != null)
+						_outStream.write(_map.generateReport(_time).getBytes());
+				} catch (IOException e) {
+					System.out.println("Output error when writing the report for time: " + _time);
+				}
 			}
 		}
 	}
