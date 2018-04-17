@@ -30,9 +30,6 @@ import control.NewRoadEventBuilder;
 import control.NewRoundRobinEventBuilder;
 import control.NewVehicleEventBuilder;
 import ini.Ini;
-import model.MostCrowdedJunction;
-import model.NewCarEvent;
-import model.NewRoundRobinJunctionEvent;
 import model.TrafficSimulator;
 
 public class Main {

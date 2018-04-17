@@ -19,4 +19,8 @@ public interface TrafficSimulatorObserver {
 	
 	// notifica que la simulación se ha reiniciado
 	public void addReset(int time, RoadMap map, List<Event> events);	
+	
+	// notifica que se ha añadido un observer
+	public void registered(int time, RoadMap map, List<Event> events);	
+		
 }

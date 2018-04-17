@@ -8,16 +8,9 @@ public class DirtRoad extends Road {
 		super(id, length, maxSpeed, src, dest);
 	}
 	
-	protected int reduceSpeedFactor(int i) 
+	protected int reduceSpeedFactor(int faultyCounter) 
 	{
-		int faultyCounter = 0;
 		int reductionFactor = 1;
-
-		for(int j =  i - 1; j >= 0; j--)
-			if(_vehList.get(i).get_location() < _vehList.get(j).get_location() &&
-				_vehList.get(j).getFaultyTime() > 0)
-					faultyCounter++;
-	
 	
 		reductionFactor += faultyCounter;
 		

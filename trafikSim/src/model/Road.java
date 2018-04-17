@@ -54,29 +54,32 @@ public class Road extends SimulatedObject {
 		return Math.min(_maxSpeed, (_maxSpeed / Math.max(_vehList.size(), 1)) + 1);
 	}
 	
-	protected int reduceSpeedFactor(int i) 
-	{
-		int faultyCounter = 0;
-		int reductionFactor = 1;
-
-		for(int j =  i - 1; j >= 0; j--)
-			if(_vehList.get(i).get_location() < _vehList.get(j).get_location() &&
-				_vehList.get(j).getFaultyTime() > 0)
-					faultyCounter++;
 	
+	protected int reduceSpeedFactor(int faultyCounter) 
+	{
+		int reductionFactor = 1;
 	
 		if(faultyCounter > 0) reductionFactor = 2;
 		
 		return reductionFactor;	
 	}
+	
 
 	void advance() {		
 		
+		int faultyCounter = 0;
 		if(_vehList.isEmpty())
 			return;
 	
-		for(int i = _vehList.size() - 1; i > 0; i--)
-			_vehList.get(i).setSpeed(calculateBaseSpeed() / reduceSpeedFactor(i));
+		for(int i = _vehList.size() - 1; i > 0; i--){
+			
+			for(int j =  i - 1; j >= 0; j--)
+				if(_vehList.get(i).get_location() < _vehList.get(j).get_location() &&
+					_vehList.get(j).getFaultyTime() > 0)
+						faultyCounter++;
+			
+			_vehList.get(i).setSpeed(calculateBaseSpeed() / reduceSpeedFactor(faultyCounter));
+		}
 		
 		_vehList.get(0).setSpeed(calculateBaseSpeed());
 		

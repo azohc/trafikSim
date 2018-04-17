@@ -72,6 +72,12 @@ public class TrafficSimulator implements Observer<TrafficSimulatorObserver> {
 			o.addStep(_time, _map, _events);		
 	}
 	
+	private void notifyNewObs(TrafficSimulatorObserver o){	
+		o.registered(_time, _map, _events);		
+	}
+	
+	
+	
 	
 
 	public void run(int ticks){
@@ -89,16 +95,11 @@ public class TrafficSimulator implements Observer<TrafficSimulatorObserver> {
 					}
 				}
 			
-			/*
-			for(Road r : _map.getRoad()) {
+			for(Road r : _map.getRoad()) 
 				r.advance();
-			}
-			*/
-			for(int i = 0; i < _map.getRoad().size(); i++)
-				_map.getRoad().get(i).advance();
 			
-			for(int i = 0; i < _map.getJunction().size(); i++)
-				_map.getJunction().get(i).advance();
+			for(Junction j : _map.getJunction())
+				j.advance();
 			
 			_time++;
 			
@@ -117,6 +118,8 @@ public class TrafficSimulator implements Observer<TrafficSimulatorObserver> {
 	public void addObserver(TrafficSimulatorObserver o) {
 		if (o != null && !_obsList.contains(o)) 
 			_obsList.add(o);
+		
+		notifyNewObs(o);
 	}
 	
 	public void removeObserver(TrafficSimulatorObserver o) {

@@ -26,7 +26,6 @@ public class VehiclesTable extends JPanel implements TrafficSimulatorObserver{
 
 		@Override
 		public int getRowCount() {
-			// TODO Auto-generated method stub
 			return _map.getVehicles().size();
 		}
 
@@ -52,7 +51,8 @@ public class VehiclesTable extends JPanel implements TrafficSimulatorObserver{
 		}
 		
 	}
-
+	
+	
 	private RoadMap _map;
 	private VehiclesTableModel _vehiclesModel;
 
@@ -68,35 +68,39 @@ public class VehiclesTable extends JPanel implements TrafficSimulatorObserver{
 		_vehiclesModel = new VehiclesTableModel();
 		
 		JTable t = new JTable(_vehiclesModel);
-//		this.add(new JScrollPanel(t, JScrollPane..), BorderLayout.CENTER); TODO
+		this.add(new JScrollPane(t), BorderLayout.CENTER); //check
 	}
+	
 	
 	
 	@Override
 	public void addSimError(int time, RoadMap map, List<Event> events, SimulatorError e) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void addStep(int time, RoadMap map, List<Event> events) {
-		// TODO Auto-generated method stub
 		_map = map;
 		_vehiclesModel.refresh();
 	}
 
 	@Override
 	public void addEvent(int time, RoadMap map, List<Event> events) {
-		// TODO Auto-generated method stub
 		_map = map;
 		_vehiclesModel.refresh();
 	}
 
 	@Override
 	public void addReset(int time, RoadMap map, List<Event> events) {
-		// TODO Auto-generated method stub
 		_map = map;
 		_vehiclesModel.refresh();
+	}
+
+	@Override
+	public void registered(int time, RoadMap map, List<Event> events) {
+		_map = map;
+		_vehiclesModel.refresh();
+
 	}
 
 	
