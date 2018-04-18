@@ -16,16 +16,16 @@ public class MakeVehicleFaulty extends Event {
 		
 		for(int i = 0; i < _vehID.length; i++)
 			map.getVehicle(_vehID[i]).makeFaulty(_duration);
-		
 	}
 
 public String toString(){
 	
-	String out = "";
+	String out = "Break Vehicles [";
 	
 	for(int i = 0; i < _vehID.length; i++)
-		out += "Vehicle " + _vehID[i] + " made faulty for " + _duration  + " ticks. \n";
-
+		out += _vehID[i] + ",";
+	
+	out = out.substring(0, out.length() - 1) + "]";
 		return out;
 	}
 

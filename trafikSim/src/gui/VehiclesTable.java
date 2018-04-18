@@ -42,20 +42,12 @@ public class VehiclesTable extends JPanel implements TrafficSimulatorObserver{
 
 		@Override
 		public Object getValueAt(int rowIndex, int columnIndex) {
-			String s = "";
 			switch(columnIndex) {
-			case 0:
-				s = _map.getVehicles().get(rowIndex).getId();
-			break;
-			case 1: 
-				s = _map.getVehicles().get(rowIndex).getRoad().getId();
-			break;
-			case 2:
-				s = "" + _map.getVehicles().get(rowIndex).get_location();
-				break;
+				case 0:	return _map.getVehicles().get(rowIndex).getId();
+				case 1:	return _map.getVehicles().get(rowIndex).getRoad().getId();
+				case 2:	return  _map.getVehicles().get(rowIndex).get_location();
+				default: return null;
 			}
-			refresh();
-			return null;
 		}
 		
 		void refresh() {

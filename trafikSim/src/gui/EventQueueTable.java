@@ -14,6 +14,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.AbstractTableModel;
 
 import control.SimulatorError;
+import control.SortedArrayList;
 import model.Event;
 import model.RoadMap;
 import model.TrafficSimulator;
@@ -25,12 +26,7 @@ public class EventQueueTable extends JPanel implements TrafficSimulatorObserver 
 
 	class EventTableModel extends AbstractTableModel{
 		private final String[] header = { "#", "Time", "Type" };
-		private List _eventQueue;
 
-		
-		public EventTableModel() {
-			_eventQueue = new LinkedList();
-		}
 		
 		public String getColumnName(int pos) {
 			return header[pos];	
@@ -47,11 +43,15 @@ public class EventQueueTable extends JPanel implements TrafficSimulatorObserver 
 		}
 
 		@Override
-		public Object getValueAt(int arg0, int arg1) {
-			// TODO Auto-generated method stub
-			return null;
+		public Object getValueAt(int row, int col) {
+
+			switch(col) {
+			case 0: return col; 	//TODO CHECK what to put here : also order list inversely, so lowest time is at top
+			case 1: return ((Event) _eventQueue.get(row)).getTime();
+			case 2: return ((Event) _eventQueue.get(row)).toString();	//TODO CHECK
+			default: return null;
+			}
 		}
-		
 		
 		void refresh() {
 			fireTableDataChanged();
@@ -59,10 +59,11 @@ public class EventQueueTable extends JPanel implements TrafficSimulatorObserver 
 	}
 	
 	private EventTableModel _eventTableModel;
-	
+	protected List _eventQueue;
 	
 	public EventQueueTable(TrafficSimulator model) {
 		
+		_eventQueue = null;
 		initGUI();		
 		model.addObserver(this);
 	}
@@ -89,26 +90,30 @@ public class EventQueueTable extends JPanel implements TrafficSimulatorObserver 
 
 	@Override
 	public void addStep(int time, RoadMap map, List<Event> events) {
-		// TODO Auto-generated method stub
-		
+
+		_eventQueue = events;
+		_eventTableModel.refresh();
 	}
 
 	@Override
 	public void addEvent(int time, RoadMap map, List<Event> events) {
-		// TODO Auto-generated method stub
-		
+
+		_eventQueue = events;
+		_eventTableModel.refresh();
 	}
 
 	@Override
 	public void addReset(int time, RoadMap map, List<Event> events) {
-		// TODO Auto-generated method stub
-		
+
+		_eventQueue = events;
+		_eventTableModel.refresh();
 	}
 
 	@Override
 	public void registered(int time, RoadMap map, List<Event> events) {
-		// TODO Auto-generated method stub
-		
+
+		_eventQueue = events;
+		_eventTableModel.refresh();
 	}
 
 }
