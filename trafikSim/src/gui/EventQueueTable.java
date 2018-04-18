@@ -1,12 +1,16 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.border.Border;
+import javax.swing.border.TitledBorder;
 import javax.swing.table.AbstractTableModel;
 
 import control.SimulatorError;
@@ -16,9 +20,11 @@ import model.TrafficSimulator;
 
 @SuppressWarnings("serial")
 public class EventQueueTable extends JPanel implements TrafficSimulatorObserver {
+	
+	public static Border defaultBorder = BorderFactory.createLineBorder(Color.black, 2);
 
 	class EventTableModel extends AbstractTableModel{
-		protected final String[] header = { "#", "Time", "Type" };
+		private final String[] header = { "#", "Time", "Type" };
 		private List _eventQueue;
 
 		
@@ -37,7 +43,7 @@ public class EventQueueTable extends JPanel implements TrafficSimulatorObserver 
 
 		@Override
 		public int getRowCount() {
-			return 0;
+			return _eventQueue.size();
 		}
 
 		@Override
@@ -63,12 +69,13 @@ public class EventQueueTable extends JPanel implements TrafficSimulatorObserver 
 	
 	
 	public void initGUI() {
+		
+		this.setBorder(new TitledBorder(defaultBorder, "Events Queue"));
 		this.setLayout(new BorderLayout());
 		_eventTableModel = new EventTableModel();
 		
-		JTable t = new JTable();
-		
-		t.setModel(_eventTableModel);
+		JTable t = new JTable(_eventTableModel);
+	
 		
 		this.add(new JScrollPane(t), BorderLayout.CENTER); //check		
 		this.setVisible(true);

@@ -1,11 +1,15 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.util.List;
 
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.border.Border;
+import javax.swing.border.TitledBorder;
 import javax.swing.table.AbstractTableModel;
 
 import control.SimulatorError;
@@ -16,10 +20,11 @@ import model.TrafficSimulator;
 @SuppressWarnings("serial")
 public class VehiclesTable extends JPanel implements TrafficSimulatorObserver{
 	
+	public static Border defaultBorder = BorderFactory.createLineBorder(Color.black, 2);
+
 	class VehiclesTableModel extends AbstractTableModel{
 
 		private final String[] header = {"Road", "ID", "Location"};
-		
 		
 		public String getColumnName(int pos) {
 			return header[pos];	
@@ -49,6 +54,7 @@ public class VehiclesTable extends JPanel implements TrafficSimulatorObserver{
 				s = "" + _map.getVehicles().get(rowIndex).get_location();
 				break;
 			}
+			refresh();
 			return null;
 		}
 		
@@ -70,10 +76,12 @@ public class VehiclesTable extends JPanel implements TrafficSimulatorObserver{
 	}
 	
 	private void initGUI() {
+		this.setBorder(new TitledBorder(defaultBorder, "Vehicles"));
 		this.setLayout(new BorderLayout());
 		_vehiclesModel = new VehiclesTableModel();
 		
 		JTable t = new JTable(_vehiclesModel);
+				
 		this.add(new JScrollPane(t), BorderLayout.CENTER); //check
 		this.setVisible(true);
 	}

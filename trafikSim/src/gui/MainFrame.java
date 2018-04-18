@@ -71,6 +71,7 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		//TOOLBAR
 		mainPanel.add(new Toolbar(_model, _ctrl), BorderLayout.PAGE_START);
 		
+		
 		//PANELS
 		innerPanel = new JPanel();
 		innerPanel.setLayout(new BoxLayout(innerPanel, BoxLayout.Y_AXIS));	//check
@@ -89,13 +90,15 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		innerPanel.add(lowerPanel);
 		lowerPanel.add(lowLeftPanel);
 		
+		
 		//EVENT EDITOR
 		upperPanel.add(new TextEditor(_model,_ctrl));
 		((Toolbar) mainPanel.getComponent(0)).setTextArea(((TextEditor) upperPanel.getComponent(0)).getTextArea());
 		
+		
 		//EVENT QUEUE
 		upperPanel.add(new EventQueueTable(_model));
-		
+
 		
 		//MENU BAR
 		this.setJMenuBar(createFileMenuBar());
