@@ -47,8 +47,8 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 	private JPanel innerPanel;
 	private JPanel upperPanel;
 	private JPanel lowerPanel;
+	private JPanel lowLeftPanel;
 
-	static private final String[] columnIdEventos = { "#", "Time", "Type" };
 		
 	
 	
@@ -69,8 +69,7 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		this.setContentPane(mainPanel);
 		
 		//TOOLBAR
-		_tb = new Toolbar(_model, _ctrl);
-		mainPanel.add(_tb.createJToolBar(), BorderLayout.PAGE_START);
+		mainPanel.add(new Toolbar(_model, _ctrl), BorderLayout.PAGE_START);
 		
 		//PANELS
 		innerPanel = new JPanel();
@@ -83,15 +82,20 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		lowerPanel = new JPanel();
 		lowerPanel.setLayout(new BoxLayout(lowerPanel, BoxLayout.X_AXIS));
 		
+		lowLeftPanel = new JPanel();
+		lowLeftPanel.setLayout(new BoxLayout(lowLeftPanel, BoxLayout.Y_AXIS));
 		
 		innerPanel.add(upperPanel);
 		innerPanel.add(lowerPanel);
+		lowerPanel.add(lowLeftPanel);
 		
+		//EVENT EDITOR
 		upperPanel.add(new TextEditor(_model,_ctrl));
+		((Toolbar) mainPanel.getComponent(0)).setTextArea(((TextEditor) upperPanel.getComponent(0)).getTextArea());
 		
+		//EVENT QUEUE
+		upperPanel.add(new EventQueueTable(_model));
 		
-		
-	
 		
 		//MENU BAR
 		this.setJMenuBar(createFileMenuBar());
@@ -99,7 +103,7 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		
 		//TABLES
 		VehiclesTable vt = new VehiclesTable(_model);
-		lowerPanel.add(vt);
+		lowLeftPanel.add(vt);
 		
 		
 		
@@ -212,14 +216,11 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 	}
 
 	public void actionPerformed(ActionEvent e) {
-//		if (LOAD.equals(e.getActionCommand())) mega todo
-//			loadFile();
-//		else if (SAVE.equals(e.getActionCommand()))
-//			saveFile();
-//		else if (CLEAR.equals(e.getActionCommand()))
-//			textArea.setText("");
-//		else if (QUIT.equals(e.getActionCommand()))
-//			System.exit(0);
+		if (CLEAR.equals(e.getActionCommand()))
+			((TextEditor) upperPanel.getComponent(0)).getTextArea().setText("");
+		else if (QUIT.equals(e.getActionCommand()))
+			System.exit(0);
 	}
+
 
 }

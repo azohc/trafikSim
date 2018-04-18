@@ -13,11 +13,17 @@ import model.Event;
 import model.RoadMap;
 import model.TrafficSimulator;
 
+@SuppressWarnings("serial")
 public class VehiclesTable extends JPanel implements TrafficSimulatorObserver{
 	
 	class VehiclesTableModel extends AbstractTableModel{
 
-		String[] header = {"Road", "ID", "Location"};
+		private final String[] header = {"Road", "ID", "Location"};
+		
+		
+		public String getColumnName(int pos) {
+			return header[pos];	
+		}
 		
 		@Override
 		public int getColumnCount() {
@@ -69,6 +75,7 @@ public class VehiclesTable extends JPanel implements TrafficSimulatorObserver{
 		
 		JTable t = new JTable(_vehiclesModel);
 		this.add(new JScrollPane(t), BorderLayout.CENTER); //check
+		this.setVisible(true);
 	}
 	
 	

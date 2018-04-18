@@ -13,9 +13,9 @@ import javax.swing.JTextArea;
 import model.TrafficSimulator;
 import control.Controller;
 
+@SuppressWarnings("serial")
 public class TextEditor extends JPanel { 	//this is a JPanel object -> with initGUI config from constructor call, we create a object
 
-	private JFileChooser fc;
 	private JTextArea textArea;
 	private TrafficSimulator _model;
 	private Controller _ctrl;
@@ -26,6 +26,10 @@ public class TextEditor extends JPanel { 	//this is a JPanel object -> with init
 		initGUI();
 	}
 
+	public JTextArea getTextArea() {
+		return textArea;
+	}
+	
 	private void initGUI() {
 		this.setLayout( new BorderLayout() );
 		textArea = new JTextArea("");
