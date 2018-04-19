@@ -46,9 +46,9 @@ public class EventQueueTable extends JPanel implements TrafficSimulatorObserver 
 		public Object getValueAt(int row, int col) {
 
 			switch(col) {
-			case 0: return col; 	//TODO CHECK what to put here : also order list inversely, so lowest time is at top
-			case 1: return ((Event) _eventQueue.get(row)).getTime();
-			case 2: return ((Event) _eventQueue.get(row)).toString();	//TODO CHECK
+			case 0: return row; 	//TODO CHECK what to put here : also order list inversely, so lowest time is at top
+			case 1: return ((Event) _eventQueue.get(_eventQueue.size() - 1 - row)).getTime(); //ñapa para sortearlo al reves
+			case 2: return ((Event) _eventQueue.get(_eventQueue.size() - 1 - row)).toString();	
 			default: return null;
 			}
 		}
@@ -71,15 +71,26 @@ public class EventQueueTable extends JPanel implements TrafficSimulatorObserver 
 	
 	public void initGUI() {
 		
-		this.setBorder(new TitledBorder(defaultBorder, "Events Queue"));
 		this.setLayout(new BorderLayout());
+		this.setBorder(new TitledBorder(defaultBorder, "Events Queue"));
 		_eventTableModel = new EventTableModel();
 		
 		JTable t = new JTable(_eventTableModel);
-	
+		t.setShowGrid(false);
 		
-		this.add(new JScrollPane(t), BorderLayout.CENTER); //check		
+		JScrollPane jsp = new JScrollPane(t);
+		jsp.getViewport().setBackground(Color.white);
+		
+		this.add(jsp, BorderLayout.CENTER);	
+		
+		
+		
 		this.setVisible(true);
+	}
+	
+	public boolean getScrollableTracksViewportWidth() {
+		   return getPreferredSize().width < getParent().getWidth();
+		
 	}
 	
 	@Override

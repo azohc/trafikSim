@@ -73,8 +73,12 @@ public class VehiclesTable extends JPanel implements TrafficSimulatorObserver{
 		_vehiclesModel = new VehiclesTableModel();
 		
 		JTable t = new JTable(_vehiclesModel);
-				
-		this.add(new JScrollPane(t), BorderLayout.CENTER); //check
+		t.setShowGrid(false);
+		
+		JScrollPane jsp = new JScrollPane(t);
+		jsp.getViewport().setBackground(Color.white);
+		
+		this.add(jsp, BorderLayout.CENTER);	
 		this.setVisible(true);
 	}
 	
