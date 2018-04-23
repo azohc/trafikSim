@@ -23,6 +23,7 @@ public class EventEditor extends JPanel { 	//this is a JPanel object -> with ini
 	private JTextArea textArea;
 	private TrafficSimulator _model;
 	private Controller _ctrl;
+	private TitledBorder _titledBrd;
 
 	public static Border defaultBorder = BorderFactory.createLineBorder(Color.black, 2);
 	
@@ -38,7 +39,8 @@ public class EventEditor extends JPanel { 	//this is a JPanel object -> with ini
 	}
 	
 	private void initGUI() {
-		this.setBorder(new TitledBorder(defaultBorder, "Events TODO: add iniFilename"));
+		_titledBrd = new TitledBorder(defaultBorder, "Events");
+		this.setBorder(_titledBrd);
 		this.setLayout(new BorderLayout());
 		textArea = new JTextArea("");
 		textArea.setEditable(true);
@@ -47,5 +49,15 @@ public class EventEditor extends JPanel { 	//this is a JPanel object -> with ini
 		JScrollPane area = new JScrollPane(textArea);
 		this.add(area, BorderLayout.CENTER);
 	}
+	
+	public TitledBorder getBorder(){
+		return _titledBrd;
+	}
+	
+	public void setBorder(String s){
+		_titledBrd.setTitle(s);
+		repaint();
+	}
+	
 
 }

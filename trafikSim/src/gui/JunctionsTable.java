@@ -44,17 +44,29 @@ public class JunctionsTable extends JPanel implements TrafficSimulatorObserver {
 		@Override
 		public Object getValueAt(int rowIndex, int columnIndex) {
 			Junction j = _map.getJunctions().get(rowIndex);
-			String s = "[";
+
 			switch(columnIndex) {
 				case 0:	return j.getId();
 				case 1:	{
-					for(int i = 0; i < j.getRoadsInfo().size(); i++)
-						if(j.getRoadsInfo().get(j.getGreenLightIndex()) != null)
-							s += j.getRoadsInfo().get(j.getGreenLightIndex()) + ",";
+					if(j.getGreenLightIndex() != -1)
+						return "[" + j.getRoadsInfo().get(j.getGreenLightIndex()) + "]";
+					return  "[]"; 
+				}
+				case 2:	{
+					String s = "[";
+								
+					if(j.getRoadsInfo().isEmpty())
+						return "[]";
 					
-					return s.substring(0, s.length() - 1) + "]"; 
-				}//TODO FIX : when null substring removes [
-				case 2:	return _map.getJunctions().get(rowIndex).getId();//TODO 
+					for(int i = 0 ; i < j.getRoadsInfo().size() - 1; i++)	
+						if(!j.getRoadsInfo().get(i).hasGreenLight())
+							s += j.getRoadsInfo().get(i) + ",";
+
+					if(s.equals("["))
+						return "[]";
+					
+					return s.substring(0, s.length() - 1) + "]";
+				}
 				default: return null;
 			}
 		}

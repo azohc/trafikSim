@@ -8,7 +8,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -55,8 +58,6 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 	private JPanel lowerPanel;
 	private JPanel lowLeftPanel;
 
-		
-	
 	
 	public MainFrame(Controller ctrl, TrafficSimulator model){
 		super("Traffic Simulator");
@@ -73,11 +74,6 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		mainPanel = new JPanel();
 		mainPanel.setLayout(new BorderLayout());
 		setContentPane(mainPanel);
-		
-		//TOOLBAR
-		_tb = new Toolbar(_model, _ctrl);
-		mainPanel.add(_tb, BorderLayout.PAGE_START);
-		
 		
 		//PANELS
 		innerPanel = new JPanel();
@@ -101,8 +97,7 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		//EVENT EDITOR
 		_eventEditor = new EventEditor(_model,_ctrl);
 		upperPanel.add(_eventEditor);
-	//	((Toolbar) mainPanel.getComponent(0)).setTextArea(((EventEditor) upperPanel.getComponent(0)).getTextArea());
-		_tb.setTextArea(_eventEditor.getTextArea());
+		
 		
 		//EVENT QUEUE
 		_eventTable = new EventQueueTable(_model);
@@ -126,32 +121,17 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		_juncTable = new JunctionsTable(_model);
 		lowLeftPanel.add(_juncTable);
 		
+		//TOOLBAR
+		_tb = new Toolbar(_model, _ctrl, _eventEditor.getTextArea());
+		mainPanel.add(_tb, BorderLayout.PAGE_START);
+
+		
 		setSize(200,200);
 		setVisible(true);
 				
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		pack();
 		
-//		//BUTTONS
-//		JButton step = new JButton("Step");
-//		mainPanel.add(step);
-//		
-//		step.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent arg0) {
-//				_ctrl.run(1);
-//			}
-//		});
-//		
-//		JButton load = new JButton("Load");
-//		mainPanel.add(load);
-//		
-//		load.addActionListener(new ActionListener() {
-//
-//			public void actionPerformed(ActionEvent arg0) {
-//				_ctrl.loadEvents(new ByteArrayInputStream(_eventEditor.getText().getBytes())); //Check
-//			}
-//		}
-//		);
 	}
 	
 	@Override
@@ -233,10 +213,30 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 
 	public void actionPerformed(ActionEvent e) {
 		if (CLEAR.equals(e.getActionCommand()))
-			((EventEditor) upperPanel.getComponent(0)).getTextArea().setText("");
+			_eventEditor.getTextArea().setText("");
 		else if (QUIT.equals(e.getActionCommand()))
 			System.exit(0);
 	}
 
+	public static String readFile(File file) {
+		String s = "";
+		try {
+			s = new Scanner(file).useDelimiter("\\A").next();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		return s;
+	}
+
+	
+	private void loadFile() {
+		int returnVal = fc.showOpenDialog(null);
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
+			File file = fc.getSelectedFile();
+			String s = readFile(file);
+			_eventEditor.getTextArea().setText(s);
+		}
+	}
 
 }

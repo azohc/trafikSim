@@ -46,8 +46,8 @@ public class EventQueueTable extends JPanel implements TrafficSimulatorObserver 
 		public Object getValueAt(int row, int col) {
 
 			switch(col) {
-			case 0: return row; 	//TODO CHECK what to put here : also order list inversely, so lowest time is at top
-			case 1: return ((Event) _eventQueue.get(_eventQueue.size() - 1 - row)).getTime(); //ñapa para sortearlo al reves
+			case 0: return row; 	
+			case 1: return ((Event) _eventQueue.get(_eventQueue.size() - 1 - row)).getTime(); //niapa para sortearlo al reves
 			case 2: return ((Event) _eventQueue.get(_eventQueue.size() - 1 - row)).toString();	
 			default: return null;
 			}

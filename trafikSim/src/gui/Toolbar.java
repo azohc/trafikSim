@@ -26,13 +26,15 @@ public class Toolbar extends JToolBar implements ActionListener {
 	
 	private TrafficSimulator _model;
 	private Controller _ctrl;
+	
 	private JFileChooser fc;	
 	private JTextArea textArea;
 
 
-	public Toolbar(TrafficSimulator model, Controller ctrl) {
+	public Toolbar(TrafficSimulator model, Controller ctrl, JTextArea txtArea) {
 		_model = model;
 		_ctrl = ctrl;
+		textArea = txtArea;
 		createJToolBar();
 	}
 
@@ -76,7 +78,7 @@ public class Toolbar extends JToolBar implements ActionListener {
 			System.exit(0);
 	}
 
-	private void saveFile() {			//mega todo
+	private void saveFile() {			//TODO Check why loadfile savefile dont work
 		int returnVal = fc.showSaveDialog(null);
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
 			File file = fc.getSelectedFile();
