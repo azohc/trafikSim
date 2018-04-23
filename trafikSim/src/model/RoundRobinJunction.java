@@ -16,27 +16,27 @@ public class RoundRobinJunction extends JunctionWithTimeSlice {
 	
 	public void switchLights() {
 		
-		if(_greenLightIndex == -1) { 					// no green lights
-			_greenLightIndex++;
-			_incRoads.get(_greenLightIndex).setGreen(true);	//set first light to green
+		if(getGreenLightIndex() == -1) { 					// no green lights
+			setGreenLightIndex(getGreenLightIndex() + 1);
+			_incRoads.get(getGreenLightIndex()).setGreen(true);	//set first light to green
 		}
 		
-		else if(((IncRoadWithTimeSlice) _incRoads.get(_greenLightIndex)).getUsedTimeUnits() == ((IncRoadWithTimeSlice) _incRoads.get(_greenLightIndex)).getTimeSlice()) {
+		else if(((IncRoadWithTimeSlice) _incRoads.get(getGreenLightIndex())).getUsedTimeUnits() == ((IncRoadWithTimeSlice) _incRoads.get(getGreenLightIndex())).getTimeSlice()) {
 						
-			if(((IncRoadWithTimeSlice) _incRoads.get(_greenLightIndex)).isFullyUsed())
-				((IncRoadWithTimeSlice) _incRoads.get(_greenLightIndex))._timeSlice = Math.min(((IncRoadWithTimeSlice) _incRoads.get(_greenLightIndex)).getTimeSlice() + 1, _maxTimeSlice);
+			if(((IncRoadWithTimeSlice) _incRoads.get(getGreenLightIndex())).isFullyUsed())
+				((IncRoadWithTimeSlice) _incRoads.get(getGreenLightIndex()))._timeSlice = Math.min(((IncRoadWithTimeSlice) _incRoads.get(getGreenLightIndex())).getTimeSlice() + 1, _maxTimeSlice);
 			
-			else if(!((IncRoadWithTimeSlice) _incRoads.get(_greenLightIndex))._used)
-				((IncRoadWithTimeSlice) _incRoads.get(_greenLightIndex))._timeSlice = Math.max(((IncRoadWithTimeSlice) _incRoads.get(_greenLightIndex)).getTimeSlice() - 1, _minTimeSlice);
+			else if(!((IncRoadWithTimeSlice) _incRoads.get(getGreenLightIndex()))._used)
+				((IncRoadWithTimeSlice) _incRoads.get(getGreenLightIndex()))._timeSlice = Math.max(((IncRoadWithTimeSlice) _incRoads.get(getGreenLightIndex())).getTimeSlice() - 1, _minTimeSlice);
 			
-			((IncRoadWithTimeSlice) _incRoads.get(_greenLightIndex))._usedTimeUnits = 0;
+			((IncRoadWithTimeSlice) _incRoads.get(getGreenLightIndex()))._usedTimeUnits = 0;
 			
 			_incRoads.get(_greenLightIndex++).setGreen(false);			//set current light to red
 			
-			if(_greenLightIndex == _incRoads.size())					//if next light is == size (out of range)
-				_greenLightIndex = 0;									//set index to first element
+			if(getGreenLightIndex() == _incRoads.size())					//if next light is == size (out of range)
+				setGreenLightIndex(0);									//set index to first element
 			
-			_incRoads.get(_greenLightIndex).setGreen(true);			//set next light to green
+			_incRoads.get(getGreenLightIndex()).setGreen(true);			//set next light to green
 						
 		}
 	}

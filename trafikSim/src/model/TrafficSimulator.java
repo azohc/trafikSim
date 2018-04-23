@@ -92,10 +92,10 @@ public class TrafficSimulator implements Observer<TrafficSimulatorObserver> {
 					}
 				}
 			
-			for(Road r : _map.getRoad()) 
+			for(Road r : _map.getRoads()) 
 				r.advance();
 			
-			for(Junction j : _map.getJunction())
+			for(Junction j : _map.getJunctions())
 				j.advance();
 			
 			_time++;

@@ -41,12 +41,12 @@ public class RoadMap {
 		return _vehicles;
 	}
 	
-	public List<Road> getRoad(){
+	public List<Road> getRoads(){
 		
 		return _roads;
 	}
 	
-	public List<Junction> getJunction(){
+	public List<Junction> getJunctions(){
 		
 		return _junctions;
 	}

@@ -116,7 +116,7 @@ public class Road extends SimulatedObject {
 		return _vehList;
 	}
 
-	public int get_maxSpeed() {
+	public int getMaxSpeed() {
 		return _maxSpeed;
 	}
 

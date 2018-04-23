@@ -80,20 +80,6 @@ public class Junction extends SimulatedObject
 
 	public void advance() 
 	{
-	/*
-		int i = 0;
-		//for the first incomingRoad with a green light
-		while((i < _incRoads.size()) && !(_incRoads.get(i).hasGreenLight())) 
-			i++;
-		lightLoopRemoval
-		if(i == _incRoads.size() || _incRoads.isEmpty())
-			i = -1; //if no road has a green light, or there is no incoming roads
-	
-		else {
-			_incRoads.get(i).advanceFirstVehicle();	//advance first vehicle, if any
-			_incRoads.get(i).getRoad().getVehicles().sort(new Vehicle.VehicleComparator());
-		}
-	*/
 		if(!_incRoads.isEmpty()) {
 			if(_greenLightIndex != -1)//advance first vehicle of incRoad number greenLightIndex
 			{
@@ -153,20 +139,7 @@ public class Junction extends SimulatedObject
 			_greenLightIndex++;
 			_incRoads.get(_greenLightIndex).setGreen(true);		//turn next road's light to green
 		}
-		
-		
-		/*
-		if(pos != -1 && pos != _incRoads.size() - 1) { 		//for lights 0 to size - 2
-			_incRoads.get(pos).setGreen(false);			//set current light to red
-			_incRoads.get(pos + 1).setGreen(true);			//set next light to green
-		}
-		
-		else 		// either no green lights or light (size - 1) == green
-		{
-			_incRoads.get(_incRoads.size() - 1).setGreen(false);
-			_incRoads.get(0).setGreen(true);	
-		}
-		*/
+	
 	}
 	
 	protected String getReportSectionTag() {
@@ -187,6 +160,16 @@ public class Junction extends SimulatedObject
 			
 			is.setValue( "queues", o);
 		}
+	}
+
+
+	public int getGreenLightIndex() {
+		return _greenLightIndex;
+	}
+
+
+	public void setGreenLightIndex(int _greenLightIndex) {
+		this._greenLightIndex = _greenLightIndex;
 	}
 
 }

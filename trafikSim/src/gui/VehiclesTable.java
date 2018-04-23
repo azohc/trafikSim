@@ -24,7 +24,7 @@ public class VehiclesTable extends JPanel implements TrafficSimulatorObserver{
 
 	class VehiclesTableModel extends AbstractTableModel{
 
-		private final String[] header = {"Road", "ID", "Location"};
+		private final String[] header = {"Road", "ID", "Location", "Speed", "Km", "Faulty Units", "Itinerary"};
 		
 		public String getColumnName(int pos) {
 			return header[pos];	
@@ -45,7 +45,11 @@ public class VehiclesTable extends JPanel implements TrafficSimulatorObserver{
 			switch(columnIndex) {
 				case 0:	return _map.getVehicles().get(rowIndex).getId();
 				case 1:	return _map.getVehicles().get(rowIndex).getRoad().getId();
-				case 2:	return  _map.getVehicles().get(rowIndex).get_location();
+				case 2:	return _map.getVehicles().get(rowIndex).get_location();
+				case 3: return _map.getVehicles().get(rowIndex).getSpeed();
+				case 4: return _map.getVehicles().get(rowIndex).getKilometrage();
+				case 5: return _map.getVehicles().get(rowIndex).getFaultyTime();
+				case 6: return _map.getVehicles().get(rowIndex).getItinerary();
 				default: return null;
 			}
 		}

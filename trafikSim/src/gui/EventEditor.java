@@ -18,7 +18,7 @@ import model.TrafficSimulator;
 import control.Controller;
 
 @SuppressWarnings("serial")
-public class TextEditor extends JPanel { 	//this is a JPanel object -> with initGUI config from constructor call, we create a object
+public class EventEditor extends JPanel { 	//this is a JPanel object -> with initGUI 1config from constructor call, we create a object
 
 	private JTextArea textArea;
 	private TrafficSimulator _model;
@@ -27,7 +27,7 @@ public class TextEditor extends JPanel { 	//this is a JPanel object -> with init
 	public static Border defaultBorder = BorderFactory.createLineBorder(Color.black, 2);
 	
 	
-	public TextEditor(TrafficSimulator model, Controller ctrl) {
+	public EventEditor(TrafficSimulator model, Controller ctrl) {
 		_model = model;
 		_ctrl = ctrl;
 		initGUI();
@@ -46,7 +46,6 @@ public class TextEditor extends JPanel { 	//this is a JPanel object -> with init
 		textArea.setWrapStyleWord(true);
 		JScrollPane area = new JScrollPane(textArea);
 		this.add(area, BorderLayout.CENTER);
-
 	}
 
 }

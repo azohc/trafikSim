@@ -19,6 +19,7 @@ import model.TrafficSimulator;
 import control.Controller;
 import control.SimulatorError;
 
+@SuppressWarnings("serial")
 public class MainFrame extends JFrame implements TrafficSimulatorObserver, ActionListener{
 
 	private final String LOAD = "load";
@@ -38,9 +39,14 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 	private Toolbar _tb;
 	
 	// TEXT AREAS
-	private JTextArea _eventEditor;
-	private JTextArea _reportArea;
-	private TextEditor _te;
+	private EventEditor _eventEditor;
+	private ReportTextArea _reportArea;
+	
+	// TABLES
+	private EventQueueTable _eventTable;
+	private VehiclesTable _vehTable;
+	private RoadsTable _rdTable;
+	private JunctionsTable _juncTable;
 	
 	// PANELS
 	private JPanel mainPanel;
@@ -66,10 +72,11 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		
 		mainPanel = new JPanel();
 		mainPanel.setLayout(new BorderLayout());
-		this.setContentPane(mainPanel);
+		setContentPane(mainPanel);
 		
 		//TOOLBAR
-		mainPanel.add(new Toolbar(_model, _ctrl), BorderLayout.PAGE_START);
+		_tb = new Toolbar(_model, _ctrl);
+		mainPanel.add(_tb, BorderLayout.PAGE_START);
 		
 		
 		//PANELS
@@ -92,32 +99,38 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		
 		
 		//EVENT EDITOR
-		upperPanel.add(new TextEditor(_model,_ctrl));
-		((Toolbar) mainPanel.getComponent(0)).setTextArea(((TextEditor) upperPanel.getComponent(0)).getTextArea());
-		
+		_eventEditor = new EventEditor(_model,_ctrl);
+		upperPanel.add(_eventEditor);
+	//	((Toolbar) mainPanel.getComponent(0)).setTextArea(((EventEditor) upperPanel.getComponent(0)).getTextArea());
+		_tb.setTextArea(_eventEditor.getTextArea());
 		
 		//EVENT QUEUE
-		upperPanel.add(new EventQueueTable(_model));
-
+		_eventTable = new EventQueueTable(_model);
+		upperPanel.add(_eventTable);
+		
+		//REPORT AREA
+		_reportArea = new ReportTextArea(_model, _ctrl);
+		upperPanel.add(_reportArea);
 		
 		//MENU BAR
-		this.setJMenuBar(createFileMenuBar());
+		setJMenuBar(createFileMenuBar());
 		
 		
 		//TABLES
-		VehiclesTable vt = new VehiclesTable(_model);
-		lowLeftPanel.add(vt);
+		_vehTable = new VehiclesTable(_model);
+		lowLeftPanel.add(_vehTable);
 		
+		_rdTable = new RoadsTable(_model);
+		lowLeftPanel.add(_rdTable);
 		
+		_juncTable = new JunctionsTable(_model);
+		lowLeftPanel.add(_juncTable);
 		
-		
-		
-
 		setSize(200,200);
 		setVisible(true);
 				
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.pack();
+		pack();
 		
 //		//BUTTONS
 //		JButton step = new JButton("Step");
@@ -151,7 +164,7 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 //run button calls controller run(1)
 	@Override
 	public void addStep(int time, RoadMap map, List<Event> events) {
-		_reportArea.setText(map.generateReport(time)); 
+//		_reportArea.setText(map.generateReport(time)); 
 	}
 
 	@Override
@@ -220,7 +233,7 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 
 	public void actionPerformed(ActionEvent e) {
 		if (CLEAR.equals(e.getActionCommand()))
-			((TextEditor) upperPanel.getComponent(0)).getTextArea().setText("");
+			((EventEditor) upperPanel.getComponent(0)).getTextArea().setText("");
 		else if (QUIT.equals(e.getActionCommand()))
 			System.exit(0);
 	}
