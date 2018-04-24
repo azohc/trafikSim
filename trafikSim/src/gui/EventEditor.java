@@ -42,7 +42,7 @@ public class EventEditor extends JPanel { 	//this is a JPanel object -> with ini
 		_titledBrd = new TitledBorder(defaultBorder, "Events");
 		this.setBorder(_titledBrd);
 		this.setLayout(new BorderLayout());
-		textArea = new JTextArea("");
+		textArea = new JTextArea(40, 30);
 		textArea.setEditable(true);
 		textArea.setLineWrap(true);
 		textArea.setWrapStyleWord(true);

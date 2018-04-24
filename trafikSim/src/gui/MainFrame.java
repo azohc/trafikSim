@@ -130,7 +130,7 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		setVisible(true);
 				
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		pack();
+		pack(); //TODO why is time = 100 on first run
 		
 	}
 	
@@ -144,7 +144,7 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 //run button calls controller run(1)
 	@Override
 	public void addStep(int time, RoadMap map, List<Event> events) {
-//		_reportArea.setText(map.generateReport(time)); 
+		_reportArea.setText(map.generateReport(time)); 
 	}
 
 	@Override
@@ -163,12 +163,13 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		
 	}
 	
-	
+	//TODO createSimulatorMenuBar
+	//TODO createReportsMenuBar
 	public JMenuBar createFileMenuBar() {
 		JMenuItem load, save, clear, quit;
 
 		JMenuBar menuBar = new JMenuBar();
-
+			
 		JMenu file = new JMenu("File");
 		menuBar.add(file);
 		file.setMnemonic(KeyEvent.VK_F);

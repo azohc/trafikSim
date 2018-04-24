@@ -20,7 +20,7 @@ import model.TrafficSimulator;
 @SuppressWarnings("serial")
 public class ReportTextArea extends JPanel implements TrafficSimulatorObserver {
 	
-	private JTextArea textArea;
+	private JTextArea _textArea;
 	private TrafficSimulator _model;
 	private Controller _ctrl;
 	
@@ -36,11 +36,11 @@ public class ReportTextArea extends JPanel implements TrafficSimulatorObserver {
 	private void initGUI() {
 		this.setBorder(new TitledBorder(defaultBorder, "Reports"));
 		this.setLayout(new BorderLayout());
-		textArea = new JTextArea("");
-		textArea.setEditable(false);
-		textArea.setLineWrap(true);
-		textArea.setWrapStyleWord(true);
-		JScrollPane area = new JScrollPane(textArea);
+		_textArea = new JTextArea(40, 30);
+		_textArea.setEditable(false);
+		_textArea.setLineWrap(true);
+		_textArea.setWrapStyleWord(true);
+		JScrollPane area = new JScrollPane(_textArea);
 		this.add(area, BorderLayout.CENTER);
 	}
 
@@ -72,6 +72,10 @@ public class ReportTextArea extends JPanel implements TrafficSimulatorObserver {
 	public void registered(int time, RoadMap map, List<Event> events) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public void setText(String generateReport) {
+		_textArea.setText(generateReport);
 	}
 
 }

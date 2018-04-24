@@ -219,7 +219,6 @@ public class Main {
 	}
 	
 	private static void startGUIMode() throws IOException {
-		InputStream i = new FileInputStream(_inFile); // quitar cuando conectemos con el text editor
 		OutputStream o = null;
 		
 		TrafficSimulator trafikSim = new TrafficSimulator(o);
@@ -227,9 +226,6 @@ public class Main {
 		
 		ctrler.setEventBuilders(_eventBuilders);
 		ctrler.setOutputStream(o);
-		ctrler.loadEvents(i);
-		
-		trafikSim.run(_timeLimit);
 		
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
