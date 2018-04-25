@@ -168,7 +168,7 @@ public class Vehicle extends SimulatedObject
 		return -1*Integer.valueOf(this._location).compareTo(o._location);
 	}
 */
-	public int get_location() {
+	public int getLocation() {
 		return _location;
 	}
 

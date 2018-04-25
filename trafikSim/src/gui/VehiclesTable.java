@@ -45,7 +45,7 @@ public class VehiclesTable extends JPanel implements TrafficSimulatorObserver{
 			switch(columnIndex) {
 				case 0:	return _map.getVehicles().get(rowIndex).getId();
 				case 1:	return _map.getVehicles().get(rowIndex).getRoad().getId();
-				case 2:	return _map.getVehicles().get(rowIndex).get_location();
+				case 2:	return _map.getVehicles().get(rowIndex).getLocation();
 				case 3: return _map.getVehicles().get(rowIndex).getSpeed();
 				case 4: return _map.getVehicles().get(rowIndex).getKilometrage();
 				case 5: return _map.getVehicles().get(rowIndex).getFaultyTime();

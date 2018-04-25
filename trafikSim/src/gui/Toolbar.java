@@ -33,29 +33,26 @@ public class Toolbar extends JToolBar implements ActionListener {
 	private final String RUNSTEPS = "run steps";
 	private final String RESET = "reset";
 	
-	
-	
 	private TrafficSimulator _model;
 	private Controller _ctrl;
+	private EventEditor _eventEditor;
 	
 	JSpinner _steps;
 	JTextField _time;
 	
-	private JFileChooser _fc;	
 	private JTextArea _txtArea;
 
 
-	public Toolbar(TrafficSimulator model, Controller ctrl, JTextArea txtArea) {
+	public Toolbar(TrafficSimulator model, Controller ctrl, EventEditor eventEditor) {
 		_model = model;
+		_eventEditor = eventEditor;
 		_ctrl = ctrl;
-		_txtArea = txtArea;
+		_txtArea = eventEditor.getTextArea();
 		initGUI();
 	}
 
 	private void initGUI() {
-		
-		_fc = new JFileChooser();
-		
+			
 		createEventEditorPanelButtons();
 		addSeparator();
 		createControlButtons();
@@ -87,21 +84,21 @@ public class Toolbar extends JToolBar implements ActionListener {
 		JButton load = new JButton();
 		load.setActionCommand(LOAD);
 		load.setToolTipText("Load a file");
-		load.addActionListener(this);
+		load.addActionListener(_eventEditor);
 		load.setIcon(new ImageIcon(loadImage("cv_docs/icons/open.png")));
 		this.add(load);
 
 		JButton save = new JButton();
 		save.setActionCommand(SAVE);
 		save.setToolTipText("Save a file");
-		save.addActionListener(this);
+		save.addActionListener(_eventEditor);
 		save.setIcon(new ImageIcon(loadImage("cv_docs/icons/save.png")));
 		this.add(save);		
 		
 		JButton clear = new JButton();
 		clear.setActionCommand(CLEAR);
 		clear.setToolTipText("Clear Text");
-		clear.addActionListener(this);
+		clear.addActionListener(_eventEditor);
 		clear.setIcon(new ImageIcon(loadImage("cv_docs/icons/clear.png")));
 		this.add(clear);
 	
@@ -142,11 +139,8 @@ public class Toolbar extends JToolBar implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (LOAD.equals(e.getActionCommand())) 
-			loadFile();
-		else if (SAVE.equals(e.getActionCommand()))
-			saveFile();
-		else if (CLEAR.equals(e.getActionCommand()))
+	
+		if (CLEAR.equals(e.getActionCommand()))
 			_txtArea.setText("");
 		else if (QUIT.equals(e.getActionCommand()))
 			System.exit(0);
@@ -163,44 +157,7 @@ public class Toolbar extends JToolBar implements ActionListener {
 		_ctrl.loadEvents(new ByteArrayInputStream(_txtArea.getText().getBytes()));
 	}
 
-	private void saveFile() {			
-		int returnVal = _fc.showSaveDialog(null);
-		if (returnVal == JFileChooser.APPROVE_OPTION) {
-			File file = _fc.getSelectedFile();
-			writeFile(file, _txtArea.getText());
-		}
-	}
-
-	private void loadFile() {
-		int returnVal = _fc.showOpenDialog(null);
-		if (returnVal == JFileChooser.APPROVE_OPTION) {
-			File file = _fc.getSelectedFile();
-			String s = readFile(file);
-			_txtArea.setText(s);
-		}
-	}
-
-	public static String readFile(File file) {
-		String s = "";
-		try {
-			Scanner scan = new Scanner(file);
-			s = scan.useDelimiter("\\A").next();
-			scan.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} 
-		return s;
-	}
-
-	public static void writeFile(File file, String content) {
-		try {
-			PrintWriter pw = new PrintWriter(file);
-			pw.print(content);
-			pw.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+	
 
 	private static Image loadImage(String path) {
 		return Toolkit.getDefaultToolkit().createImage(path);

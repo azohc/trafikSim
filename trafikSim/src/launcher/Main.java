@@ -226,10 +226,10 @@ public class Main {
 		
 		ctrler.setEventBuilders(_eventBuilders);
 		ctrler.setOutputStream(o);
-		
+				
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-				new MainFrame(ctrler, trafikSim);
+				new MainFrame(ctrler, trafikSim, _inFile);
 			}
 		});
 	}
@@ -256,9 +256,8 @@ public class Main {
 		// -i cv_docs/examples/basic/04_faultyVehicle.ini -t 10 -o cv_docs/examples/basic/04_faultyVehicle.ini.out
 		// -i cv_docs/100tickinis/advanced/11_car.ini -t 100 -o cv_docs/100tickinis/advanced/11_car.ini.out
 	
-		// -i cv_docs/100tickinis/advanced/11_car.ini -m gui -t 100 -o cv_docs/100tickinis/advanced/11_car.ini.out
 		
-		
+		// -i cv_docs/100tickinis/advanced/13_lanesRoad.ini -m gui
 
 		// Call start to start the simulator from command line, etc.
 		start(args);

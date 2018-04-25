@@ -36,10 +36,10 @@ public class Road extends SimulatedObject {
 		{
 			for(int a = 0 ; a < _vehList.size() - 1; a++)
 				if(!_vehList.get(a).isArrived())
-					o += "(" + _vehList.get(a).getId() + "," + _vehList.get(a).get_location() + "),";
+					o += "(" + _vehList.get(a).getId() + "," + _vehList.get(a).getLocation() + "),";
 			
 			if(!_vehList.get(_vehList.size() - 1).isArrived())
-				o += "(" + _vehList.get(_vehList.size() - 1).getId() + "," + _vehList.get(_vehList.size() - 1).get_location() + ")";
+				o += "(" + _vehList.get(_vehList.size() - 1).getId() + "," + _vehList.get(_vehList.size() - 1).getLocation() + ")";
 			
 			i.setValue("state", o);
 		}
@@ -74,7 +74,7 @@ public class Road extends SimulatedObject {
 		for(int i = _vehList.size() - 1; i > 0; i--){
 			
 			for(int j =  i - 1; j >= 0; j--)
-				if(_vehList.get(i).get_location() < _vehList.get(j).get_location() &&
+				if(_vehList.get(i).getLocation() < _vehList.get(j).getLocation() &&
 					_vehList.get(j).getFaultyTime() > 0)
 						faultyCounter++;
 			

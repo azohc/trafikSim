@@ -3,6 +3,7 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,6 +22,7 @@ import model.RoadMap;
 import model.TrafficSimulator;
 import control.Controller;
 import control.SimulatorError;
+import gui.rdmap.RoadMapDisplay;
 
 @SuppressWarnings("serial")
 public class MainFrame extends JFrame implements TrafficSimulatorObserver, ActionListener{
@@ -30,6 +32,7 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 	private final String CLEAR = "clear";
 	private final String QUIT = "quit";
 	
+	private String _currentFile;
 	
 	//OUTER BORDER
 	public static Border defaultBorder = BorderFactory.createLineBorder(Color.black, 2);
@@ -58,9 +61,13 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 	private JPanel lowerPanel;
 	private JPanel lowLeftPanel;
 
+	//ROADMAP
+	private RoadMapDisplay _rdMapDisplay;
 	
-	public MainFrame(Controller ctrl, TrafficSimulator model){
+	
+	public MainFrame(Controller ctrl, TrafficSimulator model, String currentFile){
 		super("Traffic Simulator");
+		_currentFile = currentFile;
 		
 		_ctrl = ctrl;
 		_model = model;
@@ -93,9 +100,11 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		innerPanel.add(lowerPanel);
 		lowerPanel.add(lowLeftPanel);
 		
+		upperPanel.setMinimumSize(new Dimension(200, 150));
+		lowerPanel.setMinimumSize(new Dimension(200, 250));
 		
 		//EVENT EDITOR
-		_eventEditor = new EventEditor(_model,_ctrl);
+		_eventEditor = new EventEditor(_model,_ctrl, _currentFile);
 		upperPanel.add(_eventEditor);
 		
 		
@@ -121,10 +130,16 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		_juncTable = new JunctionsTable(_model);
 		lowLeftPanel.add(_juncTable);
 		
+		
+		//ROADMAP
+		_rdMapDisplay = new RoadMapDisplay(_model);
+		lowerPanel.add(_rdMapDisplay);
+		
 		//TOOLBAR
-		_tb = new Toolbar(_model, _ctrl, _eventEditor.getTextArea());
+		_tb = new Toolbar(_model, _ctrl, _eventEditor);
 		mainPanel.add(_tb, BorderLayout.PAGE_START);
-
+		
+		
 		
 		setSize(200,200);
 		setVisible(true);

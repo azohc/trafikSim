@@ -10,6 +10,10 @@ import java.util.Map;
 
 import javax.swing.JComponent;
 
+import model.Junction;
+import model.Road;
+import model.Vehicle;
+
 public class GraphComponent extends JComponent {
 
 	private static final long serialVersionUID = 1L;
@@ -75,7 +79,7 @@ public class GraphComponent extends JComponent {
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
-		if (_graph == null || _graph.getNodes().size() == 0) {
+		if (_graph == null || _graph.getJunctions().size() == 0) {
 			g.setColor(Color.red);
 			g.drawString("No graph yet!", getWidth() / 2 - 50, getHeight() / 2);
 		} else {
@@ -95,7 +99,7 @@ public class GraphComponent extends JComponent {
 		}
 
 		// draw nodes
-		for (Node j : _graph.getNodes()) {
+		for (Junction j : _graph.getJunctions()) {
 			Point p = _nodesPisitions.get(j.getId());
 			g.setColor(Color.blue);
 			g.fillOval(p.cX - _nodeRadius / 2, p.cY - _nodeRadius / 2, _nodeRadius, _nodeRadius);
@@ -104,9 +108,9 @@ public class GraphComponent extends JComponent {
 		}
 
 		// draw edges
-		for (Edge e : _graph.getEdges()) {
-			Point p1 = _nodesPisitions.get(e.getSource().getId());
-			Point p2 = _nodesPisitions.get(e.getTarget().getId());
+		for (Road r: _graph.getRoads()) {
+			Point p1 = _nodesPisitions.get(r.getSource().getId());
+			Point p2 = _nodesPisitions.get(r.getDestination().getId());
 
 			// draw the edge
 			Color arrowColor = Math.random() > 0.5 ? Color.RED : Color.GREEN;
@@ -116,16 +120,16 @@ public class GraphComponent extends JComponent {
 			// different diameter.
 			int lastLocation = -1;
 			int diam = _dotRadius;
-			for (Dot d : e.getDots()) {
-				if (lastLocation != d.getLocation()) {
-					lastLocation = d.getLocation();
+			for (Vehicle v: r.getVehicles()) {
+				if (lastLocation != v.getLocation()) {
+					lastLocation = v.getLocation();
 					diam = _dotRadius;
 				} else {
 					diam += _dotRadius;
 				}
 				Color dotColor = Math.random() > 0.5 ? Color.MAGENTA : Color.ORANGE;
-				drawCircleOnALine(g, p1.cX, p1.cY, p2.cX, p2.cY, e.getLength(), d.getLocation(), diam, dotColor,
-						d.getId());
+				drawCircleOnALine(g, p1.cX, p1.cY, p2.cX, p2.cY, r.getLength(), v.getLocation(), diam, dotColor,
+						v.getId());
 			}
 		}
 	}
@@ -143,9 +147,9 @@ public class GraphComponent extends JComponent {
 		int xc = _lastWidth / 2 - 10;
 		int yc = _lastHeight / 2 - 10;
 
-		double slice = 2 * Math.PI / _graph.getNodes().size();
+		double slice = 2 * Math.PI / _graph.getJunctions().size();
 		int i = 0;
-		for (Node n : _graph.getNodes()) {
+		for (Junction j: _graph.getJunctions()) {
 
 			double angle = slice * i;
 			int cX = (int) (xc + r * Math.cos(angle));
@@ -153,7 +157,7 @@ public class GraphComponent extends JComponent {
 			int tX = (int) (xc + tr * Math.cos(angle));
 			int tY = (int) (yc + tr * Math.sin(angle));
 
-			_nodesPisitions.put(n.getId(), new Point(cX, cY, tX, tY));
+			_nodesPisitions.put(j.getId(), new Point(cX, cY, tX, tY));
 			i++;
 		}
 
