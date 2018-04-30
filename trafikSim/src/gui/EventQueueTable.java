@@ -71,8 +71,8 @@ public class EventQueueTable extends JPanel implements TrafficSimulatorObserver 
 	
 	public void initGUI() {
 		
-		this.setLayout(new BorderLayout());
-		this.setBorder(new TitledBorder(defaultBorder, "Events Queue"));
+		setLayout(new BorderLayout());
+		setBorder(new TitledBorder(defaultBorder, "Events Queue"));
 		_eventTableModel = new EventTableModel();
 		
 		JTable t = new JTable(_eventTableModel);
@@ -81,17 +81,11 @@ public class EventQueueTable extends JPanel implements TrafficSimulatorObserver 
 		JScrollPane jsp = new JScrollPane(t);
 		jsp.getViewport().setBackground(Color.white);
 		
-		this.add(jsp, BorderLayout.CENTER);	
+		add(jsp, BorderLayout.CENTER);	
 		
-		
-		
-		this.setVisible(true);
+		setVisible(true);
 	}
 	
-	public boolean getScrollableTracksViewportWidth() {
-		   return getPreferredSize().width < getParent().getWidth();
-		
-	}
 	
 	@Override
 	public void addSimError(int time, RoadMap map, List<Event> events, SimulatorError e) {

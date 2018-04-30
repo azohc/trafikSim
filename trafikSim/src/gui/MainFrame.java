@@ -134,7 +134,7 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		//ROADMAP
 		_rdMapDisplay = new RoadMapDisplay(_model);
 		lowerPanel.add(_rdMapDisplay);
-		
+	
 		//TOOLBAR
 		_tb = new Toolbar(_model, _ctrl, _eventEditor);
 		mainPanel.add(_tb, BorderLayout.PAGE_START);
