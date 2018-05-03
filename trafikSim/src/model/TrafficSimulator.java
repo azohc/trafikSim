@@ -125,5 +125,15 @@ public class TrafficSimulator implements Observer<TrafficSimulatorObserver> {
 		if (o != null && _obsList.contains(o)) 
 			_obsList.remove(o);
 	}
+	
+	public RoadMap getMap(){
+		
+		return _map;
+	}
+	
+	public int getTime(){
+		
+		return _time;
+	}
 }
 

@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 
 import model.Event;
@@ -31,6 +32,12 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 	private final String SAVE = "save";
 	private final String CLEAR = "clear";
 	private final String QUIT = "quit";
+	private final String RUN = "run";
+	private final String RESET = "reset";
+	private final String REDIOUT = "redirect output";
+	private final String GENERATE = "generate";
+	private final String CLEARREP = "clear reports";
+	
 	
 	private String _currentFile;
 	
@@ -60,9 +67,14 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 	private JPanel upperPanel;
 	private JPanel lowerPanel;
 	private JPanel lowLeftPanel;
+	private JPanel sb;
 
 	//ROADMAP
 	private RoadMapDisplay _rdMapDisplay;
+	
+	//STATUSBAR
+	
+	private JLabel statusLabel;
 	
 	
 	public MainFrame(Controller ctrl, TrafficSimulator model, String currentFile){
@@ -117,7 +129,7 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		upperPanel.add(_reportArea);
 		
 		//MENU BAR
-		setJMenuBar(createFileMenuBar());
+		setJMenuBar(createMenuBar());
 		
 		
 		//TABLES
@@ -134,12 +146,18 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		//ROADMAP
 		_rdMapDisplay = new RoadMapDisplay(_model);
 		lowerPanel.add(_rdMapDisplay);
+		
+		//STATUSBAR
+		sb = new JPanel();
+		sb.setBorder(new BevelBorder(BevelBorder.LOWERED));
+		mainPanel.add(sb, BorderLayout.SOUTH);
+		statusLabel = new JLabel();
+		statusLabel.setHorizontalAlignment(SwingConstants.LEFT);
+		sb.add(statusLabel);
 	
 		//TOOLBAR
-		_tb = new Toolbar(_model, _ctrl, _eventEditor);
+		_tb = new Toolbar(_model, _ctrl, _eventEditor, _reportArea, sb);
 		mainPanel.add(_tb, BorderLayout.PAGE_START);
-		
-		
 		
 		setSize(200,200);
 		setVisible(true);
@@ -147,6 +165,11 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		pack(); //TODO why is time = 100 on first run
 		
+	}
+	
+	public void setStatus(String s){
+		
+		statusLabel.setText(s);
 	}
 	
 	@Override
@@ -178,9 +201,8 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		
 	}
 	
-	//TODO createSimulatorMenuBar
-	//TODO createReportsMenuBar
-	public JMenuBar createFileMenuBar() {
+
+	public JMenuBar createMenuBar() {
 		JMenuItem load, save, clear, quit;
 
 		JMenuBar menuBar = new JMenuBar();
@@ -217,21 +239,102 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		quit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q,
 				ActionEvent.ALT_MASK));
 
+		JMenuItem run, reset, rediOutput;
+		JMenu simu = new JMenu("Simulator");
+		menuBar.add(simu);
+		simu.setMnemonic(KeyEvent.VK_S);
+
+		run = new JMenuItem("Run");
+		run.setActionCommand(RUN);
+		run.addActionListener(this);
+		run.setMnemonic(KeyEvent.VK_R);
+		run.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R,
+				ActionEvent.ALT_MASK));
+		
+		reset = new JMenuItem("Reset");
+		reset.setActionCommand(RESET);
+		reset.addActionListener(this);
+		reset.setMnemonic(KeyEvent.VK_E);
+		reset.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E,
+				ActionEvent.ALT_MASK));
+		
+		rediOutput = new JMenuItem("Redirect Output");
+		rediOutput.setActionCommand(REDIOUT);
+		rediOutput.addActionListener(this);
+		rediOutput.setMnemonic(KeyEvent.VK_O);
+		rediOutput.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O,
+				ActionEvent.ALT_MASK));
+		
+		
+		JMenuItem generate, clearRep;
+		JMenu reports = new JMenu("Reports");
+		menuBar.add(reports);
+		simu.setMnemonic(KeyEvent.VK_A);
+
+		generate = new JMenuItem("Generate");
+		generate.setActionCommand(GENERATE);
+		generate.addActionListener(this);
+		generate.setMnemonic(KeyEvent.VK_B);
+		generate.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B,
+				ActionEvent.ALT_MASK));
+		
+		clearRep = new JMenuItem("Clear");
+		clearRep.setActionCommand(CLEARREP);
+		clearRep.addActionListener(this);
+		clearRep.setMnemonic(KeyEvent.VK_E);
+		clearRep.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E,
+				ActionEvent.ALT_MASK));
+		
+		
 		file.add(load);
 		file.add(save);
 		file.addSeparator();
 		file.add(clear);
 		file.addSeparator();
 		file.add(quit);
-
+		simu.add(run);
+		simu.add(reset);
+		//simu.add(rediOutput);
+		reports.add(generate);
+		reports.add(clearRep);
+		
 		return menuBar;
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (CLEAR.equals(e.getActionCommand()))
+		if (SAVE.equals(e.getActionCommand())){
+			_eventEditor.saveFile();
+			setStatus("Events have been saved!");
+		}
+		else if (LOAD.equals(e.getActionCommand())){
+			_eventEditor.loadFile();
+			setStatus("Events have been loaded!");
+		}
+		
+		else if (CLEAR.equals(e.getActionCommand())){
 			_eventEditor.getTextArea().setText("");
+			setStatus("Events editor cleared!");
+		}
 		else if (QUIT.equals(e.getActionCommand()))
 			System.exit(0);
+		else if(RUN.equals(e.getActionCommand())){
+			_model.run(_tb.getSteps());
+			setStatus("Simulator Advanced!");
+		}
+		else if(RESET.equals(e.getActionCommand())){
+			_model.reset();
+			setStatus("Simulator has been reset!");
+		}
+		else if(GENERATE.equals(e.getActionCommand())){
+			_reportArea.setText(_model.getMap().generateReport(_model.getTime()));
+			setStatus("Reports have been generated!");
+		}
+		else if(CLEARREP.equals(e.getActionCommand())){
+			_reportArea.setText("");
+			setStatus("Reports area has been cleared!");
+		}
+	
+	
 	}
 
 	public static String readFile(File file) {

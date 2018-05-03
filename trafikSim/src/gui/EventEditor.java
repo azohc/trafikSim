@@ -99,7 +99,10 @@ public class EventEditor extends JPanel implements ActionListener{ 	//this is a 
 			File file = _fc.getSelectedFile();
 			String s = readFile(file);
 			_textArea.setText(s);
+			_titledBrd = new TitledBorder(defaultBorder, "Events: " + file.getName());
+			setBorder(_titledBrd);
 		}
+	
 	}
 
 	public static String readFile(File file) {

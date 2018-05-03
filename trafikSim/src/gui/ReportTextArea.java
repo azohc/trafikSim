@@ -77,5 +77,10 @@ public class ReportTextArea extends JPanel implements TrafficSimulatorObserver {
 	public void setText(String generateReport) {
 		_textArea.setText(generateReport);
 	}
+	
+	public JTextArea getTxtArea(){
+		
+		return _textArea;
+	}
 
 }
