@@ -22,4 +22,13 @@ public class NewRoundRobinEventBuilder extends EventBuilder {
 		else return null;
 	}
 
+	public String template(){
+		
+		return "[new_junction]" + System.getProperty("line.separator") +
+				"time = " + System.getProperty("line.separator") +
+				"id = " + System.getProperty("line.separator") +
+				"max_time_slice = " + System.getProperty("line.separator") +
+				"min_time_slice = " + System.getProperty("line.separator") +
+				"type = rr";
+	}
 }

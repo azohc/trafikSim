@@ -46,31 +46,25 @@ public class ReportTextArea extends JPanel implements TrafficSimulatorObserver {
 
 	@Override
 	public void addSimError(int time, RoadMap map, List<Event> events, SimulatorError e) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void addStep(int time, RoadMap map, List<Event> events) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void addEvent(int time, RoadMap map, List<Event> events) {
-		// TODO Auto-generated method stub
-		
+	public void addEvent(int time, RoadMap map, List<Event> events) {		
 	}
 
 	@Override
 	public void addReset(int time, RoadMap map, List<Event> events) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void registered(int time, RoadMap map, List<Event> events) {
-		// TODO Auto-generated method stub
 		
 	}
 

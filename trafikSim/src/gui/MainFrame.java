@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -41,14 +42,11 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 	
 	private String _currentFile;
 	
-	//OUTER BORDER
+	// OUTER BORDER
 	public static Border defaultBorder = BorderFactory.createLineBorder(Color.black, 2);
 	
 	private Controller _ctrl;
 	private TrafficSimulator _model;
-	
-	// MENU AND TOOL BAR
-	private JFileChooser fc;
 	private Toolbar _tb;
 	
 	// TEXT AREAS
@@ -61,19 +59,19 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 	private RoadsTable _rdTable;
 	private JunctionsTable _juncTable;
 	
+	// ROADMAP
+	private RoadMapDisplay _rdMapDisplay;
+		
 	// PANELS
 	private JPanel mainPanel;
 	private JPanel innerPanel;
 	private JPanel upperPanel;
 	private JPanel lowerPanel;
 	private JPanel lowLeftPanel;
-	private JPanel sb;
+	private JPanel statusPanel;
 
-	//ROADMAP
-	private RoadMapDisplay _rdMapDisplay;
 	
-	//STATUSBAR
-	
+	// STATUSBAR
 	private JLabel statusLabel;
 	
 	
@@ -119,7 +117,6 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		_eventEditor = new EventEditor(_model,_ctrl, _currentFile);
 		upperPanel.add(_eventEditor);
 		
-		
 		//EVENT QUEUE
 		_eventTable = new EventQueueTable(_model);
 		upperPanel.add(_eventTable);
@@ -130,7 +127,6 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		
 		//MENU BAR
 		setJMenuBar(createMenuBar());
-		
 		
 		//TABLES
 		_vehTable = new VehiclesTable(_model);
@@ -148,23 +144,38 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		lowerPanel.add(_rdMapDisplay);
 		
 		//STATUSBAR
-		sb = new JPanel();
-		sb.setBorder(new BevelBorder(BevelBorder.LOWERED));
-		mainPanel.add(sb, BorderLayout.SOUTH);
+		statusPanel = new JPanel();
+		statusPanel.setBorder(new BevelBorder(BevelBorder.LOWERED));
+		statusPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+	
 		statusLabel = new JLabel();
-		statusLabel.setHorizontalAlignment(SwingConstants.LEFT);
-		sb.add(statusLabel);
+		
+		statusPanel.add(statusLabel);
+		mainPanel.add(statusPanel, BorderLayout.SOUTH);
+
 	
 		//TOOLBAR
-		_tb = new Toolbar(_model, _ctrl, _eventEditor, _reportArea, sb);
+		_tb = new Toolbar(_model, _ctrl, _eventEditor, _reportArea, statusPanel);
 		mainPanel.add(_tb, BorderLayout.PAGE_START);
 		
-		setSize(200,200);
-		setVisible(true);
-				
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		pack(); //TODO why is time = 100 on first run
 		
+		//DIMENSIONS
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		int height = (int) (screenSize.height * 0.95);
+		int width = (int) (screenSize.width * 0.7);
+		setPreferredSize(new Dimension(width, height));
+	
+		Dimension mainPanelSize = mainPanel.getSize();
+		upperPanel.setMinimumSize(new Dimension(mainPanelSize.width, (int)(mainPanelSize.height*0.6)));
+		
+		Dimension lowerPanelSize = lowerPanel.getSize();
+		lowLeftPanel.setMinimumSize(new Dimension((int)(lowerPanelSize.width/2), lowerPanelSize.height));
+		_rdMapDisplay.setMinimumSize(new Dimension((int)(lowerPanelSize.width/2), lowerPanelSize.height));
+		
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		pack();
+		setLocationRelativeTo(null);
 	}
 	
 	public void setStatus(String s){
@@ -175,11 +186,9 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 	@Override
 	public void addSimError(int time, RoadMap map, List<Event> events,
 			SimulatorError e) {
-		// TODO Auto-generated method stub
-		
+		setStatus(e.getMessage());
 	}
-//show roadmap report in text field
-//run button calls controller run(1)
+
 	@Override
 	public void addStep(int time, RoadMap map, List<Event> events) {
 		_reportArea.setText(map.generateReport(time)); 
@@ -192,7 +201,6 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 
 	@Override
 	public void addReset(int time, RoadMap map, List<Event> events) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -281,8 +289,8 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		clearRep = new JMenuItem("Clear");
 		clearRep.setActionCommand(CLEARREP);
 		clearRep.addActionListener(this);
-		clearRep.setMnemonic(KeyEvent.VK_E);
-		clearRep.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E,
+		clearRep.setMnemonic(KeyEvent.VK_J);
+		clearRep.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_J,
 				ActionEvent.ALT_MASK));
 		
 		
@@ -319,7 +327,7 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 			System.exit(0);
 		else if(RUN.equals(e.getActionCommand())){
 			_model.run(_tb.getSteps());
-			setStatus("Simulator Advanced!");
+			setStatus("Simulator advanced!");
 		}
 		else if(RESET.equals(e.getActionCommand())){
 			_model.reset();
@@ -347,15 +355,4 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 
 		return s;
 	}
-
-	
-	private void loadFile() {
-		int returnVal = fc.showOpenDialog(null);
-		if (returnVal == JFileChooser.APPROVE_OPTION) {
-			File file = fc.getSelectedFile();
-			String s = readFile(file);
-			_eventEditor.getTextArea().setText(s);
-		}
-	}
-
 }

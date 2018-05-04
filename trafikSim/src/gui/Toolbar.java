@@ -67,6 +67,7 @@ public class Toolbar extends JToolBar implements ActionListener, TrafficSimulato
 		_reportTxtArea = reportArea.getTxtArea();
 		_statusBar = (JLabel) statusBar.getComponent(0);
 		initGUI();
+		_model.addObserver(this);
 	}
 
 	private void initGUI() {
@@ -77,6 +78,7 @@ public class Toolbar extends JToolBar implements ActionListener, TrafficSimulato
 		createControlButtons();
 
 		_fc = new JFileChooser();	
+		_fc.setCurrentDirectory(new File("./cv_docs"));
 
 		add(new JLabel(" Steps: ")); 
 		_steps = new JSpinner(new SpinnerNumberModel(5, 1, 1000, 1));
@@ -117,7 +119,7 @@ public class Toolbar extends JToolBar implements ActionListener, TrafficSimulato
 		JButton clear = new JButton();
 		clear.setActionCommand(CLEAR);
 		clear.setToolTipText("Clear Text");
-		clear.addActionListener(_eventEditor);
+		clear.addActionListener(this);
 		clear.setIcon(new ImageIcon(loadImage("cv_docs/icons/clear.png")));
 		this.add(clear);
 	
@@ -191,12 +193,12 @@ public class Toolbar extends JToolBar implements ActionListener, TrafficSimulato
 		else if (QUIT.equals(e.getActionCommand()))
 			System.exit(0);
 		else if (EVLOAD.equals(e.getActionCommand())){
-			injectEvents();
 			_statusBar.setText("Events have been loaded!");
+			injectEvents();
 		}
 		else if (RUNSTEPS.equals(e.getActionCommand())){
-			_model.run((int)_steps.getValue());	//check
-			_statusBar.setText("Simulator Advanced!");
+			_model.run((int)_steps.getValue());	
+			_statusBar.setText("Simulator advanced!");
 		}
 		else if (RESET.equals(e.getActionCommand())){
 			_model.reset();
@@ -235,25 +237,22 @@ public class Toolbar extends JToolBar implements ActionListener, TrafficSimulato
 		}
 	}
 
-	private void injectEvents() {	// TODO read events from event editor, and inject to simulatoR
+	private void injectEvents() {	
 		_ctrl.loadEvents(new ByteArrayInputStream(_eventEditorTxtArea.getText().getBytes()));
-	}
-
-	
+	}	
 
 	private static Image loadImage(String path) {
 		return Toolkit.getDefaultToolkit().createImage(path);
 	}
 	
-	public int getSteps(){
-		
+	public int getSteps(){	
 		return (int)_steps.getValue();
 	}
 
 	@Override
 	public void addSimError(int time, RoadMap map, List<Event> events,
 			SimulatorError e) {
-		
+		_statusBar.setText(e.getMessage());
 	}
 
 	@Override

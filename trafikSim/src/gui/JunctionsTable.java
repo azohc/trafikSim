@@ -103,7 +103,6 @@ public class JunctionsTable extends JPanel implements TrafficSimulatorObserver {
 	
 	@Override
 	public void addSimError(int time, RoadMap map, List<Event> events, SimulatorError e) {
-		// TODO Auto-generated method stub
 		
 	}
 
