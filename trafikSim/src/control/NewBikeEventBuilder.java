@@ -23,5 +23,14 @@ public class NewBikeEventBuilder extends EventBuilder {
 			return null;
 	}
 
-	
+public String template() {
+		
+		return "[new_vehicle]" + System.getProperty("line.separator") +
+				"time = " + System.getProperty("line.separator") +
+				"id = " + System.getProperty("line.separator") +
+				"itenerary = " + System.getProperty("line.separator") +
+				"max_speed = " + System.getProperty("line.separator") +
+				"type = bike" + System.getProperty("line.separator");
+	}
+
 }

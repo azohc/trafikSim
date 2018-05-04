@@ -16,6 +16,7 @@ import java.util.Scanner;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
@@ -30,26 +31,36 @@ import javax.swing.event.PopupMenuListener;
 import model.NewRoundRobinJunctionEvent;
 import model.TrafficSimulator;
 import control.Controller;
+import control.EventBuilder;
+import control.MakeVehicleFaultyEventBuilder;
+import control.NewBikeEventBuilder;
+import control.NewCarEventBuilder;
+import control.NewDirtRoadEventBuilder;
+import control.NewJunctionEventBuilder;
+import control.NewLanesRoadEventBuilder;
 import control.NewMostCrowdedJunctionEventBuilder;
+import control.NewRoadEventBuilder;
 import control.NewRoundRobinEventBuilder;
+import control.NewVehicleEventBuilder;
 
 @SuppressWarnings("serial")
 public class EventEditor extends JPanel implements ActionListener{ 	//this is a JPanel object -> with initGUI 1config from constructor call, we create a object
 
-	private final String LOAD = "load";
-	private final String SAVE = "save";
 	
 	private JScrollPane _scrollPane;
 	private JFileChooser _fc;	
 	private File _currentFile;
 	private JTextArea _textArea;
 	private TitledBorder _titledBrd;
-
+	private JLabel _statusBar;
+	
+	
 	public static Border defaultBorder = BorderFactory.createLineBorder(Color.black, 2);
 	
 	
-	public EventEditor(TrafficSimulator model, Controller ctrl, String currentFile) {
+	public EventEditor(TrafficSimulator model, Controller ctrl, String currentFile, JPanel statusBar) {
 		_currentFile = new File(currentFile);
+		_statusBar = (JLabel) statusBar.getComponent(0);
 		initGUI();
 	}
 
@@ -94,21 +105,69 @@ public class EventEditor extends JPanel implements ActionListener{ 	//this is a 
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (LOAD.equals(e.getActionCommand())) 
+		if ("LOAD".equals(e.getActionCommand())) {
 			loadFile();
-		else if (SAVE.equals(e.getActionCommand()))
+			_statusBar.setText("Events have been loaded!");
+		}
+		else if ("SAVE".equals(e.getActionCommand())) {
 			saveFile();	
+			_statusBar.setText("Events have been saved!");
+		}
+		else if ("CLEAR".equals(e.getActionCommand())) {
+			_textArea.setText("");
+			_statusBar.setText("Events editor cleared!");
+		}
+		else if("RRJUNCTION".equals(e.getActionCommand())) {
+			templateBuilder( new NewRoundRobinEventBuilder());
+			_statusBar.setText("Round robin junction template!");
+		}
+		else if("MCJUNCTION".equals(e.getActionCommand())) {
+			templateBuilder(new NewMostCrowdedJunctionEventBuilder());
+			_statusBar.setText("Most crowded junction template!");
+		}					
+		else if("JUNCTION".equals(e.getActionCommand())) {
+			templateBuilder(new NewJunctionEventBuilder());
+			_statusBar.setText("Junction template!");
+		}
+		else if("DIRTROAD".equals(e.getActionCommand())) {
+			templateBuilder(new NewDirtRoadEventBuilder());
+			_statusBar.setText("Dirt road template!");
+		}
+		else if("LANESROAD".equals(e.getActionCommand())) {
+			templateBuilder(new NewLanesRoadEventBuilder());
+			_statusBar.setText("Lanes road template!");
+		}
+		else if("ROAD".equals(e.getActionCommand())) {
+			templateBuilder(new NewRoadEventBuilder());
+			_statusBar.setText("Road template!");
+		}
+		else if("BIKE".equals(e.getActionCommand())) {
+			templateBuilder(new NewBikeEventBuilder());
+			_statusBar.setText("Bike template!");
+		}
+		else if("CAR".equals(e.getActionCommand())) {
+			templateBuilder(new NewCarEventBuilder());
+			_statusBar.setText("Car template!");
+		}
+		else if("VEHICLE".equals(e.getActionCommand())) {
+			templateBuilder(new NewVehicleEventBuilder());
+			_statusBar.setText("Vehicle template!");
+		}
+		else if("FAULTY".equals(e.getActionCommand())) {
+			templateBuilder(new MakeVehicleFaultyEventBuilder());
+			_statusBar.setText("Make Vehicle Faulty template!");
+		}
 		
-		else if("RRJUNCTION".equals(e.getActionCommand()))
-			_textArea.setText(_textArea.getText() + 
-					System.getProperty("line.separator") + System.getProperty("line.separator") +
-							new NewRoundRobinEventBuilder().template());
 		
-		else if("MCJUNCTION".equals(e.getActionCommand()))
-			_textArea.setText(_textArea.getText() +
-					System.getProperty("line.separator") + System.getProperty("line.separator") +
-							new NewMostCrowdedJunctionEventBuilder().template());
 		
+	}
+	
+	public void templateBuilder(EventBuilder event) {
+		
+				_textArea.setText(_textArea.getText() + 
+				System.getProperty("line.separator") + System.getProperty("line.separator") +
+				 event.template());
+
 	}
 	
 	public void saveFile() {			
@@ -170,16 +229,64 @@ public class EventEditor extends JPanel implements ActionListener{ 	//this is a 
 		mcJunction.setActionCommand("MCJUNCTION");
 		mcJunction.addActionListener(this);
 		
+		JMenuItem junction = new JMenuItem("New Junction");
+		templates.add(junction);
+		junction.setActionCommand("JUNCTION");
+		junction.addActionListener(this);
+			
+		JMenuItem dirtRoad = new JMenuItem("New Dirt Road");
+		templates.add(dirtRoad);
+		dirtRoad.setActionCommand("DIRTROAD");
+		dirtRoad.addActionListener(this);
 		
-		JMenuItem load = new JMenuItem("Load");
-		JMenuItem save = new JMenuItem("Save");
-		JMenuItem clear = new JMenuItem("Clear");
+		JMenuItem lanesRoad = new JMenuItem("New Lanes Road");
+		templates.add(lanesRoad);
+		lanesRoad.setActionCommand("LANESROAD");
+		lanesRoad.addActionListener(this);
+		
+		JMenuItem road = new JMenuItem("New Road");
+		templates.add(road);
+		road.setActionCommand("ROAD");
+		road.addActionListener(this);
+		
+		JMenuItem bike = new JMenuItem("New Bike");
+		templates.add(bike);
+		bike.setActionCommand("BIKE");
+		bike.addActionListener(this);
+		
+		JMenuItem car = new JMenuItem("New Car");
+		templates.add(car);
+		car.setActionCommand("CAR");
+		car.addActionListener(this);
+		
+		JMenuItem vehicle = new JMenuItem("New Vehicle");
+		templates.add(vehicle);
+		vehicle.setActionCommand("VEHICLE");
+		vehicle.addActionListener(this);
+
+		JMenuItem faulty = new JMenuItem("Make Vehicle Faulty");
+		templates.add(faulty);
+		faulty.setActionCommand("FAULTY");
+		faulty.addActionListener(this);
 		
 		menu.add(templates);
 		menu.addSeparator();
+		
+		JMenuItem load = new JMenuItem("Load");
 		menu.add(load);
+		load.setActionCommand("LOAD");
+		load.addActionListener(this);
+		
+		JMenuItem save = new JMenuItem("Save");
 		menu.add(save);
+		save.setActionCommand("SAVE");
+		save.addActionListener(this);
+		
+		JMenuItem clear = new JMenuItem("Clear");
 		menu.add(clear);
+		clear.setActionCommand("CLEAR");
+		clear.addActionListener(this);
+	
 			
 		class MouseClickListener extends MouseAdapter{
 			

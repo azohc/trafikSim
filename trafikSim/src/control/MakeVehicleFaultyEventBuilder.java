@@ -17,5 +17,13 @@ public class MakeVehicleFaultyEventBuilder extends EventBuilder {
 				EventBuilder.parsePosInt(section, "duration", 1));
 	}		
 
+	
+public String template() {
+		
+		return "[make_vehicle_faulty]" + System.getProperty("line.separator") +
+				"time = " + System.getProperty("line.separator") +
+				"vehicles = " + System.getProperty("line.separator") +
+				"duration = " + System.getProperty("line.separator");
+	}
 }
 

@@ -16,4 +16,11 @@ public class NewJunctionEventBuilder extends EventBuilder {
 				EventBuilder.validId(section, "id"));			
 	}
 
+	
+public String template() {
+		
+		return "[new_junction]" + System.getProperty("line.separator") +
+				"time = " + System.getProperty("line.separator") +
+				"id = " + System.getProperty("line.separator") ;
+	}
 }

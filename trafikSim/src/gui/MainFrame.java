@@ -113,8 +113,17 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		upperPanel.setMinimumSize(new Dimension(200, 150));
 		lowerPanel.setMinimumSize(new Dimension(200, 250));
 		
+		//STATUSBAR
+		statusPanel = new JPanel();
+		statusPanel.setBorder(new BevelBorder(BevelBorder.LOWERED));
+		statusPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+	
+		statusLabel = new JLabel();
+		statusPanel.add(statusLabel);
+		mainPanel.add(statusPanel, BorderLayout.SOUTH);
+		
 		//EVENT EDITOR
-		_eventEditor = new EventEditor(_model,_ctrl, _currentFile);
+		_eventEditor = new EventEditor(_model,_ctrl, _currentFile, statusPanel);
 		upperPanel.add(_eventEditor);
 		
 		//EVENT QUEUE
@@ -143,15 +152,7 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		_rdMapDisplay = new RoadMapDisplay(_model);
 		lowerPanel.add(_rdMapDisplay);
 		
-		//STATUSBAR
-		statusPanel = new JPanel();
-		statusPanel.setBorder(new BevelBorder(BevelBorder.LOWERED));
-		statusPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
 	
-		statusLabel = new JLabel();
-		
-		statusPanel.add(statusLabel);
-		mainPanel.add(statusPanel, BorderLayout.SOUTH);
 
 	
 		//TOOLBAR

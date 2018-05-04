@@ -23,5 +23,17 @@ public class NewDirtRoadEventBuilder extends EventBuilder {
 		else return null;
 	}
 
+public String template() {
+		
+		return "[new_road]" + System.getProperty("line.separator") +
+				"time = " + System.getProperty("line.separator") +
+				"id = " + System.getProperty("line.separator") +
+				"src = " + System.getProperty("line.separator") +
+				"dest = " + System.getProperty("line.separator") +
+				"max_speed = " + System.getProperty("line.separator") +
+				"length = " + System.getProperty("line.separator") +
+				"type = dirt" + System.getProperty("line.separator");
+	}
+
 }
 
