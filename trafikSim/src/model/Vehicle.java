@@ -43,6 +43,7 @@ public class Vehicle extends SimulatedObject
 		_itinerary = it;
 	}
 
+	@Override
 	protected void fillReportDetails(IniSection i) 
 	{
 		i.setValue("speed", _currentSpeed);
@@ -52,11 +53,13 @@ public class Vehicle extends SimulatedObject
 		
 	}
 
+	@Override
 	protected String getReportSectionTag() 
 	{		
 		return "vehicle_report";
 	}
 
+	@Override
 	void advance() 
 	{
 		if(_faulty > 0)

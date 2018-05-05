@@ -18,6 +18,7 @@ public class MakeVehicleFaulty extends Event {
 			map.getVehicle(_vehID[i]).makeFaulty(_duration);
 	}
 
+@Override
 public String toString(){
 	
 	String out = "Break Vehicles [";

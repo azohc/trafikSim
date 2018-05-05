@@ -11,12 +11,14 @@ public class Bike extends Vehicle {
 	}
 
 	
+	@Override
 	protected void fillReportDetails(IniSection i) 
 	{
 		i.setValue("type", "bike");
 		super.fillReportDetails(i);
 	}
 	
+	@Override
 	public void makeFaulty(int ticks) {
 		
 		if(_currentSpeed > _maxSpeed/2)

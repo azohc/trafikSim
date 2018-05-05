@@ -74,6 +74,7 @@ public class GraphComponent extends JComponent {
 		_lastHeight = -1;
 	}
 
+	@Override
 	public void paint(Graphics graphics) {
 		Graphics2D g = (Graphics2D) graphics;
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -178,7 +179,7 @@ public class GraphComponent extends JComponent {
 		double alpha = Math.atan(((double) Math.abs(x1 - x2)) / ((double) Math.abs(y1 - y2)));
 
 		// the actual location on the line (0..lineActualLength)
-		double actualLocation = lineActualLength * ((double) virtualLocation) / ((double) virtualLength) + 15;
+		double actualLocation = lineActualLength * (virtualLocation) / (virtualLength) + 15;
 
 		// the coordinates of the location
 		double x = Math.sin(alpha) * actualLocation;

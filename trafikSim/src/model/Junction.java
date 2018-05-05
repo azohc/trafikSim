@@ -50,6 +50,7 @@ public class Junction extends SimulatedObject
 			_queue.add(v);
 		}
 		
+		@Override
 		public String toString() {
 	
 			String out = "(";
@@ -78,6 +79,7 @@ public class Junction extends SimulatedObject
 	}
 	
 
+	@Override
 	public void advance() 
 	{
 		if(!_incRoads.isEmpty()) {
@@ -142,10 +144,12 @@ public class Junction extends SimulatedObject
 	
 	}
 	
+	@Override
 	protected String getReportSectionTag() {
 		 return "junction_report";
 	}
 	
+	@Override
 	protected void fillReportDetails(IniSection is) {
 		String o = "";
 		if(_incRoads.isEmpty())

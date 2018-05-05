@@ -27,6 +27,7 @@ public class RoadsTable extends JPanel implements TrafficSimulatorObserver {
 
 		private final String[] header = {"ID", "Source", "Target", "Length", "Max Speed", "Vehicles"};
 
+		@Override
 		public String getColumnName(int pos) {
 			return header[pos];	
 		}

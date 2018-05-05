@@ -2,14 +2,12 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.List;
@@ -170,8 +168,8 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		upperPanel.setMinimumSize(new Dimension(mainPanelSize.width, (int)(mainPanelSize.height*0.6)));
 		
 		Dimension lowerPanelSize = lowerPanel.getSize();
-		lowLeftPanel.setMinimumSize(new Dimension((int)(lowerPanelSize.width/2), lowerPanelSize.height));
-		_rdMapDisplay.setMinimumSize(new Dimension((int)(lowerPanelSize.width/2), lowerPanelSize.height));
+		lowLeftPanel.setMinimumSize(new Dimension(lowerPanelSize.width/2, lowerPanelSize.height));
+		_rdMapDisplay.setMinimumSize(new Dimension(lowerPanelSize.width/2, lowerPanelSize.height));
 		
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -310,6 +308,7 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		return menuBar;
 	}
 
+	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (SAVE.equals(e.getActionCommand())){
 			_eventEditor.saveFile();

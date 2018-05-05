@@ -21,6 +21,7 @@ public class Car extends Vehicle {
 		_rnd = new Random(seed);
 	}
 
+	@Override
 	void advance(){
 				
 		if(_faulty == 0) {
@@ -36,6 +37,7 @@ public class Car extends Vehicle {
 		super.advance();
 	}
 	
+	@Override
 	protected void fillReportDetails(IniSection i) 
 	{
 		i.setValue("type", "car");

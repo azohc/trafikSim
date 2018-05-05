@@ -20,12 +20,13 @@ public class NewMostCrowdedJunctionEventBuilder extends EventBuilder {
 		else return null;
 	}
 
+	@Override
 	public String template() {
 		
 		return "[new_junction]" + System.getProperty("line.separator") +
 				"time = " + System.getProperty("line.separator") +
 				"id = " + System.getProperty("line.separator") +
-				"type = mc";
+				"type = mc" + System.getProperty("line.separator");
 	}
 
 }

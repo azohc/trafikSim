@@ -18,6 +18,7 @@ public class MakeVehicleFaultyEventBuilder extends EventBuilder {
 	}		
 
 	
+@Override
 public String template() {
 		
 		return "[make_vehicle_faulty]" + System.getProperty("line.separator") +

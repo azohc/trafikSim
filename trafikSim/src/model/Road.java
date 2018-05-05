@@ -26,6 +26,7 @@ public class Road extends SimulatedObject {
 		//change to sorted array list at the end
 	}
 
+	@Override
 	protected void fillReportDetails(IniSection i) {
 		
 		String o = "";
@@ -45,6 +46,7 @@ public class Road extends SimulatedObject {
 		}
 	}
 
+	@Override
 	protected String getReportSectionTag() {
 		return "road_report";
 	}
@@ -65,6 +67,7 @@ public class Road extends SimulatedObject {
 	}
 	
 
+	@Override
 	void advance() {		
 		
 		int faultyCounter = 0;

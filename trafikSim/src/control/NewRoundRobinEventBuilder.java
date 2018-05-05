@@ -22,6 +22,7 @@ public class NewRoundRobinEventBuilder extends EventBuilder {
 		else return null;
 	}
 
+	@Override
 	public String template(){
 		
 		return "[new_junction]" + System.getProperty("line.separator") +
@@ -29,6 +30,6 @@ public class NewRoundRobinEventBuilder extends EventBuilder {
 				"id = " + System.getProperty("line.separator") +
 				"max_time_slice = " + System.getProperty("line.separator") +
 				"min_time_slice = " + System.getProperty("line.separator") +
-				"type = rr";
+				"type = rr" + System.getProperty("line.separator");
 	}
 }

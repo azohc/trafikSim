@@ -35,6 +35,7 @@ public class NewRoadEvent extends Event {
 		map.addRoad(new Road(_id, _length, _maxSpeed, map.getJunction(_start), map.getJunction(_end)));
 	}
 
+	@Override
 	public String toString(){
 		
 		return "New Road " + _id;

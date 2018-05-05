@@ -20,6 +20,7 @@ public class NewRoundRobinJunctionEvent extends NewJunctionEvent {
 		map.addJunction(new RoundRobinJunction(_id, _minTs, _maxTs));
 	}
 	
+@Override
 public String toString(){
 		
 		return "New Round Robin Junction " + _id;

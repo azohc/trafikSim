@@ -25,11 +25,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
-import java.util.Scanner;
 
 
 @SuppressWarnings("serial")
@@ -184,6 +182,7 @@ public class Toolbar extends JToolBar implements ActionListener, TrafficSimulato
 		
 	}
 
+	@Override
 	public void actionPerformed(ActionEvent e) {
 	
 		if (CLEAR.equals(e.getActionCommand())){

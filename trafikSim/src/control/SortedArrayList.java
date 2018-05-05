@@ -21,12 +21,14 @@ public class SortedArrayList<E> extends ArrayList<E> {
 		super();
 	}
 	
+	@Override
 	public boolean add(E element) {
 		super.add(element);
 		super.sort(_comparator);
 		return true;
 	}
 	
+	@Override
 	public boolean addAll(Collection<? extends E> elements) {
 		super.addAll(elements);
 		super.sort(_comparator);

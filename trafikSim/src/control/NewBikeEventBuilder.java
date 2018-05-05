@@ -23,6 +23,7 @@ public class NewBikeEventBuilder extends EventBuilder {
 			return null;
 	}
 
+@Override
 public String template() {
 		
 		return "[new_vehicle]" + System.getProperty("line.separator") +

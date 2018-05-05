@@ -228,6 +228,7 @@ public class Main {
 		ctrler.setOutputStream(o);
 				
 		SwingUtilities.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				new MainFrame(ctrler, trafikSim, _inFile);
 			}

@@ -8,6 +8,7 @@ public class DirtRoad extends Road {
 		super(id, length, maxSpeed, src, dest);
 	}
 	
+	@Override
 	protected int reduceSpeedFactor(int faultyCounter) 
 	{
 		int reductionFactor = 1;
@@ -17,11 +18,13 @@ public class DirtRoad extends Road {
 		return reductionFactor;	
 	}
 	
+	@Override
 	protected int calculateBaseSpeed()
 	{
 		return _maxSpeed;
 	}
 	
+	@Override
 	protected void fillReportDetails(IniSection i) 
 	{
 		i.setValue("type", "dirt");

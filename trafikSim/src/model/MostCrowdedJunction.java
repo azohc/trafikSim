@@ -8,10 +8,12 @@ public class MostCrowdedJunction extends JunctionWithTimeSlice {
 		 super(id);
 		 }
 	
+	@Override
 	protected IncomingRoad createIncomingRoadQueue(Road road) {
 		return new IncRoadWithTimeSlice(road);
 	}
 	
+	@Override
 	protected void switchLights() {	//mega todo
 											//ahora, Junction tiene un atributo _greenLightIndex : -1 si ninguno tiene luz verde 
 		int indexMostVehicles = 0;
@@ -51,6 +53,7 @@ public class MostCrowdedJunction extends JunctionWithTimeSlice {
 		}
 		
 	}
+	@Override
 	protected void fillReportDetails(IniSection is) {
 		super.fillReportDetails(is);
 		is.setValue("type", "mc");

@@ -6,6 +6,7 @@ import model.NewCarEvent;
 
 public class NewCarEventBuilder extends EventBuilder {
 
+	@Override
 	public Event parse(IniSection section) {
 		if(!section.getTag().equals("new_vehicle"))
 			return null;
@@ -25,6 +26,7 @@ public class NewCarEventBuilder extends EventBuilder {
 		else return null;
 	}
 	
+@Override
 public String template() {
 		
 		return "[new_vehicle]" + System.getProperty("line.separator") +

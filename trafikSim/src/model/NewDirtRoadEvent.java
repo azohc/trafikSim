@@ -23,6 +23,7 @@ public class NewDirtRoadEvent extends NewRoadEvent {
 		map.addRoad(new DirtRoad(_id, _maxSpeed, _length, map.getJunction(_start), map.getJunction(_end)));
 	}
 	
+	@Override
 	public String toString() {
 		
 		return "New Dirt Road " + _id;

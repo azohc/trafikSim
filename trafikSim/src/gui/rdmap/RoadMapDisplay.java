@@ -1,7 +1,6 @@
 package gui.rdmap;
 
 import java.awt.BorderLayout;
-import java.awt.Graphics;
 import java.util.List;
 
 import javax.swing.JPanel;

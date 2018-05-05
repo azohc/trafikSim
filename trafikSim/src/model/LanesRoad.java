@@ -11,11 +11,13 @@ public class LanesRoad extends Road {
 		_lanes = lanes;
 	}
 	
+	@Override
 	protected int calculateBaseSpeed()
 	{
 		return Math.min(_maxSpeed, ((_lanes*_maxSpeed)/Math.max(_vehList.size(), 1)) + 1);
 	}
 	
+	@Override
 	protected int reduceSpeedFactor(int faultyCounter) {
 		int reductionFactor = 1;
 		
@@ -25,6 +27,7 @@ public class LanesRoad extends Road {
 	}
 
 
+	@Override
 	protected void fillReportDetails(IniSection i) {
 	
 		i.setValue("type", "lanes");

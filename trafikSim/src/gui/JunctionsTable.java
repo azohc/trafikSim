@@ -27,6 +27,7 @@ public class JunctionsTable extends JPanel implements TrafficSimulatorObserver {
 
 		private final String[] header = {"ID", "Green", "Red"};
 		
+		@Override
 		public String getColumnName(int pos) {
 			return header[pos];	
 		}

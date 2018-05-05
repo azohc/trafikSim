@@ -14,6 +14,7 @@ public class RoundRobinJunction extends JunctionWithTimeSlice {
 		
 	}
 	
+	@Override
 	public void switchLights() {
 		
 		if(getGreenLightIndex() == -1) { 					// no green lights
@@ -43,6 +44,7 @@ public class RoundRobinJunction extends JunctionWithTimeSlice {
 	
 	
 	
+	@Override
 	public IncomingRoad createIncomingRoadQueue(Road road) {
 		IncRoadWithTimeSlice irts = new IncRoadWithTimeSlice(road);	
 		irts.setTimeSlice(_maxTimeSlice);
@@ -50,6 +52,7 @@ public class RoundRobinJunction extends JunctionWithTimeSlice {
 	}
 	
 	
+	@Override
 	protected void fillReportDetails(IniSection is) {
 		super.fillReportDetails(is);
 		is.setValue("type", "rr");

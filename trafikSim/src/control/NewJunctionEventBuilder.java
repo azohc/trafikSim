@@ -17,10 +17,11 @@ public class NewJunctionEventBuilder extends EventBuilder {
 	}
 
 	
+@Override
 public String template() {
 		
 		return "[new_junction]" + System.getProperty("line.separator") +
-				"time = " + System.getProperty("line.separator") +
-				"id = " + System.getProperty("line.separator") ;
+				"time = " +
+				"id = " + System.getProperty("line.separator");
 	}
 }

@@ -16,6 +16,7 @@ public class NewMostCrowdedJunctionEvent extends NewJunctionEvent {
 		map.addJunction(new MostCrowdedJunction(_id));
 	}
 	
+	@Override
 	public String toString() {
 		
 		return "New Most Crowded Junction " + _id;

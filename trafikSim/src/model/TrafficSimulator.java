@@ -114,6 +114,7 @@ public class TrafficSimulator implements Observer<TrafficSimulatorObserver> {
 		}
 	}
 
+	@Override
 	public void addObserver(TrafficSimulatorObserver o) {
 		if (o != null && !_obsList.contains(o)) 
 			_obsList.add(o);
@@ -121,6 +122,7 @@ public class TrafficSimulator implements Observer<TrafficSimulatorObserver> {
 		notifyNewObs(o);
 	}
 	
+	@Override
 	public void removeObserver(TrafficSimulatorObserver o) {
 		if (o != null && _obsList.contains(o)) 
 			_obsList.remove(o);

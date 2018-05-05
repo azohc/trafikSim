@@ -20,6 +20,7 @@ public class NewVehicleEventBuilder extends EventBuilder {
 				EventBuilder.validIds(section, "itinerary"));
 	}		
 
+@Override
 public String template() {
 		
 		return "[new_vehicle]" + System.getProperty("line.separator") +

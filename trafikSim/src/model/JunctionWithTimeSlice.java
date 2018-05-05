@@ -17,6 +17,7 @@ public abstract class JunctionWithTimeSlice extends Junction {
 			_fullyUsed = true;
 		}
 		
+		@Override
 		protected void setGreen(boolean green) {
 			_green = green;
 			_used = false;
@@ -56,6 +57,7 @@ public abstract class JunctionWithTimeSlice extends Junction {
 		}
 		
 		
+		@Override
 		protected void advanceFirstVehicle() { 
 	
 		//advance first veh in queue
@@ -70,6 +72,7 @@ public abstract class JunctionWithTimeSlice extends Junction {
 		}
 		
 		
+		@Override
 		public String toString() { 
 
 			String out = "(";

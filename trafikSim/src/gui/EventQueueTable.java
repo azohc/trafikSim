@@ -2,7 +2,6 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.util.LinkedList;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -14,7 +13,6 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.AbstractTableModel;
 
 import control.SimulatorError;
-import control.SortedArrayList;
 import model.Event;
 import model.RoadMap;
 import model.TrafficSimulator;
@@ -28,6 +26,7 @@ public class EventQueueTable extends JPanel implements TrafficSimulatorObserver 
 		private final String[] header = { "#", "Time", "Type" };
 
 		
+		@Override
 		public String getColumnName(int pos) {
 			return header[pos];	
 		}
