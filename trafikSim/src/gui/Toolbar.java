@@ -49,7 +49,7 @@ public class Toolbar extends JToolBar implements ActionListener, TrafficSimulato
 	private EventEditor _eventEditor;
 	
 	private JFileChooser _fc;	
-	private JLabel _statusBar;
+	private JLabel _status;
 		
 	JSpinner _steps;
 	JTextField _time;
@@ -57,13 +57,13 @@ public class Toolbar extends JToolBar implements ActionListener, TrafficSimulato
 	private JTextArea _eventEditorTxtArea;
 	private JTextArea _reportTxtArea;
 
-	public Toolbar(TrafficSimulator model, Controller ctrl, EventEditor eventEditor, ReportTextArea reportArea, JPanel statusBar) {
+	public Toolbar(TrafficSimulator model, Controller ctrl, EventEditor eventEditor, ReportTextArea reportArea, JLabel status) {
 		_model = model;
 		_eventEditor = eventEditor;
 		_ctrl = ctrl;
 		_eventEditorTxtArea = eventEditor.getTextArea();
 		_reportTxtArea = reportArea.getTxtArea();
-		_statusBar = (JLabel) statusBar.getComponent(0);
+		_status = status;
 		initGUI();
 		_model.addObserver(this);
 	}
@@ -187,33 +187,34 @@ public class Toolbar extends JToolBar implements ActionListener, TrafficSimulato
 	
 		if (CLEAR.equals(e.getActionCommand())){
 			_eventEditorTxtArea.setText("");
-			_statusBar.setText("The reports area has been cleared!");
+			_status.setText("The reports area has been cleared!");
 		}
 		else if (QUIT.equals(e.getActionCommand()))
 			System.exit(0);
 		else if (EVLOAD.equals(e.getActionCommand())){
-			_statusBar.setText("Events have been loaded!");
+			_status.setText("Events have been loaded!");
 			injectEvents();
 		}
 		else if (RUNSTEPS.equals(e.getActionCommand())){
 			_model.run((int)_steps.getValue());	
-			_statusBar.setText("Simulator advanced!");
+			_status.setText("Simulator advanced!");
 		}
 		else if (RESET.equals(e.getActionCommand())){
 			_model.reset();
-			_statusBar.setText("Simulator has been reset!");
+			_status.setText("Simulator has been reset!");
+			_status.getSize();
 		}	
 		else if(GENERATE.equals(e.getActionCommand())){
 			_reportTxtArea.setText(_model.getMap().generateReport(_model.getTime()));
-			_statusBar.setText("Reports have been generated!");
+			_status.setText("Reports have been generated!");
 		}
 		else if(CLEARREP.equals(e.getActionCommand())){
 			_reportTxtArea.setText("");
-			_statusBar.setText("Reports area has been cleared!");
+			_status.setText("Reports area has been cleared!");
 		}
 		else if(SAVEREP.equals(e.getActionCommand())){
 			saveFile();
-			_statusBar.setText("Reports have been saved!");
+			_status.setText("Reports have been saved!");
 		}
 	
 	}
@@ -251,7 +252,7 @@ public class Toolbar extends JToolBar implements ActionListener, TrafficSimulato
 	@Override
 	public void addSimError(int time, RoadMap map, List<Event> events,
 			SimulatorError e) {
-		_statusBar.setText(e.getMessage());
+		_status.setText(e.getMessage());
 	}
 
 	@Override

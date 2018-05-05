@@ -1,6 +1,5 @@
 package gui;
 
-
 public interface Observer<T> {
 	
 	public void addObserver(T o);

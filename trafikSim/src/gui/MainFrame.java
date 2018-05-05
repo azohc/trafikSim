@@ -37,16 +37,14 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 	private final String GENERATE = "generate";
 	private final String CLEARREP = "clear reports";
 	
-	
-	private String _currentFile;
-	
-	// OUTER BORDER
-	public static Border defaultBorder = BorderFactory.createLineBorder(Color.black, 2);
-	
+	private String _currentFile;	
 	private Controller _ctrl;
 	private TrafficSimulator _model;
 	private Toolbar _tb;
 	
+	// OUTER BORDER
+	public static Border defaultBorder = BorderFactory.createLineBorder(Color.black, 2);
+
 	// TEXT AREAS
 	private EventEditor _eventEditor;
 	private ReportTextArea _reportArea;
@@ -67,7 +65,6 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 	private JPanel lowerPanel;
 	private JPanel lowLeftPanel;
 	private JPanel statusPanel;
-
 	
 	// STATUSBAR
 	private JLabel statusLabel;
@@ -108,9 +105,6 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		innerPanel.add(lowerPanel);
 		lowerPanel.add(lowLeftPanel);
 		
-		upperPanel.setMinimumSize(new Dimension(200, 150));
-		lowerPanel.setMinimumSize(new Dimension(200, 250));
-		
 		//STATUSBAR
 		statusPanel = new JPanel();
 		statusPanel.setBorder(new BevelBorder(BevelBorder.LOWERED));
@@ -119,9 +113,9 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		statusLabel = new JLabel();
 		statusPanel.add(statusLabel);
 		mainPanel.add(statusPanel, BorderLayout.SOUTH);
-		
+
 		//EVENT EDITOR
-		_eventEditor = new EventEditor(_model,_ctrl, _currentFile, statusPanel);
+		_eventEditor = new EventEditor(_model,_ctrl, _currentFile, statusLabel);
 		upperPanel.add(_eventEditor);
 		
 		//EVENT QUEUE
@@ -145,20 +139,19 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		_juncTable = new JunctionsTable(_model);
 		lowLeftPanel.add(_juncTable);
 		
-		
 		//ROADMAP
 		_rdMapDisplay = new RoadMapDisplay(_model);
 		lowerPanel.add(_rdMapDisplay);
 		
-	
-
-	
 		//TOOLBAR
-		_tb = new Toolbar(_model, _ctrl, _eventEditor, _reportArea, statusPanel);
+		_tb = new Toolbar(_model, _ctrl, _eventEditor, _reportArea, statusLabel);
 		mainPanel.add(_tb, BorderLayout.PAGE_START);
 		
 		
 		//DIMENSIONS
+		upperPanel.setMinimumSize(new Dimension(200, 150));
+		lowerPanel.setMinimumSize(new Dimension(200, 250));
+		
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		int height = (int) (screenSize.height * 0.95);
 		int width = (int) (screenSize.width * 0.7);
@@ -174,11 +167,10 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		pack();
-		setLocationRelativeTo(null);
+		setLocationRelativeTo(null);		
 	}
 	
 	public void setStatus(String s){
-		
 		statusLabel.setText(s);
 	}
 	

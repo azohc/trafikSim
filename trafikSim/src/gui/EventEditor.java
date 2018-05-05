@@ -47,13 +47,13 @@ public class EventEditor extends JPanel implements ActionListener { // this is a
 	private File _currentFile;
 	private JTextArea _textArea;
 	private TitledBorder _titledBrd;
-	private JLabel _statusBar;
+	private JLabel _status;
 
 	public static Border defaultBorder = BorderFactory.createLineBorder(Color.black, 2);
 
-	public EventEditor(TrafficSimulator model, Controller ctrl, String currentFile, JPanel statusBar) {
+	public EventEditor(TrafficSimulator model, Controller ctrl, String currentFile, JLabel status) {
 		_currentFile = new File(currentFile);
-		_statusBar = (JLabel) statusBar.getComponent(0);
+		_status = status;
 		initGUI();
 	}
 
@@ -100,43 +100,43 @@ public class EventEditor extends JPanel implements ActionListener { // this is a
 	public void actionPerformed(ActionEvent e) {
 		if ("load".equals(e.getActionCommand())) {
 			loadFile();
-			_statusBar.setText("Events have been loaded!");
+			_status.setText("Events have been loaded!");
 		} else if ("save".equals(e.getActionCommand())) {
 			saveFile();
-			_statusBar.setText("Events have been saved!");
+			_status.setText("Events have been saved!");
 		} else if ("CLEAR".equals(e.getActionCommand())) {
 			_textArea.setText("");
-			_statusBar.setText("Events editor cleared!");
+			_status.setText("Events editor cleared!");
 		} else if ("RRJUNCTION".equals(e.getActionCommand())) {
 			templateBuilder(new NewRoundRobinEventBuilder());
-			_statusBar.setText("Round robin junction template!");
+			_status.setText("Round robin junction template added!");
 		} else if ("MCJUNCTION".equals(e.getActionCommand())) {
 			templateBuilder(new NewMostCrowdedJunctionEventBuilder());
-			_statusBar.setText("Most crowded junction template!");
+			_status.setText("Most crowded junction template added!");
 		} else if ("JUNCTION".equals(e.getActionCommand())) {
 			templateBuilder(new NewJunctionEventBuilder());
-			_statusBar.setText("Junction template!");
+			_status.setText("Junction template added!");
 		} else if ("DIRTROAD".equals(e.getActionCommand())) {
 			templateBuilder(new NewDirtRoadEventBuilder());
-			_statusBar.setText("Dirt road template!");
+			_status.setText("Dirt road template added!");
 		} else if ("LANESROAD".equals(e.getActionCommand())) {
 			templateBuilder(new NewLanesRoadEventBuilder());
-			_statusBar.setText("Lanes road template!");
+			_status.setText("Lanes road template added!");
 		} else if ("ROAD".equals(e.getActionCommand())) {
 			templateBuilder(new NewRoadEventBuilder());
-			_statusBar.setText("Road template!");
+			_status.setText("Road template added!");
 		} else if ("BIKE".equals(e.getActionCommand())) {
 			templateBuilder(new NewBikeEventBuilder());
-			_statusBar.setText("Bike template!");
+			_status.setText("Bike template added!");
 		} else if ("CAR".equals(e.getActionCommand())) {
 			templateBuilder(new NewCarEventBuilder());
-			_statusBar.setText("Car template!");
+			_status.setText("Car template added!");
 		} else if ("VEHICLE".equals(e.getActionCommand())) {
 			templateBuilder(new NewVehicleEventBuilder());
-			_statusBar.setText("Vehicle template!");
+			_status.setText("Vehicle template added!");
 		} else if ("FAULTY".equals(e.getActionCommand())) {
 			templateBuilder(new MakeVehicleFaultyEventBuilder());
-			_statusBar.setText("Make Vehicle Faulty template!");
+			_status.setText("Make Vehicle Faulty template added!");
 		}
 
 	}
