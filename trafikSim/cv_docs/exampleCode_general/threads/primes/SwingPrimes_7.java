@@ -24,7 +24,7 @@ public class SwingPrimes_7 extends JFrame {
 	private JButton clearButton;
 	private JButton startButton;
 	private JButton stopButton;
-	private SwingWorker<Void, BigInteger> worker;
+	private SwingWorker<Void, BigInteger> º;
 	private JProgressBar progressBar;
 
 	public SwingPrimes_7() {

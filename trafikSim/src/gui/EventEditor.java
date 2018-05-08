@@ -52,7 +52,9 @@ public class EventEditor extends JPanel implements ActionListener { // this is a
 	public static Border defaultBorder = BorderFactory.createLineBorder(Color.black, 2);
 
 	public EventEditor(TrafficSimulator model, Controller ctrl, String currentFile, JLabel status) {
-		_currentFile = new File(currentFile);
+		if(currentFile != null)
+			_currentFile = new File(currentFile);
+		
 		_status = status;
 		initGUI();
 	}

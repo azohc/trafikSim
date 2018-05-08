@@ -1,23 +1,4 @@
 package gui;
-import javax.swing.*;
-
-import control.Controller;
-import control.SimulatorError;
-import model.Event;
-import model.RoadMap;
-import model.TrafficSimulator;
-
-
-
-
-
-
-
-
-
-
-
-
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -27,7 +8,25 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.Thread.State;
 import java.util.List;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
+import javax.swing.JSpinner;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.JToolBar;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingUtilities;
+
+import model.Event;
+import model.RoadMap;
+import model.TrafficSimulator;
+import control.Controller;
+import control.SimulatorError;
 
 
 @SuppressWarnings("serial")
@@ -39,6 +38,7 @@ public class Toolbar extends JToolBar implements ActionListener, TrafficSimulato
 	private final String QUIT = "quit";
 	private final String EVLOAD = "load events";
 	private final String RUNSTEPS = "run steps";
+	private final String STOP = "stop";
 	private final String RESET = "reset";
 	private final String GENERATE = "generate reports";
 	private final String CLEARREP = "clear reports";
@@ -51,8 +51,23 @@ public class Toolbar extends JToolBar implements ActionListener, TrafficSimulato
 	private JFileChooser _fc;	
 	private JLabel _status;
 		
-	JSpinner _steps;
-	JTextField _time;
+	private JSpinner _steps;
+	private JSpinner _delay;
+	private JTextField _time;
+	
+	private JButton load;
+	private JButton save;
+	private JButton clear;
+	private JButton inject;
+	private JButton runSteps;
+	private JButton stop;
+	private JButton reset;
+	private JButton quit;
+	private JButton saveRep;
+	private JButton clearRep;
+	private JButton generate;
+	
+	
 	
 	private JTextArea _eventEditorTxtArea;
 	private JTextArea _reportTxtArea;
@@ -78,6 +93,11 @@ public class Toolbar extends JToolBar implements ActionListener, TrafficSimulato
 		_fc = new JFileChooser();	
 		_fc.setCurrentDirectory(new File("./cv_docs"));
 
+		add(new JLabel(" Delay: ")); 
+		_delay = new JSpinner(new SpinnerNumberModel(666, 0, 1000, 1));	//TODO make default to 0
+		_delay.setMaximumSize(new Dimension(70, 30));
+		add(_delay);
+		
 		add(new JLabel(" Steps: ")); 
 		_steps = new JSpinner(new SpinnerNumberModel(5, 1, 1000, 1));
 		_steps.setMaximumSize(new Dimension(70, 30));
@@ -100,21 +120,21 @@ public class Toolbar extends JToolBar implements ActionListener, TrafficSimulato
 	
 	public void createEventEditorPanelButtons() {
 		
-		JButton load = new JButton();
+		load = new JButton();
 		load.setActionCommand(LOAD);
 		load.setToolTipText("Load a file");
 		load.addActionListener(_eventEditor);
 		load.setIcon(new ImageIcon(loadImage("cv_docs/icons/open.png")));
 		this.add(load);
 
-		JButton save = new JButton();
+		save = new JButton();
 		save.setActionCommand(SAVE);
 		save.setToolTipText("Save a file");
 		save.addActionListener(_eventEditor);
 		save.setIcon(new ImageIcon(loadImage("cv_docs/icons/save.png")));
 		this.add(save);		
 		
-		JButton clear = new JButton();
+		clear = new JButton();
 		clear.setActionCommand(CLEAR);
 		clear.setToolTipText("Clear Text");
 		clear.addActionListener(this);
@@ -125,31 +145,38 @@ public class Toolbar extends JToolBar implements ActionListener, TrafficSimulato
 	
 	public void createControlButtons(){
 		
-		JButton loadFromEventsEditor = new JButton();
-		loadFromEventsEditor.setActionCommand(EVLOAD);
-		loadFromEventsEditor.setToolTipText("Load events from event editor");
-		loadFromEventsEditor.addActionListener(this);
-		loadFromEventsEditor.setIcon(new ImageIcon(loadImage("cv_docs/icons/events.png")));
-		this.add(loadFromEventsEditor);
+		inject = new JButton();
+		inject.setActionCommand(EVLOAD);
+		inject.setToolTipText("Load events from event editor");
+		inject.addActionListener(this);
+		inject.setIcon(new ImageIcon(loadImage("cv_docs/icons/events.png")));
+		add(inject);
 		
-		JButton runSteps = new JButton();
+		runSteps = new JButton();
 		runSteps.setActionCommand(RUNSTEPS);
 		runSteps.setToolTipText("Run selected amount of steps");
 		runSteps.addActionListener(this);
 		runSteps.setIcon(new ImageIcon(loadImage("cv_docs/icons/play.png")));
 		this.add(runSteps);
-		
-		JButton reset = new JButton();
+
+		stop = new JButton();
+		stop.setActionCommand(STOP);
+		stop.setToolTipText("Stop simulator");
+		stop.addActionListener(this);
+		stop.setIcon(new ImageIcon(loadImage("cv_docs/icons/stop.png")));
+		add(stop);	
+				
+		reset = new JButton();
 		reset.setActionCommand(RESET);
 		reset.setToolTipText("Reset simulator");
 		reset.addActionListener(this);
 		reset.setIcon(new ImageIcon(loadImage("cv_docs/icons/reset.png")));
-		this.add(reset);
+		add(reset);
 		
 	}
 	
 	public void createExitButton(){
-		JButton quit = new JButton();
+		quit = new JButton();
 		quit.setActionCommand(QUIT);
 		quit.setToolTipText("Exit simulator");
 		quit.addActionListener(this);
@@ -158,21 +185,21 @@ public class Toolbar extends JToolBar implements ActionListener, TrafficSimulato
 	}
 	
 	public void createReportButton(){
-		JButton generate = new JButton();
+		generate = new JButton();
 		generate.setActionCommand(GENERATE);
 		generate.setToolTipText("Generate Reports");
 		generate.addActionListener(this);
 		generate.setIcon(new ImageIcon(loadImage("cv_docs/icons/report.png")));
 		this.add(generate);
 		
-		JButton clearRep = new JButton();
+		clearRep = new JButton();
 		clearRep.setActionCommand(CLEARREP);
 		clearRep.setToolTipText("Clear Reports");
 		clearRep.addActionListener(this);
 		clearRep.setIcon(new ImageIcon(loadImage("cv_docs/icons/delete_report.png")));
 		this.add(clearRep);
 		
-		JButton saveRep = new JButton();
+		saveRep = new JButton();
 		saveRep.setActionCommand(SAVEREP);
 		saveRep.setToolTipText("Save Reports");
 		saveRep.addActionListener(this);
@@ -182,6 +209,7 @@ public class Toolbar extends JToolBar implements ActionListener, TrafficSimulato
 		
 	}
 
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 	
@@ -195,10 +223,45 @@ public class Toolbar extends JToolBar implements ActionListener, TrafficSimulato
 			_status.setText("Events have been loaded!");
 			injectEvents();
 		}
+		
 		else if (RUNSTEPS.equals(e.getActionCommand())){
-			_model.run((int)_steps.getValue());	
-			_status.setText("Simulator advanced!");
+			
+			Thread runThread = new Thread(){	
+				public void run(){
+					SwingUtilities.invokeLater(new Runnable() {
+						public void run() {
+							setButtons(false);
+						}
+					});
+					for(int i = 0; i < (int)(_steps.getValue()); i++){		//TODO Add stop button interruptoR
+						_model.run(1);			
+						try {
+							Thread.sleep((int)(_delay.getValue()));
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
+					SwingUtilities.invokeLater(new Runnable() {
+						public void run() {
+							setButtons(true);
+						}
+					});
+				}
+			};
+			
+			runThread.start();
+		
+				
+			
+
 		}
+		
+		
+		else if (STOP.equals(e.getActionCommand())){
+			//TODO Stop simulator == interrupt the thread
+			
+		}
+		
 		else if (RESET.equals(e.getActionCommand())){
 			_model.reset();
 			_status.setText("Simulator has been reset!");
@@ -217,6 +280,19 @@ public class Toolbar extends JToolBar implements ActionListener, TrafficSimulato
 			_status.setText("Reports have been saved!");
 		}
 	
+	}
+	
+	private void setButtons(boolean b){
+		load.setEnabled(b);
+		save.setEnabled(b);
+		clear.setEnabled(b);
+		inject.setEnabled(b);
+		runSteps.setEnabled(b);
+		reset.setEnabled(b);
+		quit.setEnabled(b);
+		saveRep.setEnabled(b);
+		clearRep.setEnabled(b);
+		generate.setEnabled(b);
 	}
 	
 	private void saveFile() {
