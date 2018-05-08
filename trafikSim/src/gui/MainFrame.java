@@ -67,7 +67,10 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 	private JPanel statusPanel;
 	
 	// STATUSBAR
-	private JLabel statusLabel;
+	private JLabel _statusLabel;
+	
+	//MENUBAR
+	private JMenuBar _menuBar;
 	
 	
 	public MainFrame(Controller ctrl, TrafficSimulator model, String currentFile){
@@ -110,12 +113,12 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		statusPanel.setBorder(new BevelBorder(BevelBorder.LOWERED));
 		statusPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
 	
-		statusLabel = new JLabel();
-		statusPanel.add(statusLabel);
+		_statusLabel = new JLabel();
+		statusPanel.add(_statusLabel);
 		mainPanel.add(statusPanel, BorderLayout.SOUTH);
 
 		//EVENT EDITOR
-		_eventEditor = new EventEditor(_model,_ctrl, _currentFile, statusLabel);
+		_eventEditor = new EventEditor(_model,_ctrl, _currentFile, _statusLabel);
 		upperPanel.add(_eventEditor);
 		
 		//EVENT QUEUE
@@ -127,7 +130,8 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		upperPanel.add(_reportArea);
 		
 		//MENU BAR
-		setJMenuBar(createMenuBar());
+		_menuBar = createMenuBar();
+		setJMenuBar(_menuBar);
 		
 		//TABLES
 		_vehTable = new VehiclesTable(_model);
@@ -144,7 +148,7 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 		lowerPanel.add(_rdMapDisplay);
 		
 		//TOOLBAR
-		_tb = new Toolbar(_model, _ctrl, _eventEditor, _reportArea, statusLabel);
+		_tb = new Toolbar(_model, _ctrl, _eventEditor, _reportArea, _statusLabel, _menuBar);
 		mainPanel.add(_tb, BorderLayout.PAGE_START);
 		
 		
@@ -171,7 +175,7 @@ public class MainFrame extends JFrame implements TrafficSimulatorObserver, Actio
 	}
 	
 	public void setStatus(String s){
-		statusLabel.setText(s);
+		_statusLabel.setText(s);
 	}
 	
 	@Override

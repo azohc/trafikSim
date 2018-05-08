@@ -15,6 +15,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
+import javax.swing.JMenuBar;
 import javax.swing.JSpinner;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -67,18 +68,23 @@ public class Toolbar extends JToolBar implements ActionListener, TrafficSimulato
 	private JButton clearRep;
 	private JButton generate;
 	
-	
+	boolean interruptExecution = false;
+	boolean running = false;
 	
 	private JTextArea _eventEditorTxtArea;
 	private JTextArea _reportTxtArea;
+	
+	private JMenuBar _menuBar;
 
-	public Toolbar(TrafficSimulator model, Controller ctrl, EventEditor eventEditor, ReportTextArea reportArea, JLabel status) {
+	public Toolbar(TrafficSimulator model, Controller ctrl, EventEditor eventEditor,
+			ReportTextArea reportArea, JLabel status, JMenuBar menuBar) {
 		_model = model;
 		_eventEditor = eventEditor;
 		_ctrl = ctrl;
 		_eventEditorTxtArea = eventEditor.getTextArea();
 		_reportTxtArea = reportArea.getTxtArea();
 		_status = status;
+		_menuBar = menuBar;
 		initGUI();
 		_model.addObserver(this);
 	}
@@ -94,7 +100,7 @@ public class Toolbar extends JToolBar implements ActionListener, TrafficSimulato
 		_fc.setCurrentDirectory(new File("./cv_docs"));
 
 		add(new JLabel(" Delay: ")); 
-		_delay = new JSpinner(new SpinnerNumberModel(666, 0, 1000, 1));	//TODO make default to 0
+		_delay = new JSpinner(new SpinnerNumberModel(0, 0, 1000, 1));	
 		_delay.setMaximumSize(new Dimension(70, 30));
 		add(_delay);
 		
@@ -233,33 +239,36 @@ public class Toolbar extends JToolBar implements ActionListener, TrafficSimulato
 							setButtons(false);
 						}
 					});
-					for(int i = 0; i < (int)(_steps.getValue()); i++){		//TODO Add stop button interruptoR
+					int i = 0;
+					running = true;
+					while(i < (int)(_steps.getValue()) && !interruptExecution) { 
 						_model.run(1);			
 						try {
 							Thread.sleep((int)(_delay.getValue()));
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
+						
+						i++;
 					}
 					SwingUtilities.invokeLater(new Runnable() {
 						public void run() {
 							setButtons(true);
 						}
 					});
+					interruptExecution = false;
+					running = false;
 				}
 			};
-			
 			runThread.start();
 		
-				
-			
-
 		}
 		
-		
 		else if (STOP.equals(e.getActionCommand())){
-			//TODO Stop simulator == interrupt the thread
-			
+			if(running) {
+				interruptExecution = true;
+				_status.setText("Simulator execution stopped.");
+			}
 		}
 		
 		else if (RESET.equals(e.getActionCommand())){
@@ -283,16 +292,14 @@ public class Toolbar extends JToolBar implements ActionListener, TrafficSimulato
 	}
 	
 	private void setButtons(boolean b){
-		load.setEnabled(b);
-		save.setEnabled(b);
-		clear.setEnabled(b);
-		inject.setEnabled(b);
-		runSteps.setEnabled(b);
-		reset.setEnabled(b);
-		quit.setEnabled(b);
-		saveRep.setEnabled(b);
-		clearRep.setEnabled(b);
-		generate.setEnabled(b);
+		//buttons
+		for(int i = 0; i < getComponentCount(); i++)
+			if(!getComponent(i).equals(stop))
+				getComponent(i).setEnabled(b);
+
+		//menus
+		for(int i = 0; i < _menuBar.getComponentCount(); i++)
+			_menuBar.getComponent(i).setEnabled(b);
 	}
 	
 	private void saveFile() {

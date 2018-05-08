@@ -77,20 +77,24 @@ public class TrafficSimulator implements Observer<TrafficSimulatorObserver> {
 	}
 	
 
-	public void run(int ticks){
+	public void run(int ticks) {
 		int limit = _time + ticks - 1;
 		
 		while (_time <= limit) {
 			
-				
-			for (int i = 0; i < _events.size(); i++)
+			
+			for(int i = 0; i < _events.size(); i++) 
 				if(_time == _events.get(i).getTime())	{				
 					try {
 						_events.get(i).execute(_map, _time);
+						_events.remove(i);
+						i--;
 					} catch (SimulatorError f) {
-						System.out.println(f.getMessage());
+						notifyError(f);
+						throw f;
 					}
 				}
+			
 			
 			for(Road r : _map.getRoads()) 
 				r.advance();
@@ -108,7 +112,8 @@ public class TrafficSimulator implements Observer<TrafficSimulatorObserver> {
 					if(_map.generateReport(_time).getBytes() != null)
 						_outStream.write(_map.generateReport(_time).getBytes());
 				} catch (IOException e) {
-					System.out.println("Output error when writing the report for time: " + _time);
+					notifyError(new SimulatorError("Output error when writing the report for time: " + _time));
+					throw new SimulatorError("Output error when writing the report for time: " + _time);
 				}
 			}
 		}
