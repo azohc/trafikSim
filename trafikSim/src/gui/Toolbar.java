@@ -111,6 +111,7 @@ public class Toolbar extends JToolBar implements ActionListener, TrafficSimulato
 		
 		add(new JLabel(" Time: "));
 		_time = new JTextField("0", 5);
+		_time.setEditable(false);
 		_time.setMaximumSize(new Dimension(70, 30));
 		add(_time);
 		
@@ -234,11 +235,13 @@ public class Toolbar extends JToolBar implements ActionListener, TrafficSimulato
 			
 			Thread runThread = new Thread(){	
 				public void run(){
+					
 					SwingUtilities.invokeLater(new Runnable() {
 						public void run() {
 							setButtons(false);
 						}
 					});
+					
 					int i = 0;
 					running = true;
 					while(i < (int)(_steps.getValue()) && !interruptExecution) { 
@@ -251,11 +254,13 @@ public class Toolbar extends JToolBar implements ActionListener, TrafficSimulato
 						
 						i++;
 					}
+					
 					SwingUtilities.invokeLater(new Runnable() {
 						public void run() {
 							setButtons(true);
 						}
 					});
+					
 					interruptExecution = false;
 					running = false;
 				}
